@@ -38,6 +38,17 @@
   padding: 0 20px;
 }
 
+/* Navbar standard link */
+.navbar-wagon-link {
+  color: $gray;
+  font-size: 14px;
+  font-weight: 700;
+}
+.navbar-wagon-link:hover {
+  color: $gray;
+  text-decoration: none;
+}
+
 .navbar-wagon-item.navbar-wagon-link:after {
   content: "";
   display: block;
@@ -51,17 +62,6 @@
 .navbar-wagon-item.navbar-wagon-link:hover:after {
   background: #f7c843;
   width: 100%;
-}
-
-/* Navbar standard link */
-.navbar-wagon-link {
-  color: $gray;
-  font-size: 14px;
-  font-weight: 700;
-}
-.navbar-wagon-link:hover {
-  color: $brand-color;
-  text-decoration: none;
 }
 
 /* Navbar dropdown menu */
