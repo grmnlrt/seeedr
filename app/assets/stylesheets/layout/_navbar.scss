@@ -38,6 +38,21 @@
   padding: 0 20px;
 }
 
+.navbar-wagon-item.navbar-wagon-link:after {
+  content: "";
+  display: block;
+  background: #ffffff;
+  height: 5px;
+  width: 0px;
+  transition: all .4s;
+  margin: auto;
+}
+
+.navbar-wagon-item.navbar-wagon-link:hover:after {
+  background: #f7c843;
+  width: 100%;
+}
+
 /* Navbar standard link */
 .navbar-wagon-link {
   color: $gray;
