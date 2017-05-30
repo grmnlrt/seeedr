@@ -5,3 +5,38 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+  #User/artist
+  artist1 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "123456", password_confirmation: "123456")
+  artist2 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "123456", password_confirmation: "123456")
+  #User/company
+  company1 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, company_name: Faker::Company.name, email: Faker::Internet.email, password: "123456", password_confirmation: "123456", is_company: true)
+  company2 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, company_name: Faker::Company.name, email: Faker::Internet.email, password: "123456", password_confirmation: "123456", is_company: true)
+  #Category
+  peinture = Category.create(name: "peinture")
+  photo = Category.create(name: "photo")
+  #Style
+  gothique = Style.create(name: "gothique")
+  grec = Style.create(name: "grec")
+  #Artwork1
+  joconde = Artwork.new(title: "La joconde")
+  joconde.user = artist1
+  joconde.category = peinture
+  joconde.style = gothique
+  joconde.save
+  #Artwork2
+  portrait = Artwork.new(title: "Portrait grec")
+  portrait.user = artist2
+  portrait.category = photo
+  portrait.style = grec
+  portrait.save
+  #Exhibition
+  louvres = Exhibition.new(start_date: "2017-01-20", end_date: "2017-04-20", min_price: 4000, title: "Expo du louvres")
+  louvres.user = company1
+  louvres.styles << gothique
+  louvres.save
+  orsay = Exhibition.new(start_date: "2017-05-20", end_date: "2017-08-20", min_price: 4000, title: "Expo du musee d'orsay")
+  orsay.user = company2
+  orsay.styles << grec
+  orsay.save
+
