@@ -1,0 +1,6 @@
+<%= simple_form_for(@bid) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :exhibition_id, collection: @exhibitions, as: :radio_buttons %>
+  <%= f.input :price %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
