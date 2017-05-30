@@ -32,7 +32,7 @@ class ArtworksController < ApplicationController
     if @artwork.save
       redirect_to artwork_path(@artwork)
     else
-      render :new
+      render :edit
     end
   end
 
