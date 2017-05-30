@@ -5,13 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :artworks
-  has_many :exhibitions
-  has_many :bids
+  has_many :artworks, dependent: :destroy
+  has_many :exhibitions, dependent: :destroy
+  has_many :bids, dependent: :destroy
   has_many :categories, through: :artworks
   has_many :styles, through: :artworks
 
-  validates :last_name, :first_name, :email, :password, presence: true
+  #flo a delete la validation sur first_name & last_name pour alleger le formulaire de signup
+  validates :email, :password, presence: true
   #validates :email, format: { with: /\A.*@.*\..+\z/ }
   #validates :password, length: { minimum: 4 }
 
