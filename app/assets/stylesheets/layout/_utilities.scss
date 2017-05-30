@@ -6,8 +6,25 @@
 
 // Paddings
 .padded {
-  padding-top: 5em;
-  padding-bottom: 5em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.padded-mini {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+// Titles
+.underline {
+  display: table;
+}
+
+.underline:after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: #f7c843;
 }
 
 // Backgrounds
@@ -15,7 +32,7 @@
   background: #4a4a4a;
 }
 .bg-grey {
-  background: #aeaeae;
+  background: $grey;
 }
 .bg-blue {
   background: #00a3e1;
@@ -23,3 +40,10 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+
+// Separator
+hr.separator {
+  border: 1px solid $brand-color;
+  width: 70%;
+}
+
