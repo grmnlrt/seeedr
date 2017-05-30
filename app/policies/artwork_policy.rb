@@ -5,7 +5,19 @@ class ArtworkPolicy < ApplicationPolicy
     end
   end
 
-  def create?
+  def show?
     true
+  end
+
+  def create?
+    user.is_company == false
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
   end
 end

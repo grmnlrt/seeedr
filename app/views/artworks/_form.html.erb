@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row padded">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+      <%= simple_form_for @artwork do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :date %>
+        <%= f.input :category_id, collection: @all_categories %>
+        <%= f.input :style_id, collection: @all_styles %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
