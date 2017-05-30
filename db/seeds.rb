@@ -40,3 +40,13 @@
   orsay.styles << grec
   orsay.save
 
+  bid1 = Bid.new(price: 1000)
+  bid1.user = artist1
+  bid1.exhibition = louvres
+  bid1.save
+
+  bid2 = Bid.new(price: 2000)
+  bid2.user = artist2
+  bid2.exhibition = orsay
+  bid2.save
+

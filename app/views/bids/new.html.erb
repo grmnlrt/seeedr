@@ -1,0 +1,13 @@
+<div class="container padded">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+    <h1>You are about to create a bid</h1>
+      <%= simple_form_for(@bid) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :exhibition_id, collection: @exhibitions, as: :radio_buttons %>
+        <%= f.input :price %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
