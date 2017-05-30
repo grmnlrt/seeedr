@@ -2,7 +2,6 @@ class ArtworksController < ApplicationController
   before_action :set_artwork, only: [:show, :edit, :update, :destroy]
 
   def show
-    authorize @artwork
   end
 
   def new
@@ -24,13 +23,11 @@ class ArtworksController < ApplicationController
   end
 
   def edit
-    authorize @artwork
     @all_categories = Category.all
     @all_styles = Style.all
   end
 
   def update
-    authorize @artwork
     @artwork.update(artwork_params)
     if @artwork.save
       redirect_to artwork_path(@artwork)
@@ -40,7 +37,6 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
-    authorize @artwork
     @artwork.destroy
     redirect_to root_path
   end
@@ -49,6 +45,7 @@ class ArtworksController < ApplicationController
 
   def set_artwork
     @artwork = Artwork.find(params[:id])
+    authorize @artwork
   end
 
   def artwork_params
