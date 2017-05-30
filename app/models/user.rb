@@ -5,7 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  validates :first_name, last_name, email, password, is_company, presence: true
+  has_many :artworks
+  has_many :exhibitions
+  has_many :bids
+  has_many :categories, through: :artworks
+  has_many :styles, through: :artworks
+
+  validates :first_name, :last_name, :email, :password, presence: true
   #validates :email, format: { with: /\A.*@.*\..+\z/ }
   #validates :password, length: { minimum: 4 }
 
