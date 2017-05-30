@@ -26,3 +26,30 @@
 .testimonial-content iframe {
   margin: 30px 0;
 }
+
+.key-step i.fa {
+  font-size: 55px;
+  color: black;
+}
+
+.key-step h3 {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.key-step p {
+  margin-top: 10px;
+  text-align: justify;
+}
+
+#custom {
+  background: #yellow;
+  transition: 0.5s;
+  opacity: 0.9;
+  border-radius: 5px;
+}
+
+#custom:hover {
+  background: none;
+}
+
