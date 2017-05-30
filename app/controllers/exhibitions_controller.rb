@@ -6,7 +6,6 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    authorize @exhibition
   end
 
   def new
@@ -18,29 +17,29 @@ class ExhibitionsController < ApplicationController
 
 
   def create
-  @exhibition = Exhibition.new(exhibition_params)
-  authorize @exhibition
-  @exhibition.user = current_user
-    if @exhibition.save
-      redirect_to exhibition_path(@exhibition)
-    else
-      render :new
-    end
+    @exhibition = Exhibition.new(exhibition_params)
+    authorize @exhibition
+    @exhibition.user = current_user
+      if @exhibition.save
+        redirect_to exhibition_path(@exhibition)
+      else
+        render :new
+      end
   end
 
   def edit
-    authorize @exhibition
   end
 
   def update
-    authorize @exhibition
     @exhibition.update(exhibition_params)
-    @exhibition.save
-    redirect_to exhibition_path(@exhibition)
+    if @exhibition.save
+      redirect_to exhibition_path(@exhibition)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    authorize @exhibition
     @exhibition.destroy
     redirect_to exhibitions_path, :notice => "Your exhibition has been deleted"
   end
@@ -50,11 +49,13 @@ class ExhibitionsController < ApplicationController
 
   def find_exhibition
     @exhibition = Exhibition.find(params[:id])
+    authorize @exhibition
   end
 
   def exhibition_params
     params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date)
   end
+
 
 
 end

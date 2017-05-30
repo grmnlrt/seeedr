@@ -10,7 +10,6 @@
           <p><i class="fa fa-tags" aria-hidden="true"></i><%= @exhibition.categories%></p>
           <p><i class="fa fa-money" aria-hidden="true"></i><%= @exhibition.min_price %>
           <p><i class="fa fa-map-marker" aria-hidden="true"></i><%= @exhibition.address %>
-
         </div>
           <% if policy(@exhibition).edit? %>
             <%= link_to "Update", edit_exhibition_path(@exhibition) %>
