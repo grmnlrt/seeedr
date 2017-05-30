@@ -1,10 +1,10 @@
 <!-- banner -->
 
-<div class="banner image-size" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "office.jpg" %>');">
+<div class="banner image-size" style="background-image: url('<%= image_path "office.jpg" %>');">
   <div class="banner-content">
     <h1>Change Your Workspace</h1>
     <p> Exhibit artists of tomorrow in your office</p>
-    <a class="btn btn-primary btn-lg">Book an Artist</a>
+    <a class="btn btn-primary btn-lg", id= "custom">Book an Artist</a>
   </div>
 </div>
 
@@ -13,29 +13,34 @@
 <div class="wrapper padded">
   <div class="container">
     <div class="row">
-      <h2 class="padded-mini underline">An easy process</h2>
+      <h2 class="padded-mini underline">An easy proces</h2>
       <div class="col-xs-12 col-sm-6 col-md-3 text-center">
         <div class="key-step">
-          <img src="http://placehold.it/150x150" alt="">
-          <p> Create an Exhbition</p>
+          <div><i class="fa fa-pencil" aria-hidden="true"></i></div>
+          <h3>Create your exhbition</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, ratione, eligendi ducimus fugiat, sequi hic optio porro non excepturi aspernatur, similique autem pariatur laudantium nostrum reprehenderit ut ullam sunt ipsa.</p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3 text-center">
         <div class="key-step">
-          <img src="http://placehold.it/150x150" alt="">
-          <p> Create an Exhbition</p>
+          <div><i class="fa fa-users" aria-hidden="true"></i></div>
+          <h3> Artists apply to your request</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, ratione, eligendi ducimus fugiat, sequi hic optio porro non excepturi aspernatur, similique autem pariatur laudantium nostrum reprehenderit ut ullam sunt ipsa.</p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3 text-center">
         <div class="key-step">
-          <img src="http://placehold.it/150x150" alt="">
-          <p> Create an Exhbition</p>
+          <div><i class="fa fa-heart" aria-hidden="true"></i></div>
+          <h3>Select your favorite Artist</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, ratione, eligendi ducimus fugiat, sequi hic optio porro non excepturi aspernatur, similique autem pariatur laudantium nostrum reprehenderit ut ullam sunt ipsa.</p>
+
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3 text-center">
         <div class="key-step">
-          <img src="http://placehold.it/150x150" alt="">
-          <p> Create an Exhbition</p>
+          <div><i class="fa fa-thumbs-up" aria-hidden="true"></i></div>
+          <h3>And that's all !</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, ratione, eligendi ducimus fugiat, sequi hic optio porro non excepturi aspernatur, similique autem pariatur laudantium nostrum reprehenderit ut ullam sunt ipsa.</p>
         </div>
       </div>
     </div>
@@ -51,7 +56,7 @@
       <div class="testimonial">
         <div class="col-sm-12 col-md-6">
           <div class="testimonial-content">
-            <img src="http://placehold.it/150x150" alt="" class="avatar-large">
+            <img src='<%=image_path "boris.jpg"%>' alt="" class="avatar-large">
             <h3>Boris Paillard</h3>
             <p class="status"> CEO of LeWagon</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius sapiente aspernatur provident quos ducimus magnam asperiores velit tempora cum eaque, repudiandae facilis non doloremque reiciendis tenetur odio veritatis? Nostrum, veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi repellat, deleniti totam aliquid non amet molestias officia ad asperiores, cum iusto animi ut. Dolores odit qui labore tempora, consequatur nisi.</p>
@@ -138,10 +143,10 @@
 
 <!-- Artist engagement -->
 
-<div class="banner banner-small" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('background.jpg');">
+<div class="banner banner-small" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "banner-artist.jpg" %>');">
   <div class="banner-content">
-    <h1>Your an Artist ?</h1>
+    <h1>Artist? Start exposing now!</h1>
     <p> Join our community and exhibit your creations in the best offices</p>
-    <a class="btn btn-primary btn-lg">Create my book</a>
+    <a class="btn btn-primary btn-lg">Create my gallery</a>
   </div>
 </div>
