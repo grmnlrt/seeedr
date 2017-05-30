@@ -45,8 +45,23 @@
   font-weight: 700;
 }
 .navbar-wagon-link:hover {
-  color: $brand-color;
+  color: $gray;
   text-decoration: none;
+}
+
+.navbar-wagon-item.navbar-wagon-link:after {
+  content: "";
+  display: block;
+  background: #ffffff;
+  height: 5px;
+  width: 0px;
+  transition: all .4s;
+  margin: auto;
+}
+
+.navbar-wagon-item.navbar-wagon-link:hover:after {
+  background: #f7c843;
+  width: 100%;
 }
 
 /* Navbar dropdown menu */
