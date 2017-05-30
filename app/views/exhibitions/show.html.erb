@@ -1,0 +1,24 @@
+<div class="container padded">
+  <div class="row">
+    <div class="col-xs-12 show-all">
+
+      <div class="show-description">
+        <h2><%= @exhibition.title %></h2>
+        <br>
+        <div class="icons">
+          <p><i class="fa fa-user" aria-hidden="true"></i><%= @exhibition.user.first_name %> <%= @exhibition.user.last_name %>
+          <p><i class="fa fa-tags" aria-hidden="true"></i><%= @exhibition.categories%></p>
+          <p><i class="fa fa-money" aria-hidden="true"></i><%= @exhibition.min_price %>
+          <p><i class="fa fa-map-marker" aria-hidden="true"></i><%= @exhibition.address %>
+        </div>
+          <% if policy(@exhibition).edit? %>
+            <%= link_to "Update", edit_exhibition_path(@exhibition) %>
+          <% end %>
+          <% if policy(@exhibition).destroy? %>
+            <%= link_to "Delete Mission", exhibition_path(@exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: "links_show" %>
+          <% end %>
+          <%= link_to "Back to all Exhibitions", exhibitions_path, class: "links_show pull-right" %>
+      </div>
+    </div>
+  </div>
+</div>

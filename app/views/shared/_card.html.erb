@@ -1,0 +1,11 @@
+<% background_url = "https://unsplash.it/263/175/?random" %>
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= background_url %>);">
+  <div class="card-description">
+    <h3><%= exhibition.title %></h3>
+  </div>
+  <div class="card-category">
+    <h6><%= exhibition.user.first_name %></h6>
+    <p><%= exhibition.address %> | <%= exhibition.min_price %> $</p>
+     <%= link_to "", exhibition_path(exhibition), class: "card-link" %>
+  </div>
+</div>
