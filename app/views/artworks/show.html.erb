@@ -1,3 +1,7 @@
-<% if policy(Artwork).create? %>
-  <%= link_to new_artwork_path %>
+<h1><%= @artwork.title %></h1>
+<% if policy(@artwork).update? %>
+  <%= link_to "Update", edit_artwork_path(params[:id]) %>
+<% end %>
+<% if policy(@artwork).destroy? %>
+  <%= link_to "Delete", artwork_path(params[:id]), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
