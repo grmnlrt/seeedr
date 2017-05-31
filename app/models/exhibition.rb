@@ -1,14 +1,11 @@
 class Exhibition < ApplicationRecord
 
-
-
   #Geocoder
   ###########
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   ###########
-
-
+  DURATIONS = [3,6,9,12]
 
   has_attachments :photos, maximum: 3
 
@@ -22,15 +19,13 @@ class Exhibition < ApplicationRecord
   has_many :styles, through: :exhibition_styles
 
 
-  validates :start_date, :end_date, :title, :min_price, presence: true
+  validates :start_date, :title, :min_price, presence: true
   validate :end_date_is_after_start_date
   validates :address, presence: true
-
-
+  validates :duration, :inclusion => {:in => DURATIONS}
   #######
   private
   #######
-
   def end_date_is_after_start_date
     return if end_date.blank? || start_date.blank?
 
@@ -38,5 +33,4 @@ class Exhibition < ApplicationRecord
       errors.add(:end_date, "cannot be before the start date")
     end
   end
-
 end

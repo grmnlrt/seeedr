@@ -17,8 +17,10 @@ class ExhibitionsController < ApplicationController
   def new
     @exhibition= Exhibition.new
     authorize @exhibition
+    @durations = Exhibition::DURATIONS #datepicker update
     @all_categories = Category.all
     @all_styles = Style.all
+
   end
 
 
@@ -26,6 +28,7 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new(exhibition_params)
     authorize @exhibition
     @exhibition.user = current_user
+    @exhibition.end_date = @exhibition.start_date + @exhibition.duration.months #datepicker update
       if @exhibition.save
         redirect_to exhibition_path(@exhibition)
       else
@@ -59,8 +62,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def exhibition_params
-    params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date, photos: []
-      )
+    params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date, :duration, photos: [])
   end
 
 

@@ -1,0 +1,98 @@
+#new_user {
+  padding: 70px 40px 40px 40px;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 40px;
+}
+
+#new_user abbr {
+  display: none;
+}
+
+.show-login-form {
+  margin-top: 0!important;
+  overflow: hidden;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+}
+
+#account-selector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#account-selector input {
+  display: none;
+}
+
+#account-selector > span > label {
+  width: 50%;
+  text-align: center;
+  background: #c1c1c1;
+  opacity: .5;
+}
+
+.account-before-choice {
+  opacity: 1!important;
+  background: transparent!important;
+}
+
+.account-before-choice label {
+  background: $brand-color;
+  border-radius: 50px;
+  width: 120px;
+  color: white;
+}
+
+.account-before-choice label:hover {
+  opacity: .8;
+}
+
+.account-select {
+  border-color: transparent;
+  background: #f7c843!important;
+  color: white;
+  opacity: 1!important;
+}
+
+#account-selector > span > label:hover {
+  background: #f7c843;
+  cursor: pointer;
+}
+
+#account-selector > span > label > label {
+  padding: 15px;
+  margin: 0;
+}
+
+#account-selector > span > label > label {
+  cursor: pointer;
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  font-size: .8em;
+  margin-top: 5px;
+}
+
+#second-cta {
+  background: #e0e0e0;
+  color: #9c9c9c;
+  border-color: #dcdcdc;
+}
+
+#second-cta:hover {
+  background: #fbe4a1;
+  border-color: #f7e09c;
+}
+
+#facebook-connect {
+  background: #39579A;
+  border-color: #27477F;
+}
+
+#facebook-connect:hover {
+  background: #27477F;
+}
