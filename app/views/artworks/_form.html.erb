@@ -8,6 +8,7 @@
         <%= f.input :date %>
         <%= f.input :category_id, collection: @all_categories %>
         <%= f.input :style_id, collection: @all_styles %>
+        <%= f.input :photos, as: :attachinary %>
         <%= f.submit %>
       <% end %>
     </div>

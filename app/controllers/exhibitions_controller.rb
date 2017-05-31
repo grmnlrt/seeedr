@@ -53,7 +53,8 @@ class ExhibitionsController < ApplicationController
   end
 
   def exhibition_params
-    params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date)
+    params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date, photos: []
+      )
   end
 
 
