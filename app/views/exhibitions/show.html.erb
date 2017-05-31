@@ -14,7 +14,7 @@
         <br>
         <div class="icons">
           <p><i class="fa fa-user" aria-hidden="true"></i><%= @exhibition.user.first_name %> <%= @exhibition.user.last_name %>
-          <p><i class="fa fa-tags" aria-hidden="true"></i><%= @exhibition.categories%></p>
+          <p><i class="fa fa-clock-o" aria-hidden="true"></i> starting: <%= @exhibition.start_date%> - ending: <%= @exhibition.end_date%> </p>
           <p><i class="fa fa-money" aria-hidden="true"></i><%= @exhibition.min_price %>
           <p><i class="fa fa-map-marker" aria-hidden="true"></i><%= @exhibition.address %>
         </div>
