@@ -18,6 +18,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "pundit"
 gem 'omniauth-facebook'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
 
 
 group :development, :test do
