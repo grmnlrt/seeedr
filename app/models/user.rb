@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :categories, through: :artworks
   has_many :styles, through: :artworks
 
-  validates :last_name, :first_name, :email, :password, presence: true
+  validates :email, :password, presence: true
   #validates :email, format: { with: /\A.*@.*\..+\z/ }
   #validates :password, length: { minimum: 4 }
 
