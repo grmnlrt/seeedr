@@ -1,5 +1,12 @@
 class Exhibition < ApplicationRecord
+
+  #Geocoder
+  ###########
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  ###########
   DURATIONS = [3,6,9,12]
+
   has_attachments :photos, maximum: 3
 
   belongs_to :user
@@ -14,13 +21,11 @@ class Exhibition < ApplicationRecord
 
   validates :start_date, :title, :min_price, presence: true
   validate :end_date_is_after_start_date
+  validates :address, presence: true
   validates :duration, :inclusion => {:in => DURATIONS}
-
-
   #######
   private
   #######
-
   def end_date_is_after_start_date
     return if end_date.blank? || start_date.blank?
 
