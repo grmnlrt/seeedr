@@ -1,0 +1,84 @@
+#new_user {
+  padding: 90px 40px 40px 40px;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 40px;
+}
+
+.show-login-form {
+  margin-top: 0!important;
+  overflow: hidden;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+}
+
+#account-selector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#account-selector input {
+  display: none;
+}
+
+#account-selector > span > label {
+  width: 50%;
+  text-align: center;
+  background: #c1c1c1;
+  opacity: .5;
+}
+
+.account-before-choice {
+  opacity: 1!important;
+  background: transparent!important;
+}
+
+.account-before-choice label {
+  background: $brand-color;
+  border-radius: 50px;
+  width: 120px;
+  color: white;
+}
+
+.account-before-choice label:hover {
+  opacity: .8;
+}
+
+.account-select {
+  border-color: transparent;
+  background: #f7c843!important;
+  color: white;
+  opacity: 1!important;
+}
+
+#account-selector > span > label:hover {
+  background: #f7c843;
+  cursor: pointer;
+}
+
+#account-selector > span > label > label {
+  padding: 15px;
+  margin: 0;
+}
+
+#account-selector > span > label > label {
+  cursor: pointer;
+}
+
+// a#facebook-connect {
+//   background: #39579A;
+//   display: block!important;
+//   text-align: center;
+//   width: 100%;
+//   padding: 7px;
+//   border-radius: 2px;
+//   margin-top: 10px;
+//   color: white;
+//   text-decoration: none;
+//   border: 1px #27477F solid;
+// }
+
+// a#facebook-connect:hover {
+//   background: #27477F;
+// }
