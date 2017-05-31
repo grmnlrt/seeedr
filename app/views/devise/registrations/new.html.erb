@@ -5,7 +5,7 @@
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div id="account-selector">
-        <%= f.collection_radio_buttons :is_company, [[true, 'Company'] ,[false, 'Artist']], :first, :last %>
+          <%= f.collection_radio_buttons :is_company, [[true, 'Company'] ,[false, 'Artist']], :first, :last %>
         </div>
         <div id="registration-form">
           <%= f.input :first_name %>
