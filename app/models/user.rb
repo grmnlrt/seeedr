@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :categories, through: :artworks
   has_many :styles, through: :artworks
 
-  #flo a delete la validation sur first_name & last_name pour alleger le formulaire de signup
+
   validates :email, :password, presence: true
   #validates :email, format: { with: /\A.*@.*\..+\z/ }
   #validates :password, length: { minimum: 4 }
