@@ -1,35 +1,21 @@
 <div class="container">
   <div class="row padded">
     <div class="col-xs-6 col-xs-offset-3">
-
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
-
-        <div class="form-inputs">
-          <%= f.collection_radio_buttons :is_company, [[true, 'Company'] ,[false, 'Artist']], :first, :last %>
+        <%= f.collection_radio_buttons :is_company, [[true, 'Company'] ,[false, 'Artist']], :first, :last %>
+        <div id="registration-form">
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :company_name %>
           <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true %>
-        </div>
-
-          <div class="row text-center">
-            <div class="col-xs-12">
-              <div class="form-actions">
-                <%= f.button :submit, "Sign up", class: 'btn btn-block btn-danger'  %>
-              </div>
-            </div>
-          </div>
+          <%= f.button :submit, "Sign up", class: 'btn btn-block btn-danger'  %>
       <% end %>
-      <hr>
-      <br>
-      <div class="row login">
-        <div class="col-xs-6">
+          <hr>
           <p>Already have an account ?</p>
-        </div>
-        <div class="col-xs-6">
           <%= render "devise/shared/links" %>
-
-        </div>
       </div>
     </div>
   </div>
