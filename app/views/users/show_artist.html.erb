@@ -1,18 +1,17 @@
 <div class="container">
-  <div class="row padded">
-    <div class="col-xs-10 col-xs-offset-1">
-      <h1>Profile show dribbble page</h1>
-      <hr>
-      <br>
-      <h2>Hi <%= @user.first_name %> <%= @user.last_name %></h2>
-      <p>Email : <%= @user.email %></p>
-      <% if policy(@user).edit? %>
-        <%= link_to "Edit", edit_user_path(params[:id]) %>
-        <%= link_to "Delete profile", user_path(@user),
-            method: :delete,
-            data: { confirm: "Are you sure?" }  %>
-      <% end %>
-      <%= link_to "Add my last art creation", new_artwork_path, class: "btn btn-primary btn-lg" %>
+  <row class="">
+    <div id="artist-show">
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="artist-card">
+          <% artist_picture = @user.facebook_picture_url || 'https://placehold.it/150x150' %>
+          <%= image_tag artist_picture %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-9">
+        <div class="artist-artwork">
+          artworks
+        </div>
+      </div>
     </div>
-  </div>
+  </row>
 </div>
