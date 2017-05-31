@@ -1,5 +1,5 @@
 class Exhibition < ApplicationRecord
-
+  DURATIONS = [3,6,9,12]
   has_attachments :photos, maximum: 3
 
   belongs_to :user
@@ -12,8 +12,9 @@ class Exhibition < ApplicationRecord
   has_many :styles, through: :exhibition_styles
 
 
-  validates :start_date, :end_date, :title, :min_price, presence: true
+  validates :start_date, :title, :min_price, presence: true
   validate :end_date_is_after_start_date
+  validates :duration, :inclusion => {:in => DURATIONS}
 
 
   #######
@@ -27,5 +28,4 @@ class Exhibition < ApplicationRecord
       errors.add(:end_date, "cannot be before the start date")
     end
   end
-
 end

@@ -4,8 +4,8 @@
   <%= f.input :description %>
   <%= f.input :address %>
   <%= f.input :min_price %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%= f.input :start_date, :as=> 'string' ,:label => 'Start date', input_html: { id: 'datetimepicker1' } %>
+  <%= f.input :duration, collection: @durations%>
   <%= f.input :photos, as: :attachinary %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
