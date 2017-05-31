@@ -1,0 +1,11 @@
+<h1><%= current_user.first_name %> <%= current_user.last_name %> </h1>
+<h3> Company ? : <%= current_user.is_company %></h3>
+
+<p> Exhbitions :</p>
+<% current_user.bids.each do |bid| %>
+  <%= bid.price %>
+<% end %>
+
+
+
+
