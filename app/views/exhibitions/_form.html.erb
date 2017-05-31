@@ -6,6 +6,7 @@
   <%= f.input :min_price %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
+  <%= f.input :photos, as: :attachinary %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 <%= link_to "Back to all Exhibitions", exhibitions_path, class: "links_show pull-right" %>
