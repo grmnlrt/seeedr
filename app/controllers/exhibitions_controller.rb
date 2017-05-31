@@ -3,7 +3,6 @@ class ExhibitionsController < ApplicationController
 
   def index
     @exhibitions = policy_scope(Exhibition).order(created_at: :desc).where.not(latitude: nil, longitude: nil)
-
     @hash = Gmaps4rails.build_markers(@exhibitions) do |geo, marker|
       marker.lat geo.latitude
       marker.lng geo.longitude
