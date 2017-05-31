@@ -4,4 +4,7 @@
 <% end %>
 <% if policy(@artwork).destroy? %>
   <%= link_to "Delete", artwork_path(params[:id]), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% @partwork.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
 <% end %>

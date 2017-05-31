@@ -2,6 +2,13 @@
   <div class="row">
     <div class="col-xs-12 show-all">
 
+      <div class="show-picture">
+        <% @exhibition.photos.each do |photo| %>
+        <% event_url = photo || "https://unsplash.it/500/400/?random" %>
+        <%=cl_image_tag event_url.path, height: 400, width: 500, crop: :fill, id: "exhibition-picture" %>
+        <% end %>
+      </div>
+
       <div class="show-description">
         <h2><%= @exhibition.title %></h2>
         <br>
