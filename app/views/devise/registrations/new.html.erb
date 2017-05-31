@@ -6,7 +6,6 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%#= f.input :is_company, collection: ["Company", "Artist"], as: :radio_buttons, label: "Role" %>
           <%= f.collection_radio_buttons :is_company, [[true, 'Company'] ,[false, 'Artist']], :first, :last %>
           <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>

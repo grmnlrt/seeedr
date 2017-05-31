@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row padded">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h1>Profile show page</h1>
+      <hr>
+      <br>
+      <h2>Hi <%= @user.first_name %> <%= @user.last_name %></h2>
+      <p>Email : <%= @user.email %></p>
+      <% if policy(@user).edit? %>
+        <%= link_to "Edit", edit_user_path(params[:id]) %>
+        <%= link_to "Delete profile", user_path(@user),
+            method: :delete,
+            data: { confirm: "Are you sure?" }  %>
+      <% end %>
+    </div>
+  </div>
+</div>
