@@ -1,8 +1,12 @@
 #new_user {
-  padding: 90px 40px 40px 40px;
+  padding: 70px 40px 40px 40px;
   border-radius: 10px;
   position: relative;
   margin-top: 40px;
+}
+
+#new_user abbr {
+  display: none;
 }
 
 .show-login-form {
@@ -66,19 +70,29 @@
   cursor: pointer;
 }
 
-// a#facebook-connect {
-//   background: #39579A;
-//   display: block!important;
-//   text-align: center;
-//   width: 100%;
-//   padding: 7px;
-//   border-radius: 2px;
-//   margin-top: 10px;
-//   color: white;
-//   text-decoration: none;
-//   border: 1px #27477F solid;
-// }
+.forgot-password {
+  display: block;
+  text-align: right;
+  font-size: .8em;
+  margin-top: 5px;
+}
 
-// a#facebook-connect:hover {
-//   background: #27477F;
-// }
+#second-cta {
+  background: #e0e0e0;
+  color: #9c9c9c;
+  border-color: #dcdcdc;
+}
+
+#second-cta:hover {
+  background: #fbe4a1;
+  border-color: #f7e09c;
+}
+
+#facebook-connect {
+  background: #39579A;
+  border-color: #27477F;
+}
+
+#facebook-connect:hover {
+  background: #27477F;
+}
