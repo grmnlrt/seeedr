@@ -5,7 +5,11 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def show?
+  def show_artist?
+    record == user
+  end
+
+  def show_company?
     record == user
   end
 
