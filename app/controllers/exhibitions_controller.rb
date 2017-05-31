@@ -2,11 +2,18 @@ class ExhibitionsController < ApplicationController
   before_action :find_exhibition, only: [:show, :edit, :update, :destroy]
 
   def index
-    @exhibitions = policy_scope(Exhibition).order(created_at: :desc)
+    @exhibitions = policy_scope(Exhibition).order(created_at: :desc).where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@exhibitions) do |geo, marker|
+      marker.lat geo.latitude
+      marker.lng geo.longitude
+    end
   end
 
   def show
+    @exhibitions_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
   end
+
 
   def new
     @exhibition= Exhibition.new

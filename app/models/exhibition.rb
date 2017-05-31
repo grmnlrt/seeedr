@@ -1,5 +1,15 @@
 class Exhibition < ApplicationRecord
 
+
+
+  #Geocoder
+  ###########
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  ###########
+
+
+
   has_attachments :photos, maximum: 3
 
   belongs_to :user
@@ -14,6 +24,7 @@ class Exhibition < ApplicationRecord
 
   validates :start_date, :end_date, :title, :min_price, presence: true
   validate :end_date_is_after_start_date
+  validates :address, presence: true
 
 
   #######
