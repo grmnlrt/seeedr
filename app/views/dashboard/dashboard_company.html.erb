@@ -58,7 +58,7 @@
                 <% exhibition.bids.each do |bid| %>
                   <div class="bid">
                     <div class="reject">
-                      <%= link_to link_to bid_path(bid), method: :delete do %>
+                      <%= link_to bid_path(bid), method: :delete do %>
                         <i class="fa fa-times" aria-hidden="true"></i>
                       <% end %>
                     </div>
