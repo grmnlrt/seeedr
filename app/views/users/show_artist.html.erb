@@ -1,15 +1,38 @@
-<div class="container">
-  <row class="">
+<div class="container padded">
+  <row class="row">
     <div id="artist-show">
       <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="artist-card">
+        <div class="artist-card text-center">
           <% artist_picture = @user.facebook_picture_url || 'https://placehold.it/150x150' %>
-          <%= image_tag artist_picture %>
+          <%= image_tag artist_picture, class: 'avatar-large' %>
+          <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+          <p class="title"><%= pluralize_without_count( @user.categories.count , 'category').capitalize %></p>
+          <p class="categories">
+            <% @user.categories.uniq.each do |category| %>
+              <%= category.name.capitalize %>
+            <% end %>
+          </p>
+          <p class="title"><%= pluralize_without_count( @user.categories.count , 'style').capitalize %></p>
+          <p class="styles">
+            <% @user.styles.uniq.each do |style| %>
+              <%= style.name.capitalize %>
+            <% end %>
+          </p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-9">
         <div class="artist-artwork">
-          artworks
+          <% @user.artworks.each do |artwork| %>
+            <div class="artwork-card">
+              <div class="content">
+                <img src="https://placehold.it/200x150" alt="">
+                <p class="description"><%= artwork.description %></p>
+              </div>
+              <div class="details">
+                <h2 class="name text-center"><%= artwork.title %></h2>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

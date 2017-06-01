@@ -254,7 +254,7 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
   scope: 'email',
   info_fields: 'email, first_name, last_name',
-  image_size: 'width=150&height=150',  # 50x50, guaranteed ratio
+  image_size: 'square',  # 50x50, guaranteed ratio
   secure_image_url: true
 
   # ==> Warden configuration
