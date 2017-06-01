@@ -16,4 +16,12 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     record == user
   end
+
+  def dashboard_artist?
+    user.is_company == false
+  end
+
+  def dashboard_company?
+    user.is_company
+  end
 end
