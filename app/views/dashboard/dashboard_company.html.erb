@@ -13,7 +13,6 @@
           </ul>
         </div>
         <div class="list-exhibitions">
-        <% 3.times do %>
           <% current_user.exhibitions.each do |exhibition| %>
             <div class="exhibition">
               <div class="exhibition-header">
@@ -109,7 +108,6 @@
               </div>
             </div>
           <% end %>
-        <% end %>
         </div>
       </div>
     </div>
