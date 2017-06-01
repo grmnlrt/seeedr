@@ -5,7 +5,11 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def show?
+  def show_artist?
+    true
+  end
+
+  def show_company?
     true
   end
 
