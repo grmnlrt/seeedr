@@ -1,0 +1,89 @@
+// Dashboard navigation
+#dashboard .dashboard-nav {
+  margin: 30px 0px;
+}
+
+// Dashboard content
+#dashboard .list-exhibitions {
+  margin-bottom: 50px;
+}
+
+#dashboard .list-exhibitions .btn {
+  margin-left: 15px;
+}
+
+#dashboard .list-exhibitions .exhibition {
+  margin-bottom: 40px;
+}
+
+// Dashboard exhibition header
+#dashboard .exhibition-header {
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 3px $brand-color solid;
+  padding: 20px;
+  font-size: .8em;
+}
+
+#dashboard .exhibition-header h2 {
+  margin: 0 0 20px;
+}
+
+#dashboard .proposals-number {
+  font-size: 4em;
+}
+
+// Dashboard exhibition bids
+#dashboard .exhibition-bids {
+  padding: 0 20px;
+}
+
+#dashboard .bid {
+  position: relative;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
+  border: $brand-color solid 0;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-left-width: 1px;
+}
+
+#dashboard .bid .reject {
+  position: absolute;
+  top: -2px;
+  left: 10px;
+  font-size: 1.8em;
+}
+
+#dashboard .exhibition-bids .user p {
+  margin: 0;
+}
+
+#dashboard .exhibition-bids .proposal {
+  border: 1px #cccccc dotted;
+  padding: 0 10px 10px;
+  margin: 20px 0;
+}
+
+#dashboard .exhibition-bids .details {
+  margin: 20px 0 0;
+}
+
+#dashboard .exhibition-bids .artworks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#dashboard .exhibition-bids .artworks img {
+    border-radius: 10px;
+}
+
+#dashboard .exhibition-bids .cta {
+  margin-top: 20px;
+}
+
+#dashboard .exhibition-bids .cta ul {
+  margin: 0;
+}
