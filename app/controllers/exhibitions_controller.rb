@@ -10,7 +10,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    @exhibitions_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
+    @exhibitions_coordinates = { lat: @exhibition.latitude, lng: @exhibition.longitude }
   end
 
 
