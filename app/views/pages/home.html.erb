@@ -86,7 +86,7 @@
             <p class="name">John Doe</p>
             <p class="speciality">Photographer</p>
             <hr>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, quod deserunt numquam fugiat. Blanditiis, modi, error. Quod vero officiis explicabo reiciendis delectus placeat vitae ea hic, a eligendi incidunt expedita.</p>
+            <p class="description"><%= truncate('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, quod deserunt numquam fugiat. Blanditiis, modi, error. Quod vero officiis explicabo reiciendis delectus placeat vitae ea hic, a eligendi incidunt expedita.', 90) %></p>
             <a href="" class="btn btn-primary">View profile</a>
           </div>
         </div>
@@ -142,12 +142,21 @@
 
 
 <!-- Artist engagement -->
-
 <div class="banner banner-small" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "banner-artist.jpg" %>');">
-  <div class="banner-content">
-    <h1>Artist? Start exposing now!</h1>
-    <p> Join our community and get selected to exhibit your creations in the best offices</p>
-    <%= link_to "Try it out", new_bid_path, class: "btn btn-primary btn-lg" %>
-  </div>
+  <!-- condition pour afficher "join our community" que si artiste ou si logged out -->
+  <% if user_signed_in? == false %>
+    <div class="banner-content">
+      <h1>Artist? Start exposing now!</h1>
+      <p> Join our community and get selected to exhibit your creations in the best offices</p>
+      <%= link_to "Try it out", new_bid_path, class: "btn btn-primary btn-lg" %>
+    </div>
+  <% else %>
+    <% if policy(@artwork).create? %>
+      <div class="banner-content">
+        <h1>Artist? Start exposing now!</h1>
+        <p> Join our community and get selected to exhibit your creations in the best offices</p>
+        <%= link_to "Try it out", new_bid_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
-

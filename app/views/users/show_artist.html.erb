@@ -1,0 +1,59 @@
+<div class="wrapper padded bg-grey">
+  <div class="container">
+    <row class="row">
+      <div id="artist-show">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="artist-card text-center">
+            <% artist_picture = @user.facebook_picture_url || 'https://placehold.it/150x150' %>
+            <%= image_tag artist_picture, class: 'avatar-large' %>
+            <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+            <% unless @user.artworks.empty? %>
+              <p class="title"><%= pluralize_without_count( @user.categories.count , 'category').capitalize %></p>
+              <p class="categories">
+                <% @user.categories.uniq.each do |category| %>
+                  <%= category.name.capitalize %>
+                <% end %>
+              </p>
+              <p class="title"><%= pluralize_without_count( @user.categories.count , 'style').capitalize %></p>
+              <p class="styles">
+                <% @user.styles.uniq.each do |style| %>
+                  <%= style.name.capitalize %>
+                <% end %>
+              </p>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
+          <div class="artist-artwork">
+            <% unless @user.artworks.empty? %>
+              <% @user.artworks.each do |artwork| %>
+                <%= link_to artwork_path(artwork) do %>
+                  <div class="artwork-card">
+                    <div class="content">
+                      <img src="https://placehold.it/200x150" alt="">
+                      <p class="description"><%= truncate( artwork.description, 300) %></p>
+                    </div>
+                    <div class="details">
+                      <h2 class="name text-center"><%= truncate(artwork.title, 30) %></h2>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+            <%= link_to new_artwork_path do %>
+              <div class="artwork-card new-artwork">
+                <div class="content">
+                  <img src="https://placehold.it/200x150" alt="">
+                  <p class="description"><i class="fa fa-plus" aria-hidden="true"></i></p>
+                </div>
+                <div class="details">
+                  <h2 class="name text-center">Add a new artwork</h2>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </row>
+  </div>
+</div>

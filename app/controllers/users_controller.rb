@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show_artist, :show_company, :edit, :update, :destroy]
 
 
-  def show
+  def show_artist
+  end
+
+  def show_company
   end
 
   def edit
