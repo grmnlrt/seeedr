@@ -4,15 +4,17 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/artists/dashboard', to: 'dashboard#dashboard_artist'
   get '/companies/dashboard', to: 'dashboard#dashboard_company'
+  get '/companies/dashboard/payment/:id', to: 'dashboard#dashboard_payment', as: "payment"
+
   resources :artworks, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :users, only: [:edit, :update, :destroy] do
     collection do
-      get 'artist/:id', to: "users#show_artist"
-      get 'company/:id', to: "users#show_company"
+      get 'artist/:id', to: "users#show_artist", as: 'artist'
+      get 'company/:id', to: "users#show_company", as: 'company'
     end
   end
   resources :exhibitions
-  resources :bids, only: [:show, :new, :create, :edit, :update]
+  resources :bids, only: [:show, :new, :create, :edit, :update, :destroy]
 
   mount Attachinary::Engine => "/attachinary"
 

@@ -4,53 +4,19 @@
 <% current_user.exhibitions.each do |exhibition| %>
   <h4>Bids related to <%= exhibition.title %> :</h4>
   <% exhibition.bids.each do |bid| %>
-  <ul>
-    <li><%= bid.status %> | <%= bid.price %> | <%= bid.user.first_name %> <%= bid.user.last_name %> <%= bid.user.email %>  </li>
-  </ul>
+    <ul>
+      <li><%= bid.status %> | <%= bid.price %> | <%= bid.user.first_name %> <%= bid.user.last_name %> <%= bid.user.email %>
+      <%= simple_form_for bid do |f| %>
+        <%= f.input :status, input_html: {value: 'accepted'}, as: :hidden %>
+        <%= f.submit "v" %>
+        <%= link_to bid_path(bid), method: :delete do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      <% end %>
+      </li>
+    </ul>
   <% end %>
+
+  <%= link_to "pay", payment_path(exhibition.id) %>
 <% end %>
 
-<!-- https://codepen.io/marceloag/pen/nzLmu -->
-
-  <div class="container">
-    <header>
-      <div class="bio">
-        <img src="http://www.croop.cl/UI/twitter/images/up.jpg" alt="background" class="bg">
-        <div class="desc">
-          <h3>@carlf</h3>
-          <p>Carl Fredricksen is the protagonist in Up. He also appeared in Dug's Special Mission as a minor character.</p>
-        </div>
-      </div>
-
-      <div class="avatarcontainer">
-        <img src="http://www.croop.cl/UI/twitter/images/carl.jpg" alt="avatar" class="avatar">
-        <div class="hover">
-            <div class="icon-twitter"></div>
-        </div>
-      </div>
-
-
-    </header>
-
-    <div class="content">
-      <div class="data">
-        <ul>
-          <li>
-            2,934
-            <span>Tweets</span>
-          </li>
-          <li>
-            1,119
-            <span>Followers</span>
-          </li>
-          <li>
-            530
-            <span>Following</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="follow"> <div class="icon-twitter"></div> Follow</div>
-    </div>
-
-  </div>

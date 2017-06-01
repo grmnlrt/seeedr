@@ -1,5 +1,5 @@
 class BidsController < ApplicationController
-  before_action :set_bid, only: [:show, :edit, :update]
+  before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
   def show
   end
@@ -26,12 +26,24 @@ class BidsController < ApplicationController
   end
 
   def update
+    other_bids = @bid.exhibition.bids.where.not(id: @bid.id) #array excluant la bid confirmee par la company
     @bid.update(bid_params)
     if @bid.save
-      redirect_to bid_path(@bid)
+      if params[:bid][:status] == "accepted"
+        other_bids.update_all(status: "rejected")
+        redirect_to companies_dashboard_path
+      else
+        redirect_to bid_path(@bid)
+      end
+
     else
       render :edit
     end
+  end
+
+  def destroy
+    @bid.destroy
+    redirect_to companies_dashboard_path
   end
 
   private

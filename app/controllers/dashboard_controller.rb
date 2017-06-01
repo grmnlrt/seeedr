@@ -1,19 +1,19 @@
 class DashboardController < ApplicationController
 
   def dashboard_artist
-    @exhibitions = current_user.exhibitions
+    #@exhibitions = current_user.exhibitions
     authorize current_user
-    # @exhibitions_booked = @exhibitions.where(book: true)
-    # @exhibitions_pending = @exhibitions.where(book: nil)
-    #@bookings = Booking.where(user_id: current_user.id)
   end
 
   def dashboard_company
-    @bids = current_user.bids
+    #@bids = current_user.bids
     authorize current_user
-    # @exhibitions_booked = @exhibitions.where(book: true)
-    # @exhibitions_pending = @exhibitions.where(book: nil)
-    #@bookings = Booking.where(user_id: current_user.id)
+  end
+
+  def dashboard_payment
+    @exhibition = Exhibition.find(params[:id])
+    @bid_to_pay = @exhibition.bids.find_by(status: "accepted")
+    authorize current_user
   end
 
 end
