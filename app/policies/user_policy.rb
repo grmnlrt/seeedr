@@ -28,4 +28,8 @@ class UserPolicy < ApplicationPolicy
   def dashboard_company?
     user.is_company
   end
+
+  def dashboard_payment?
+    user.is_company
+  end
 end
