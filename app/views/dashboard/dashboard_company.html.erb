@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1><%= current_user.first_name %> <%= current_user.last_name %> </h1>
 <h3 class="text-center"> Dashboard when you log as a COMPANY</h3>
 
@@ -54,3 +55,120 @@
     </div>
 
   </div>
+=======
+<% content_for :body_id, "dashboard" %>
+<div class="wrapper padded bg-grey">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="underline"><%= current_user.company_name %>'s dashboard</h1>
+        <div class="dashboard-nav">
+          <ul class="nav nav-pills">
+            <li role="presentation" class="active"><%= link_to "To come (#{current_user.exhibitions.count})", "#" %></li>
+            <li role="presentation"><%= link_to "Current", "#" %></li>
+            <li role="presentation"><%= link_to "Past", "#" %></li>
+            <li role="presentation" class="pull-right"><%= link_to "New exhibitions", "#" %></li>
+          </ul>
+        </div>
+        <div class="list-exhibitions">
+          <% current_user.exhibitions.each do |exhibition| %>
+            <div class="exhibition">
+              <div class="exhibition-header">
+                <div class="row">
+                  <div class="col-xs-12 col-md-5">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <h2 class="underline"><%= exhibition.title %></h2>
+                      </div>
+                      <div class="col-xs-6">
+                        <p>Theme : ?</p>
+                      </div>
+                      <div class="col-xs-6">
+                        <p>Place : <%= exhibition.address.capitalize %></p>
+                      </div>
+                      <div class="col-xs-6">
+                        <p>Starting date : <%= exhibition.start_date %></p>
+                      </div>
+                      <div class="col-xs-6">
+                        <p>Offer : <%= exhibition.min_price %></p>
+                      </div>
+                      <div class="col-xs-6">
+                        <p>Duration : <%= exhibition.duration %> months</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-md-7">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <p class="proposals-number pull-right">
+                          <%= pluralize exhibition.bids.count, "artist candidat" %>
+                        </p>
+                      </div>
+                      <div class="col-xs-12">
+                        <div class="btn btn-primary pull-right view-bids">View proposals</div>
+                        <%= link_to "Canceled exhibition", '#', class: 'btn btn-danger pull-right' %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="exhibition-bids">
+                <% exhibition.bids.each do |bid| %>
+                  <div class="bid">
+                    <div class="reject"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    <div class="row">
+                      <div class="col-xs-12 col-md-3">
+                        <div class="user text-center">
+                          <% user_picture = bid.user.facebook_picture_url || 'https://placehold.it/150x150' %>
+                          <%= image_tag user_picture, class: 'avatar-large' %>
+                          <h3><%= bid.user.first_name %> <%= bid.user.last_name %></h3>
+                          <p><%= truncate(bid.user.description, 50) %></p>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-2">
+                        <div class="proposal">
+                          <h4 class="underline">Proposal</h4>
+                          <div class="row">
+                            <div class="col-xs-6 col-md-12">
+                              <p><strong>Price :</strong><br><%= bid.price %></p>
+                            </div>
+                            <div class="col-xs-6 col-md-12">
+                              <p><strong>Style :</strong></p>
+                              <p>
+                                <% bid.user.categories.uniq.each do |category| %>
+                                  <span class="artist-category"><%= category.name.capitalize %></span>
+                                <% end %>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-7">
+                        <div class="details">
+                          <h4 class="underline"><%= pluralize_without_count(bid.user.artworks.count, 'Last artwork') %></h4>
+                          <div class="artworks">
+                            <% bid.user.artworks.last(3).each do |artwork| %>
+                              <% image_link = artwork.photos.first || 'https://placehold.it/150x150' %>
+                              <%= image_tag image_link %>
+                            <% end %>
+                          </div>
+                          <div class="cta">
+                            <div class="list-inline">
+                                <%= link_to 'Book this artist !', '#', Class: 'btn btn-success pull-right' %>
+                                <%= link_to 'View profile',  '#', Class: 'btn btn-primary pull-right' %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> 634b84d324ac22c013fe8daef29b19bb19c2caab

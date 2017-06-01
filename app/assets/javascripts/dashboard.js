@@ -1,10 +1,6 @@
-$(document).ready(
-
-  function iniciar(){
-  $('.follow').on("click", function(){
-    $('.follow').css('background-color','#34CF7A');
-    $('.follow').html('<div class="icon-ok"></div> Following');
+$(document).ready(function(){
+  $('.exhibition-bids').hide();
+  $('.view-bids').click(function(){
+    $(this).parents(".exhibition").find('.exhibition-bids').slideToggle();
   });
-  }
-
-);
+});
