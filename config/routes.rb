@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
+  get '/artists/dashboard', to: 'dashboard#dashboard_artist'
+  get '/companies/dashboard', to: 'dashboard#dashboard_company'
   resources :artworks, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :exhibitions
