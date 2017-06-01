@@ -12,7 +12,9 @@
             method: :delete,
             data: { confirm: "Are you sure?" }  %>
       <% end %>
-      <%= link_to "Add my last art creation", new_artwork_path, class: "btn btn-primary btn-lg" %>
+      <% if policy(@user).update? %>
+        <%= link_to "Add my last art creation", new_artwork_path, class: "btn btn-primary btn-lg" %>
+      <% end %>
     </div>
   </div>
 </div>

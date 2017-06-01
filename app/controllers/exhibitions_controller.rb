@@ -3,14 +3,20 @@ class ExhibitionsController < ApplicationController
 
   def index
     @exhibitions = policy_scope(Exhibition).order(created_at: :desc).where.not(latitude: nil, longitude: nil)
-    @hash = Gmaps4rails.build_markers(@exhibitions) do |geo, marker|
-      marker.lat geo.latitude
-      marker.lng geo.longitude
+
+    unless params[:localisation].nil?
+      @exhibitions = Exhibition.near(params[:localisation], 50)
+    end
+
+    @hash = Gmaps4rails.build_markers(@exhibitions) do |exhibition, marker|
+      marker.lat exhibition.latitude
+      marker.lng exhibition.longitude
+      marker.infowindow render_to_string(partial: "/exhibitions/map_box", locals: { exhibition: exhibition })
     end
   end
 
   def show
-    @exhibitions_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
+    @exhibitions_coordinates = { lat: @exhibition.latitude, lng: @exhibition.longitude }
   end
 
 
