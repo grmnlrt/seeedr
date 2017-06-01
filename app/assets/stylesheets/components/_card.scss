@@ -52,22 +52,6 @@
   opacity: 0.1;
 }
 
-// Artist cards
-.artist-card {
-  border: 1px $grey solid;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  margin-bottom: 20px;
-}
-
-.artist-card img {
-  margin-top: 40px;
-}
-
-.artist-card h1 {
-  font-size: 2em;
-}
-
 // Artwork cards
 .artwork-card {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
@@ -75,6 +59,7 @@
   margin: 0 10px 20px 10px;
   border: 1px $grey solid;
   border-radius: 5px;
+  background: white;
 }
 
 .artwork-card img {
@@ -106,4 +91,14 @@
 .artwork-card .details h2 {
   font-size: 1em;
   margin: 10px 0px 0px;
+}
+
+.artwork-card.new-artwork .description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artwork-card.new-artwork .description .fa {
+  font-size: 100px;
 }

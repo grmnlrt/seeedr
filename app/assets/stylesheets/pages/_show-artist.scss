@@ -3,3 +3,26 @@
   flex-flow: row wrap;
   justify-content: space-between;
 }
+
+.artist-artwork a {
+  color: inherit!important;
+  text-decoration: none!important;
+}
+
+// Artist cards
+.artist-card {
+  border: 1px $grey solid;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  background: white;
+}
+
+.artist-card img {
+  margin-top: 40px;
+}
+
+.artist-card h1 {
+  font-size: 1.6em;
+  margin: 10px 0;
+}
