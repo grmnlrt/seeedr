@@ -1,2 +1,15 @@
-<%= @bid_to_pay.price %>
-<h1>Thanks for booking !</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+    <h1>Thanks for Booking !</h1>
+    <p>Here is your booking's information:</p> <br>
+      <h4><%= @bid_to_pay.exhibition.title %></h4>
+      <hr>
+      <p>Date : <%= @bid_to_pay.created_at %></p>
+      <p>Mission proposée par : <%= @bid_to_pay.exhibition.user.first_name %></p>
+      <p>You will get $ <%= @bid_to_pay.price %> for this mission <%= link_to "Back to dashboard", dashboard_company_users_path, class: "pull-right" %></p>
+      <hr>
+    </div>
+  </div>
+</div>
