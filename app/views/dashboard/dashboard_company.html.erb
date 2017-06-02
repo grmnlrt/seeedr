@@ -1,3 +1,60 @@
+<h1><%= current_user.first_name %> <%= current_user.last_name %> </h1>
+<h3 class="text-center"> Dashboard when you log as a COMPANY</h3>
+
+<% current_user.exhibitions.each do |exhibition| %>
+  <h4>Bids related to <%= exhibition.title %> :</h4>
+  <% exhibition.bids.each do |bid| %>
+  <ul>
+    <li><%= bid.status %> | <%= bid.price %> | <%= bid.user.first_name %> <%= bid.user.last_name %> <%= bid.user.email %>  </li>
+  </ul>
+  <% end %>
+<% end %>
+
+<!-- https://codepen.io/marceloag/pen/nzLmu -->
+
+  <div class="container">
+    <header>
+      <div class="bio">
+        <img src="http://www.croop.cl/UI/twitter/images/up.jpg" alt="background" class="bg">
+        <div class="desc">
+          <h3>@carlf</h3>
+          <p>Carl Fredricksen is the protagonist in Up. He also appeared in Dug's Special Mission as a minor character.</p>
+        </div>
+      </div>
+
+      <div class="avatarcontainer">
+        <img src="http://www.croop.cl/UI/twitter/images/carl.jpg" alt="avatar" class="avatar">
+        <div class="hover">
+            <div class="icon-twitter"></div>
+        </div>
+      </div>
+
+
+    </header>
+
+    <div class="content">
+      <div class="data">
+        <ul>
+          <li>
+            2,934
+            <span>Tweets</span>
+          </li>
+          <li>
+            1,119
+            <span>Followers</span>
+          </li>
+          <li>
+            530
+            <span>Following</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="follow"> <div class="icon-twitter"></div> Follow</div>
+    </div>
+
+  </div>
+
 <% content_for :body_id, "dashboard" %>
 <div class="wrapper padded bg-grey">
   <div class="container">
