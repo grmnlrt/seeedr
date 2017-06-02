@@ -17,8 +17,12 @@
                   <div class="row">
                     <% @exhibitions.each do |exhibition| %>
                       <div class="col-xs-12 col-sm-6">
-                       <% background_url = "https://unsplash.it/263/175/?random" %>
-                        <div class="exhibition-card text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= background_url %>);">
+                        <% if exhibition.photos.first %>
+                          <% background_url = exhibition.photos.first.path %>
+                        <% else %>
+                          <% background_url = "https://unsplash.it/263/175/?random" %>
+                        <% end %>
+                        <div class="exhibition-card text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path background_url %>);">
                           <div class="card-description title">
                             <p><%= exhibition.user.company_name %></p>
                             <h2><%= exhibition.title %></h2>
