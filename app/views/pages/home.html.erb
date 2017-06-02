@@ -4,7 +4,7 @@
   <div class="banner-content">
     <h1>Enlighten Your Office with Art</h1>
     <p> Exhibit artists of tomorrow in your office</p>
-      <%= link_to "Create my exhibit", exhibitions_path, class: "btn btn-primary btn-lg", id: "custom" %>
+      <%= link_to "Create my exhibit", new_exhibition_path, class: "btn btn-primary btn-lg", id: "custom" %>
   </div>
 </div>
 
@@ -146,6 +146,6 @@
   <div class="banner-content">
     <h1>Artist? Start exposing now!</h1>
     <p> Join our community and get selected to exhibit your creations in the best offices</p>
-    <%= link_to "Try it out", new_bid_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "start experience", artist_users_path(current_user), class: "btn btn-primary btn-lg" %>
   </div>
 </div>

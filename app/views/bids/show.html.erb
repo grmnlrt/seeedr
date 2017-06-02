@@ -10,10 +10,13 @@
       <p>Status: <%= @bid.status %></p>
       <% if policy(@bid).edit? %>
         <%= link_to "Edit", edit_bid_path(params[:id]) %>
+        <%= link_to "All exhibitions", exhibitions_path, class: "pull-right" %>
       <% end %>
     </div>
   </div>
 </div>
+
+
 
 
 
