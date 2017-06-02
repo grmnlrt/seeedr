@@ -17,6 +17,7 @@ class ExhibitionsController < ApplicationController
 
   def show
     @exhibitions_coordinates = { lat: @exhibition.latitude, lng: @exhibition.longitude }
+    @bid = Bid.new
   end
 
 
