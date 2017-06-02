@@ -147,8 +147,12 @@
     <h1>Artist? Start exposing now!</h1>
     <p> Join our community and get selected to exhibit your creations in the best offices</p>
     <% if user_signed_in? %>
-      <%= link_to "start experience", artist_users_path(current_user), class: "btn btn-primary btn-lg" %>
+      <% if current_user.is_company %>
+        <%= link_to "start experience", root_path, class: "btn btn-primary btn-lg" %>
       <% else %>
+        <%= link_to "start experience", exhibitions_path, class: "btn btn-primary btn-lg" %>
+      <% end %>
+    <% else %>
       <%= link_to "start experience", new_user_session_path, class: "btn btn-primary btn-lg" %>
     <% end %>
   </div>
