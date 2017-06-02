@@ -3,17 +3,24 @@
 }
 
 .wrapper.exhibition {
-  margin: -41px;
-  background-color: #eaeaea;
+    margin: -41px;
+    background-color: #ffffff;
+    border-top: 1px dotted $brand-color;
 }
 
 .show-all {
   background-color: white;
   margin-top: 1px;
-
 }
 
 .company-title {
-  background-color: white;
-  margin-top: -41px;
+    background-color: white;
+    margin: -37px auto 37px;
+    width: 30%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dotted $brand-color;
+    border-radius: 5px;
 }

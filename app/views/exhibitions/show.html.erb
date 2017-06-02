@@ -10,9 +10,9 @@
       <div class="col-xs-12 show-all">
       <div class="text-center">
         <ul class="list-inline">
-            <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
-            <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
-            <li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+            <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
           </ul>
           <h2><%= @exhibition.title %></h2>
           </div>
@@ -21,12 +21,14 @@
             <p><i class="fa fa-map-marker" aria-hidden="true"></i><%= @exhibition.address %> </p>
             <p><i class="fa fa-money" aria-hidden="true"></i><%= @exhibition.min_price %>
           <br>
-          <h3>Event's description</h3>
+          <div class="description-content">
+          <h3 class="underline">Description</h3>
             <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, animi saepe rem delectus nulla aut quisquam maxime voluptas dignissimos ex eveniet sint itaque cumque nostrum, harum dicta, nisi doloribus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, at sed a odio ipsam quam magni ullam ipsa impedit excepturi voluptatem velit. Officia delectus animi sequi similique voluptate deserunt necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni dolores, unde. Ad amet itaque, quidem consequuntur dolorum obcaecati quia officia facere aliquid illo! Nesciunt sapiente, natus consequatur minus autem iure.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit voluptatibus, porro nemo a. Asperiores corporis consectetur id iusto rem velit maxime possimus architecto accusantium hic vitae, laboriosam alias recusandae dignissimos.</p>
+            </div>
 
-
-          <h3>Office's photos:</h3>
-
+          <div class="carrousel-show">
+          <h3 class="underline">Office's photos:</h3>
+          </div>
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
@@ -61,6 +63,11 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
+        </div>
+
+        <div class="review-show">
+          <h3 class="underline">Questions</h3>
+          <br><br>
         </div>
 
             <% if policy(@exhibition).edit? %>
