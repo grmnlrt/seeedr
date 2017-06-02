@@ -4,17 +4,17 @@
 
 .wrapper.exhibition {
   // margin: -41px;
-  background-color: #ffffff;
+  background-color: $white;
   border-top: 1px dotted $brand-color;
 }
 
 .show-all {
-  background-color: white;
+  background-color: $white;
   margin-top: 1px;
 }
 
 .company-title {
-  background-color: white;
+  background-color: $white;
   margin: -86px auto 37px;
   width: 30%;
   min-height: 60px;

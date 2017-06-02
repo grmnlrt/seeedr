@@ -12,10 +12,10 @@
 #discover {
   font-weight: bold ;
   background-color: transparent;
-  border: 2px solid white;
+  border: 2px solid $white;
 }
 
 #discover:hover {
-  background-color: white;
+  background-color: $white;
   color: black;
 }
