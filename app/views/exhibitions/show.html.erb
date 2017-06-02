@@ -1,5 +1,5 @@
 
-<div class="banner-company" style="background-image: url('<%= cl_image_path @exhibition.photos.first.path %>');"></div>
+<div class="banner-company" style="background-image: url('<%#= cl_image_path @exhibition.photos.first.path %>');"></div>
 
 <div class="wrapper exhibition">
   <div class="container">
@@ -73,4 +73,12 @@
         </div>
       </div>
     </div>
-
+</div>
+<br>
+<br><br><br>
+<%= simple_form_for(@bid) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :exhibition_id, as: :hidden, :input_html => { :value => @exhibition.id } %>
+  <%= f.input :price %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
