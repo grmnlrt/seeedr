@@ -1,6 +1,8 @@
-
-<div class="banner-company" style="background-image: url('<%#= cl_image_path @exhibition.photos.first.path %>');"></div>
-
+<% if @exhibition.photos.first %>
+  <div class="banner-company" style="background-image: url('<%= cl_image_path @exhibition.photos.first.path %>');"></div>
+<% else %>
+  <div class="banner-company" style="background-image: url('artist2.jpeg');"></div>
+<% end %>
 <div class="wrapper exhibition">
   <div class="container">
     <div class="row">
@@ -62,14 +64,21 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-
-            <% if policy(@exhibition).edit? %>
-              <%= link_to "Update", edit_exhibition_path(@exhibition) %>
-            <% end %>
-            <% if policy(@exhibition).destroy? %>
-              <%= link_to "Delete Mission", exhibition_path(@exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: "links_show" %>
-            <% end %>
+        <div class="user-paths text-center">
+            <%# if policy(@exhibition).edit? %>
+              <%#= link_to "Update", edit_exhibition_path(@exhibition) %>
+            <%#end %>
+            <%# if policy(@exhibition).destroy? %>
+              <%#= link_to "Delete Mission", exhibition_path(@exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: "links_show" %>
+            <%# end %>
             <%= link_to "Back to all Exhibitions", exhibitions_path, class: "links_show pull-right" %>
+            <% if policy(@exhibition).create? %>
+                <%= link_to "Go to my dashboard",  dashboard_company_users_path%>
+              <% else %>
+                <%= link_to "Go to my dashboard",  dashboard_artist_users_path%>
+            <% end %>
+        </div>
+
         </div>
       </div>
     </div>
