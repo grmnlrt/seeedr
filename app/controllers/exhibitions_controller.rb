@@ -71,8 +71,4 @@ class ExhibitionsController < ApplicationController
     params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date, :duration, photos: [])
   end
 
-  def booked?
-    self.bids.find_by(status: "accepted") ? true : false
-  end
-
 end
