@@ -1,51 +1,42 @@
-<div class="container text-center">
-  <h1>Exhibitions</h1><br>
-  <div class="row padded-bottom">
-    <div class="col-xs-8 col-xs-offset-2">
-      <form id="search">
-        <div class="input-group">
-          <input type="text" class="form-control" name="localisation" placeholder="Type your city" id="search_key" value= "">
-          <span class="input-group-btn">
-<!--               <a class="btn btn-default text-muted" href="http://adminlte.dev/user/item" title="Clear"><i class="glyphicon glyphicon-remove"></i> </a> -->
-              <button class="btn btn-primary" type="submit">  Search  </button>
-          </span>
-        </div>
-      </form>
-    </div>
+  <div id="map">
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      });
+    <% end %>
+  <% end %>
   </div>
-  <div id="results">
-    <div class="row padded">
-      <div class="col-xs-12">
-        <div id="map" style="width: 100%; height: 400px;"></div>
+
+  <div class="container text-center">
+    <h1>Current open exhibitions</h1><br>
+    <p> Artists, discover amazing exhibitions's projects from companies all over the world and bring your art in their offices!</p>
+    <div id="results">
+      <div class="row">
+        <% @exhibitions.each do |exhibition| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+           <% background_url = "https://unsplash.it/263/175/?random" %>
+            <div class="card exhibition" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= background_url %>);">
+              <div class="card-description title">
+                <p><%= exhibition.user.company_name %></p>
+                <h2><%= exhibition.title %></h2>
+              </div>
+              <%= link_to "Discover", exhibition_path(exhibition), class: "btn btn-primary btn-lg", id: "discover" %>
+            </div>
+           <br>
+          </div>
+        <% end %>
       </div>
-    </div>
-    <div class="row">
-      <% @exhibitions.each do |exhibition| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-         <%= render "shared/card", exhibition: exhibition, user: @user %>
-         <br>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
-
-<div id="map" style="width: 100%; height: 600px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-<% end %>

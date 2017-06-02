@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     if resource.is_company
       root_path
     else
-      user_path(resource)
+      artist_users_path(resource)
     end
   end
 

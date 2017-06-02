@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1><%= current_user.first_name %> <%= current_user.last_name %> </h1>
 <h3 class="text-center"> Dashboard when you log as a COMPANY</h3>
 
@@ -55,7 +54,7 @@
     </div>
 
   </div>
-=======
+
 <% content_for :body_id, "dashboard" %>
 <div class="wrapper padded bg-grey">
   <div class="container">
@@ -67,7 +66,7 @@
             <li role="presentation" class="active"><%= link_to "To come (#{current_user.exhibitions.count})", "#" %></li>
             <li role="presentation"><%= link_to "Current", "#" %></li>
             <li role="presentation"><%= link_to "Past", "#" %></li>
-            <li role="presentation" class="pull-right"><%= link_to "New exhibitions", "#" %></li>
+            <li role="presentation" class="pull-right"><%= link_to "New exhibitions", new_exhibition_path %></li>
           </ul>
         </div>
         <div class="list-exhibitions">
@@ -101,7 +100,7 @@
                     <div class="row">
                       <div class="col-xs-12">
                         <p class="proposals-number pull-right">
-                          <%= pluralize exhibition.bids.count, "artist candidat" %>
+                          <%= pluralize exhibition.bids.count, "artist bid" %>
                         </p>
                       </div>
                       <div class="col-xs-12">
@@ -115,7 +114,11 @@
               <div class="exhibition-bids">
                 <% exhibition.bids.each do |bid| %>
                   <div class="bid">
-                    <div class="reject"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    <div class="reject">
+                      <%= link_to bid_path(bid), method: :delete do %>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      <% end %>
+                    </div>
                     <div class="row">
                       <div class="col-xs-12 col-md-3">
                         <div class="user text-center">
@@ -154,7 +157,11 @@
                           </div>
                           <div class="cta">
                             <div class="list-inline">
-                                <%= link_to 'Book this artist !', '#', Class: 'btn btn-success pull-right' %>
+                                <%= simple_form_for bid do |f| %>
+                                  <%= f.input :status, input_html: {value: 'accepted'}, as: :hidden %>
+                                  <%= f.submit "Book this artist !", class: 'btn btn-success' %>
+                                <% end %>
+                                <%= link_to 'Paiment', payment_path(exhibition.id), Class: 'btn btn-info pull-right' %>
                                 <%= link_to 'View profile',  '#', Class: 'btn btn-primary pull-right' %>
                             </div>
                           </div>
@@ -171,4 +178,3 @@
     </div>
   </div>
 </div>
->>>>>>> 634b84d324ac22c013fe8daef29b19bb19c2caab
