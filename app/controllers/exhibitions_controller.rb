@@ -48,7 +48,7 @@ class ExhibitionsController < ApplicationController
   def update
     @exhibition.update(exhibition_params)
     if @exhibition.save
-      redirect_to exhibition_path(@exhibition)
+      redirect_to dashboard_company_users_path
     else
       render :edit
     end
@@ -56,7 +56,7 @@ class ExhibitionsController < ApplicationController
 
   def destroy
     @exhibition.destroy
-    redirect_to exhibitions_path, :notice => "Your exhibition has been deleted"
+    redirect_to dashboard_company_users_path, :notice => "Your exhibition has been deleted"
   end
 
 

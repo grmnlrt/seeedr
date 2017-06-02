@@ -34,11 +34,14 @@
                 </div>
                 <div class="col-xs-12">
                   <% if exhibition.booked? %>
-                    <%= link_to 'Paiment', payment_path(exhibition.id), Class: 'btn btn-success pull-right' %>
+                    <%= link_to 'Payment', payment_path(exhibition.id), Class: 'btn btn-success pull-right' %>
                   <% end %>
                   <div class="btn btn-primary pull-right view-bids">View proposals</div>
-                  <%= link_to '#' , class: 'btn btn-danger pull-right' do %>
+                  <%= link_to exhibition_path(exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger pull-right' do %>
                     <i class="fa fa-trash" aria-hidden="true"></i>
+                    <% end %>
+                  <%= link_to edit_exhibition_path(exhibition), class: 'btn btn-danger pull-right' do %>
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
                   <% end %>
                 </div>
               </div>
@@ -59,7 +62,9 @@
                     <% user_picture = bid.user.facebook_picture_url || 'https://placehold.it/150x150' %>
                     <%= image_tag user_picture, class: 'avatar-large' %>
                     <h3><%= bid.user.first_name %> <%= bid.user.last_name %></h3>
-                    <p><%= truncate(bid.user.description, 50) %></p>
+                    <% if bid.user.description %>
+                      <p><%= truncate(bid.user.description, 50) %></p>
+                    <% end %>
                   </div>
                 </div>
                 <div class="col-xs-12 col-md-2">
