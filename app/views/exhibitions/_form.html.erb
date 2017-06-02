@@ -10,7 +10,3 @@
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 <%= link_to "Back to my dashboard", dashboard_company_users_path, class: "links_show pull-right" %>
-
-<%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=#{ENV['GOOGLE_API_BROWSER_KEY']}"></script>
-<% end %>
