@@ -24,10 +24,10 @@ gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
+gem 'forest_liana'
 
 # geocoding gem
 gem 'geocoder'
-gem 'coffee-rails'
 gem 'gmaps4rails'
 
 source 'https://rails-assets.org' do

@@ -102,3 +102,17 @@
 .artwork-card.new-artwork .description .fa {
   font-size: 100px;
 }
+
+// Exhibition cards
+.exhibition-card {
+  color: white;
+  filter: grayscale(100%);
+  background-size: cover !important;
+  padding: 20px;
+  transition: .3s all;
+}
+
+.exhibition-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
