@@ -65,7 +65,11 @@
 .artwork-card img {
   width: 233px;
 }
-
+////////////////////
+.artwork-card img {
+    max-height: 150px;
+}
+////////////////////
 .artwork-card .content {
   position: relative;
 }

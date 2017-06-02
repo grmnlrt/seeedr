@@ -16,7 +16,7 @@ class ArtworksController < ApplicationController
     authorize @artwork
     @artwork.user = current_user
     if @artwork.save
-      redirect_to artwork_path(@artwork)
+      redirect_to artist_users_path(@artwork.user_id)
     else
       render :new
     end
