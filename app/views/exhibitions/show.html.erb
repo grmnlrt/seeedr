@@ -4,8 +4,8 @@
 <div class="wrapper exhibition">
   <div class="container">
     <div class="row">
-    <div class="company-title text-center">
-      <h2><%= @exhibition.user.company_name %></h2>
+      <div class="company-title text-center">
+        <h2><%= @exhibition.user.company_name %></h2>
       </div>
       <div class="col-xs-12 show-all">
         <div class="text-center">
@@ -14,22 +14,22 @@
             <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
             <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
           </ul>
-            <h2><%= @exhibition.title %></h2>
-          </div>
-            <p><i class="fa fa-user" aria-hidden="true"></i><%= @exhibition.user.first_name %> <%= @exhibition.user.last_name %>
-            <p><i class="fa fa-clock-o" aria-hidden="true"></i>starting: <%= @exhibition.start_date%> - ending: <%= @exhibition.end_date%></p>
-            <p><i class="fa fa-map-marker" aria-hidden="true"></i><%= @exhibition.address %> </p>
-            <p><i class="fa fa-money" aria-hidden="true"></i><%= @exhibition.min_price %>
-          <br>
-          <div class="description-content">
-            <h3 class="underline">Description</h3>
-              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, animi saepe rem delectus nulla aut quisquam maxime voluptas dignissimos ex eveniet sint itaque cumque nostrum, harum dicta, nisi doloribus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, at sed a odio ipsam quam magni ullam ipsa impedit excepturi voluptatem velit. Officia delectus animi sequi similique voluptate deserunt necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni dolores, unde. Ad amet itaque, quidem consequuntur dolorum obcaecati quia officia facere aliquid illo! Nesciunt sapiente, natus consequatur minus autem iure.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit voluptatibus, porro nemo a. Asperiores corporis consectetur id iusto rem velit maxime possimus architecto accusantium hic vitae, laboriosam alias recusandae dignissimos.</p>
-          </div>
+          <h2><%= @exhibition.title %></h2>
+        </div>
+        <p><i class="fa fa-user" aria-hidden="true"></i><%= @exhibition.user.first_name %> <%= @exhibition.user.last_name %>
+        <p><i class="fa fa-clock-o" aria-hidden="true"></i>starting: <%= @exhibition.start_date%> - ending: <%= @exhibition.end_date%></p>
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i><%= @exhibition.address %> </p>
+        <p><i class="fa fa-money" aria-hidden="true"></i><%= @exhibition.min_price %>
+        <br>
+        <div class="description-content">
+          <h3 class="underline">Description</h3>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, animi saepe rem delectus nulla aut quisquam maxime voluptas dignissimos ex eveniet sint itaque cumque nostrum, harum dicta, nisi doloribus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, at sed a odio ipsam quam magni ullam ipsa impedit excepturi voluptatem velit. Officia delectus animi sequi similique voluptate deserunt necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni dolores, unde. Ad amet itaque, quidem consequuntur dolorum obcaecati quia officia facere aliquid illo! Nesciunt sapiente, natus consequatur minus autem iure.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit voluptatibus, porro nemo a. Asperiores corporis consectetur id iusto rem velit maxime possimus architecto accusantium hic vitae, laboriosam alias recusandae dignissimos.</p>
+        </div>
 
-          <div class="carrousel-show">
-          <h3 class="underline">Office's photos:</h3>
-          </div>
-          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carrousel-show">
+        <h3 class="underline">Office's photos:</h3>
+        </div>
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -63,21 +63,20 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>
-
-        <div class="review-show">
-          <h3 class="underline">Questions</h3>
-          <br><br>
-        </div>
-
-            <% if policy(@exhibition).edit? %>
-              <%= link_to "Update", edit_exhibition_path(@exhibition) %>
-            <% end %>
-            <% if policy(@exhibition).destroy? %>
-              <%= link_to "Delete Mission", exhibition_path(@exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: "links_show" %>
-            <% end %>
-            <%= link_to "Back to all Exhibitions", exhibitions_path, class: "links_show pull-right" %>
-        </div>
       </div>
+
+      <div class="review-show">
+        <h3 class="underline">Questions</h3>
+        <br><br>
+      </div>
+      <% if policy(@exhibition).edit? %>
+        <%= link_to "Update", edit_exhibition_path(@exhibition) %>
+      <% end %>
+      <% if policy(@exhibition).destroy? %>
+        <%= link_to "Delete Mission", exhibition_path(@exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: "links_show" %>
+      <% end %>
+      <%= link_to "Back to all Exhibitions", exhibitions_path, class: "links_show pull-right" %>
     </div>
+  </div>
+</div>
 
