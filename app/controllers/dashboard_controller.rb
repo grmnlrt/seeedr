@@ -15,5 +15,4 @@ class DashboardController < ApplicationController
     @bid_to_pay = @exhibition.bids.find_by(status: "accepted")
     authorize current_user
   end
-
 end
