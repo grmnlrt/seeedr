@@ -1,7 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  height: 100vh;
+  height: calc(100vh - 70px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -35,3 +35,48 @@
   justify-content: center;
 }
 
+
+/* Banner home (slideshow) */
+#slideshow {
+  height: calc(100vh - 70px);
+  top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &, .slide {
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  .slide {
+    background-position: center;
+    background-size: cover!important;
+    opacity: 0;
+    height: 100%;
+    top: 0;
+
+    &.previous {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    &.current {
+      z-index: 2;
+      animation: fadein 5000ms linear both;
+    }
+  }
+
+  .slideshow-content {
+    z-index: 4;
+    position: absolute;
+    color: white;
+  }
+}
+
+@keyframes fadein {
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  100% { opacity: 1; }
+}
