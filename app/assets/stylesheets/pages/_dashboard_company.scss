@@ -19,8 +19,8 @@
 // Dashboard exhibition header
 #dashboard .exhibition-header {
   background: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 3px $brand-color solid;
+  box-shadow: 2px 4px 10px rgb(216, 214, 214);
+  // border: 3px $brand-color solid;
   padding: 20px;
   font-size: .8em;
 }
@@ -35,15 +35,16 @@
 
 // Dashboard exhibition bids
 #dashboard .exhibition-bids {
-  padding: 0 20px;
+  padding: 12px 20px;
 }
 
 #dashboard .bid {
+  margin-bottom: 18px;
   position: relative;
   padding: 20px;
   background: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
-  border: $brand-color solid 0;
+  // border: $brand-color solid 0;
   border-bottom-width: 1px;
   border-right-width: 1px;
   border-left-width: 1px;
@@ -61,7 +62,7 @@
 }
 
 #dashboard .exhibition-bids .proposal {
-  border: 1px #cccccc dotted;
+  // border: 1px #cccccc dotted;
   padding: 0 10px 10px;
   margin: 20px 0;
 }
