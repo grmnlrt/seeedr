@@ -1,16 +1,13 @@
 <!-- banner -->
-<div id="fadein">
-  <div class="banner" style="background: linear-gradient(155deg, rgba(5, 5, 5, 0.6) 10%, rgba(5, 5, 5, 0.2) 80%), url('<%= image_path "office.jpg" %>');">
+<div class="banner" style="background: linear-gradient(155deg, rgba(5, 5, 5, 0.6) 10%, rgba(5, 5, 5, 0.2) 80%), url('<%= image_path "office.jpg" %>');"></div>
+<div id="slideshow">
+  <div class="slide" style="background: linear-gradient(155deg, rgba(5, 5, 5, 0.6) 10%, rgba(5, 5, 5, 0.2) 80%), url('<%= image_path "office2.jpg" %>');">
   </div>
-  <div class="banner" style="background: linear-gradient(155deg, rgba(5, 5, 5, 0.6) 10%, rgba(5, 5, 5, 0.2) 80%), url('<%= image_path "office2.jpg" %>');">
+  <div class="slide" style="background: linear-gradient(155deg, rgba(5, 5, 5, 0.6) 10%, rgba(5, 5, 5, 0.2) 80%), url('<%= image_path "office3.jpg" %>');">
   </div>
-  <div class="banner" style="background: linear-gradient(155deg, rgba(5, 5, 5, 0.6) 10%, rgba(5, 5, 5, 0.2) 80%), url('<%= image_path "office3.jpg" %>');">
+  <div class="slide" style="background: linear-gradient(155deg, rgba(5, 5, 5, 0.6) 10%, rgba(5, 5, 5, 0.2) 80%), url('<%= image_path "office.jpg" %>');">
   </div>
-</div>
-
-
-<div class="banner image-size" style="background-image: url('<%= image_path "office.jpg" %>');">
-  <div class="banner-content">
+  <div class="slideshow-content text-center">
     <h1>Enlighten Your Office with Art</h1>
     <p> Exhibit artists of tomorrow in your office</p>
       <%= link_to "Create my exhibit", new_exhibition_path, class: "btn btn-primary btn-lg", id: "custom" %>

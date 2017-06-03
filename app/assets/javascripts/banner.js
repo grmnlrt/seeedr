@@ -1,8 +1,15 @@
 $(document).ready(function(){
-  $(function () {
-    $('#fadein div:gt(0)').hide();
-    setInterval(function () {
-      $('#fadein :first-child').fadeOut().next('div').fadeIn().end().appendTo('#fadein');
-      }, 5000);
-  });
+  var $current, $next, $slides = $("#slideshow .slide");
+  function doSlideShow () {
+    $current = $slides.filter(".slide.current");
+    $next = $current.next(".slide");
+    if ($next.length < 1) {
+      $next = $slides.first();
+    }
+    $slides.removeClass("previous");
+    $current.addClass("previous").removeClass("current");
+    $next.addClass("current");
+    window.setTimeout(doSlideShow, 5000);
+  }
+  window.setTimeout(doSlideShow, 5000);
 });
