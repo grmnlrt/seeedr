@@ -28,19 +28,29 @@
             <div class="col-xs-12 col-md-7">
               <div class="row">
                 <div class="col-xs-12">
-                  <p class="proposals-number pull-right">
-                    <%= pluralize exhibition.bids.count, "artist bid" %>
-                  </p>
+                  <!-- <p class="proposals-number pull-right"> -->
+                    <%#= pluralize exhibition.bids.count, "artist bid" %>
+                  <!-- </p> -->
+                  <!-- test badge -->
+                  <div class="badge-container">
+                    <i class="fa fa-eye"></i>
+                    <div class="badge badge-blue">
+                      <%= exhibition.bids.count %>
+                    </div>
+                  </div>
+                  <!-- fin test -->
                 </div>
                 <div class="col-xs-12">
                   <% if exhibition.booked? %>
                     <%= link_to 'Payment', payment_path(exhibition.id), Class: 'btn btn-success pull-right' %>
                   <% end %>
-                  <div class="btn btn-primary pull-right view-bids">View proposals</div>
-                  <%= link_to exhibition_path(exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger pull-right' do %>
+                  <% if exhibition.bids.first %>
+                    <div class="btn-new-small pull-right">View proposals</div>
+                  <% end %>
+                  <%= link_to exhibition_path(exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn pull-right' do %>
                     <i class="fa fa-trash" aria-hidden="true"></i>
                     <% end %>
-                  <%= link_to edit_exhibition_path(exhibition), class: 'btn btn-danger pull-right' do %>
+                  <%= link_to edit_exhibition_path(exhibition), class: 'btn pull-right' do %>
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   <% end %>
                 </div>
@@ -59,9 +69,11 @@
               <div class="row">
                 <div class="col-xs-12 col-md-3">
                   <div class="user text-center">
+                    <h4><%= bid.user.first_name %> <%= bid.user.last_name %></h4>
                     <% user_picture = bid.user.facebook_picture_url || 'https://placehold.it/150x150' %>
-                    <%= image_tag user_picture, class: 'avatar-large' %>
-                    <h3><%= bid.user.first_name %> <%= bid.user.last_name %></h3>
+                    <%= link_to artist_users_path(bid.user.id) do %>
+                      <%= image_tag user_picture, class: 'avatar-medium bordered' %>
+                    <% end %>
                     <% if bid.user.description %>
                       <p><%= truncate(bid.user.description, 50) %></p>
                     <% end %>
@@ -89,18 +101,16 @@
                   <div class="details">
                     <h4 class="underline"><%= pluralize_without_count(bid.user.artworks.count, 'Last artwork') %></h4>
                     <div class="artworks">
-                      <% bid.user.artworks.last(3).each do |artwork| %>
-                        <% image_link = artwork.photos.first || 'https://placehold.it/150x150' %>
-                        <%= image_tag image_link %>
+                      <% bid.user.artworks.last(5).each do |artwork| %>
+                        <%= cl_image_tag artwork_picture(artwork), width: 200, height: 200, crop: :fill %>
                       <% end %>
                     </div>
                     <div class="cta">
                       <div class="list-inline">
-                          <%= simple_form_for bid do |f| %>
-                            <%= f.input :status, input_html: {value: 'accepted'}, as: :hidden %>
-                            <%= f.submit "Book this artist !", class: 'btn btn-success pull-right' %>
-                          <% end %>
-                          <%= link_to 'View profile',  '#', Class: 'btn btn-primary pull-right' %>
+                        <%= simple_form_for bid do |f| %>
+                          <%= f.input :status, input_html: {value: 'accepted'}, as: :hidden %>
+                          <%= f.submit "Book this artist !", class: 'pull-right btn-new-small' %>
+                        <% end %>
                       </div>
                     </div>
                   </div>
