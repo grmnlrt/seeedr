@@ -29,13 +29,8 @@
               <% @user.artworks.each do |artwork| %>
                 <%= link_to artwork_path(artwork) do %>
                   <div class="artwork-card">
-                    <% if artwork.photos.first %>
-                      <% artwork_url = artwork.photos.first.path %>
-                    <% else %>
-                      <% artwork_url = "https://unsplash.it/263/175/?random" %>
-                    <% end %>
                     <div class="content">
-                      <%= cl_image_tag artwork_url, width: 233, height: 150, crop: :fill %>
+                      <%= cl_image_tag artwork_picture(artwork), width: 233, height: 150, crop: :fill %>
                       <p class="description"><%= truncate( artwork.description, 300) %></p>
                     </div>
                     <div class="details">
