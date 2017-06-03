@@ -35,7 +35,7 @@
                       <% artwork_url = "https://unsplash.it/263/175/?random" %>
                     <% end %>
                     <div class="content">
-                      <%= cl_image_tag artwork_url %>
+                      <%= cl_image_tag artwork_url, width: 233, height: 150, crop: :fill %>
                       <p class="description"><%= truncate( artwork.description, 300) %></p>
                     </div>
                     <div class="details">
