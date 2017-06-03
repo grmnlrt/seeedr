@@ -32,15 +32,30 @@ class ExhibitionsController < ApplicationController
 
 
   def create
-    @exhibition = Exhibition.new(exhibition_params)
+    @exhibition = Exhibition.new
     authorize @exhibition
+    @exhibition.title = exhibition_params["title"]
+    @exhibition.description = exhibition_params["description"]
+    @exhibition.address = exhibition_params["address"]
+    @exhibition.min_price = exhibition_params["min_price"]
+    @exhibition.start_date = exhibition_params["start_date"]
+    @exhibition.duration = exhibition_params["duration"]
+    @exhibition.photos = exhibition_params["photos"]
     @exhibition.user = current_user
-    @exhibition.end_date = @exhibition.start_date + @exhibition.duration.months #datepicker update
-      if @exhibition.save
-        redirect_to exhibition_path(@exhibition)
-      else
-        render :new
-      end
+    @exhibition.end_date = @exhibition.start_date + @exhibition.duration.months
+    exhibition_categories_ids = exhibition_params["categories"].split(" ")
+    exhibition_styles_ids = exhibition_params["categories"].split(" ")
+    exhibition_categories_ids.each do |category_id|
+      @exhibition.categories << Category.find(category_id.to_i)
+    end
+    exhibition_styles_ids.each do |style_id|
+      @exhibition.styles << Style.find(style_id.to_i)
+    end
+    if @exhibition.save
+      redirect_to exhibition_path(@exhibition)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -69,7 +84,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def exhibition_params
-    params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date, :duration, photos: [])
+    params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date, :duration, :categories, :styles, photos: [])
   end
 
 end
