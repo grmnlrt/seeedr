@@ -1,5 +1,7 @@
 <%= simple_form_for(@exhibition) do |f| %>
   <%= f.error_notification %>
+  <%= f.input :categories, as: :hidden, :input_html => { :value => ["1","2"] }  %>
+  <%= f.input :styles, as: :hidden, :input_html => { :value => ["1","2"] }  %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :address %>
@@ -7,8 +9,6 @@
   <%= f.input :start_date, :as=> 'string' ,:label => 'Start date', input_html: { id: 'datetimepicker1' } %>
   <%= f.input :duration, collection: @durations%>
   <%= f.input :photos, as: :attachinary %>
-  <%= f.input :categories, as: :hidden, :input_html => { :value => ["1","2"] }  %>
-  <%= f.input :styles, as: :hidden, :input_html => { :value => ["1","2"] }  %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 <%= link_to "Back to my dashboard", dashboard_company_users_path, class: "links_show pull-right" %>

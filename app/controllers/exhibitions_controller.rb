@@ -22,7 +22,9 @@ class ExhibitionsController < ApplicationController
 
 
   def new
-    @exhibition= Exhibition.new
+    @categories = Category.all
+    @styles = Style.all
+    @exhibition = Exhibition.new
     authorize @exhibition
     @durations = Exhibition::DURATIONS #datepicker update
     @all_categories = Category.all
