@@ -9,13 +9,13 @@
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-             <li>
+
+            <li>
               <% if policy(current_user).dashboard_company? %>
                 <%= link_to dashboard_company_users_path do %>
                   <i class="fa fa-user"></i> <%= t(".dashboard", default: "Dashboard") %>
@@ -26,22 +26,31 @@
                 <% end %>
               <% end %>
             </li>
+
             <li>
-            <li>
-              <%= link_to artist_users_path(current_user) do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% if policy(current_user).dashboard_company? %>
+                <%= link_to root_path do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
+              <% else %>
+                <%= link_to artist_users_path(current_user) do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
               <% end %>
             </li>
+
             <li>
               <%= link_to root_path do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
+
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
+
           </ul>
         </div>
       </div>
