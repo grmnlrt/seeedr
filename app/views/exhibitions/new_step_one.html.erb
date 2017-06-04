@@ -5,9 +5,14 @@
       <div id="select-category">
         <h2>Select your favorites artworks :</h2>
         <form action="<%= new_step2_exhibitions_path %>">
+          <% artworks_list = [] %>
           <% 16.times do %>
             <label>
               <% artwork_selected = @categories.sample.artworks.sample %>
+              <% while artworks_list.include? artwork_selected %>
+                <% artwork_selected = @categories.sample.artworks.sample %>
+              <% end %>
+              <% artworks_list << artwork_selected %>
               <input type="checkbox" name="selected_categories[]" value="<%= artwork_selected.category.id %>">
                 <%= cl_image_tag artwork_picture(artwork_selected), width: 233, height: 150, crop: :fill %>
             </label>
