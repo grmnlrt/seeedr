@@ -72,6 +72,21 @@
     z-index: 4;
     position: absolute;
     color: white;
+
+    & h1 {
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    & p {
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+
+    & p.vanity-data {
+    font-size: 20px;
+    font-weight: bold;
+    }
   }
 }
 

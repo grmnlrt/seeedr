@@ -42,14 +42,29 @@
   text-align: justify;
 }
 
+a.btn.btn-primary.btn-lg.read {
+  margin: 20px;
+  background: transparent;
+  color: black;
+  border: 3px solid $yellow;
+  border-radius: 20px;
+}
+
+.key-content {
+  font-size: 13px;
+}
+
 #custom {
-  background: #yellow;
+  background: transparent;
+  color: white;
+  border: 3px solid white;
+  border-radius: 3px;
+  font-weight: bold;
   transition: 0.5s;
-  opacity: 0.9;
-  border-radius: 5px;
+
 }
 
 #custom:hover {
-  background: none;
+  opacity: 0.8
 }
 
