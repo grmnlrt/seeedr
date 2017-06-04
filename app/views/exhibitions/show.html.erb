@@ -1,4 +1,4 @@
-<% link_image = @exhibition.photos.first.path || "banner-artist.jpeg" %>
+<% link_image = @exhibition.photos.first || "banner-artist.jpeg" %>
 <div class="banner-company" style="background-image: url('<%= cl_image_path link_image %>');"></div>
   <div class="wrapper exhibition padded">
     <div class="container">
