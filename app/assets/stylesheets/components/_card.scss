@@ -118,24 +118,13 @@
 }
 
 // Dashboard cards
+
 .dashboard-card {
   color: white;
-  filter: grayscale(100%);
-  // padding: 20px;
+  filter: brightness(0.8);
   transition: .3s all;
 }
 
 .dashboard-card:hover {
-  transform: scale(1.02);
-  filter: none;
-}
-
-#dashboard-exhibit-card-pic {
-  color: white;
-  filter: grayscale(100%);
-  transition: .3s all;
-}
-
-#dashboard-exhibit-card-pic:hover {
   filter: none;
 }

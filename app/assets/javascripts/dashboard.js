@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('.exhibition-bids').hide();
-  $('.fa-comment').click(function(){
+  $('.dashboard-cta').click(function(){
     $(this).parents(".exhibition").find('.exhibition-bids').slideToggle();
   });
 });
