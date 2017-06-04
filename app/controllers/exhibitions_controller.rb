@@ -64,9 +64,13 @@ class ExhibitionsController < ApplicationController
       @exhibition.styles << Style.find(style_id.to_i)
     end
     if @exhibition.save
-      redirect_to exhibition_path(@exhibition)
+      respond_to do |format|
+      format.html {redirect_to exhibition_path(@exhibition)}
+      format.js
     else
-      render :new
+      respond_to do |format|
+        format.html { render new }
+        format.js
     end
   end
 
@@ -104,13 +108,13 @@ class ExhibitionsController < ApplicationController
   end
 
   def business_days_between(date1, date2)
-  business_days = 0
-  date = date2
-  while date > date1
-   business_days = business_days + 1 unless date.saturday? || date.sunday?
-   date = date - 1.day
+    business_days = 0
+    date = date2
+    while date > date1
+     business_days = business_days + 1 unless date.saturday? || date.sunday?
+     date = date - 1.day
+    endpp
+    business_days
   end
-  business_days
-end
 
 end

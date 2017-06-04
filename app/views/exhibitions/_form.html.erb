@@ -1,4 +1,4 @@
-<%= simple_form_for(@exhibition) do |f| %>
+<%= simple_form_for(@exhibition, remote: true) do |f| %>
   <%= f.error_notification %>
   <%= f.input :categories, as: :hidden, :input_html => { :value => @selected_categories_id }  %>
   <%= f.input :styles, as: :hidden, :input_html => { :value => @selected_styles_id }  %>
