@@ -62,7 +62,7 @@ puts 'creating artwork'
   artwork.date = Time.now
   artwork.category = Category.offset(rand(Category.count)).first
   artwork.style = Style.offset(rand(Style.count)).first
-  artwork.user = User.find(21)
+  #artwork.user = User.find(21)
   if artwork.save
     puts "artwork #{x} done"
   else
