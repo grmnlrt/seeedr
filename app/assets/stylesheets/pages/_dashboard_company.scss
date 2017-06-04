@@ -20,8 +20,6 @@
 #dashboard .exhibition-header {
   background: #ffffff;
   box-shadow: 2px 4px 10px rgb(216, 214, 214);
-  // border: 3px $brand-color solid;
-  padding: 20px;
   font-size: .8em;
 }
 
@@ -77,14 +75,18 @@
   justify-content: space-around;
 }
 
-#dashboard .exhibition-bids .artworks img {
-    // border-radius: 10px;
-}
-
 #dashboard .exhibition-bids .cta {
   margin-top: 20px;
 }
 
 #dashboard .exhibition-bids .cta ul {
   margin: 0;
+}
+
+.exhibition-title h3{
+  padding: 0 20px;
+}
+
+.exhibition-title i, .badge {
+  right: 5px;
 }

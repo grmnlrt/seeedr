@@ -15,5 +15,7 @@
 }
 
 .btn-new-small:hover {
-  box-shadow: 0 0 0 2px #000;
+  box-shadow: 0 0 0 2px $brand-color;
+  border: 0;
+  text-decoration: none;
 }

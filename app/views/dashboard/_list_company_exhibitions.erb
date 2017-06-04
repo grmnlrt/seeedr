@@ -2,60 +2,64 @@
     <% current_user.exhibitions.each do |exhibition| %>
       <div class="exhibition">
         <div class="exhibition-header">
-          <div class="row">
-            <div class="col-xs-12 col-md-5">
-              <div class="row">
-                <div class="col-xs-12">
-                  <h2 class="underline"><%= exhibition.title %></h2>
-                </div>
-                <div class="col-xs-6">
-                  <p>Theme : ?</p>
-                </div>
-                <div class="col-xs-6">
-                  <p>Place : <%= exhibition.address.capitalize %></p>
-                </div>
-                <div class="col-xs-6">
-                  <p>Starting date : <%= exhibition.start_date %></p>
-                </div>
-                <div class="col-xs-6">
-                  <p>Offer : <%= exhibition.min_price %></p>
-                </div>
-                <div class="col-xs-6">
-                  <p>Duration : <%= exhibition.duration %> months</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-md-7">
-              <div class="row">
-                <div class="col-xs-12">
-                  <!-- <p class="proposals-number pull-right"> -->
-                    <%#= pluralize exhibition.bids.count, "artist bid" %>
-                  <!-- </p> -->
-                  <!-- test badge -->
-                  <div class="badge-container">
-                    <i class="fa fa-eye"></i>
-                    <div class="badge badge-blue">
-                      <%= exhibition.bids.count %>
-                    </div>
+          <div class="exhibition-title">
+            <div class="row">
+              <div class="col-xs-12">
+                <h3><%= exhibition.title.capitalize %>
+                  <div class="badge">
+                    <%= exhibition.bids.count %>
                   </div>
-                  <!-- fin test -->
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <%= cl_image_tag exhibition.photos.first.path, width: 200, height: 200, crop: :fill, class: "product-image hidden-xs", id: "dashboard-exhibit-card-pic"%>
+
+
+            <div class="product-details">
+              <div class="row">
+                <div class="col-xs-12">
+                  <p><i class="fa fa-map-marker" aria-hidden="true"></i>  <%= exhibition.address.capitalize %></p>
                 </div>
                 <div class="col-xs-12">
-                  <% if exhibition.booked? %>
-                    <%= link_to 'Payment', payment_path(exhibition.id), Class: 'btn btn-success pull-right' %>
-                  <% end %>
-                  <% if exhibition.bids.first %>
-                    <div class="btn-new-small pull-right">View proposals</div>
-                  <% end %>
-                  <%= link_to exhibition_path(exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn pull-right' do %>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                    <% end %>
-                  <%= link_to edit_exhibition_path(exhibition), class: 'btn pull-right' do %>
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                  <% end %>
+                  <p><i class="fa fa-calendar" aria-hidden="true"></i> <%= exhibition.start_date %></p>
+                </div>
+                <div class="col-xs-12">
+                  <p><i class="fa fa-heartbeat" aria-hidden="true"></i> <%= exhibition.duration %> months</p>
+                </div>
+                <div class="col-xs-12">
+                  <p><i class="fa fa-eur" aria-hidden="true"></i> <%= exhibition.min_price %></p>
                 </div>
               </div>
             </div>
+
+            <div class="product-description">
+            <br>
+              <div class="row">
+                <div class="col-xs-12">
+                  <p>"<%= exhibition.description %>"</p>
+                </div>
+              </div>
+            </div>
+
+            <ul class="list-inline product-controls hidden-sm hidden-xs">
+              <li>
+                <%= link_to edit_exhibition_path(exhibition) do %>
+                  <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to exhibition_path(exhibition),
+                    method: :delete,
+                    data: {confirm: "Are you sure?"},
+                    class: 'pull-right' do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
+              </li>
+            </ul>
+
           </div>
         </div>
         <div class="exhibition-bids">
@@ -102,7 +106,7 @@
                     <h4 class="underline"><%= pluralize_without_count(bid.user.artworks.count, 'Last artwork') %></h4>
                     <div class="artworks">
                       <% bid.user.artworks.last(5).each do |artwork| %>
-                        <%= cl_image_tag artwork_picture(artwork), width: 200, height: 200, crop: :fill %>
+                        <%= cl_image_tag artwork_picture(artwork), width: 200, height: 200, crop: :fill, class: "dashboard-card" %>
                       <% end %>
                     </div>
                     <div class="cta">

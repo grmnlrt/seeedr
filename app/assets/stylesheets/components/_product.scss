@@ -1,0 +1,76 @@
+.product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+}
+
+/* Body design */
+.product-details {
+  flex: 0 0 20%;
+}
+.product-details h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.product-details p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+  min-height: 50px;
+}
+
+/* Product decsription */
+.product-description {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.product-description p{
+  font-style: italic;
+  font-weight: lighter;
+  color: #999999;
+}
+
+/* Product image */
+.product-image {
+  margin-right: 20px;
+}
+
+/* Controls design */
+.product-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0;
+}
+.product-controls a {
+  padding: 0 10px;
+  font-size: 17px;
+  color: #E6E6E6;
+  margin: 0px;
+}
+.product-controls a:hover {
+  color: $brand-color !important
+}
+.product-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+/* Hover effects */
+.product-upvote:hover, .product-upvote.product-upvote-upvoted {
+  color: #5898f1;
+  cursor: pointer;
+}
+.product-upvote-upvoted .product-arrow {
+  border-bottom-color: #5898f1;
+}
+
+.product:hover .product-controls-hidden a { color: #E6E6E6 }
+.product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
