@@ -27,13 +27,13 @@ class ExhibitionsController < ApplicationController
 
   def new_step_two
     @selected_categories_id = params["selected_categories"].uniq.map(&:to_i)
-    @styles = Style.all
-    authorize @styles
+    @categories = Category.find(@selected_categories_id)
+    @categories.each { |category| authorize category }
   end
 
   def new
-    @categories = Category.all
-    @styles = Style.all
+    @selected_categories_id = params["selected_categories"].uniq.map(&:to_i)
+    @selected_styles_id = params["selected_styles"].uniq.map(&:to_i)
     @exhibition = Exhibition.new
     authorize @exhibition
     @durations = Exhibition::DURATIONS #datepicker update
@@ -56,7 +56,7 @@ class ExhibitionsController < ApplicationController
     @exhibition.user = current_user
     @exhibition.end_date = @exhibition.start_date + @exhibition.duration.months
     exhibition_categories_ids = exhibition_params["categories"].split(" ")
-    exhibition_styles_ids = exhibition_params["categories"].split(" ")
+    exhibition_styles_ids = exhibition_params["styles"].split(" ")
     exhibition_categories_ids.each do |category_id|
       @exhibition.categories << Category.find(category_id.to_i)
     end
@@ -99,8 +99,8 @@ class ExhibitionsController < ApplicationController
     params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date, :duration, :categories, :styles, photos: [])
   end
 
-  def selected_categories_param
-    params.permit(:selected_categories)
+  def exhibition_create_param
+    params.permit(:selected_categories, :selected_styles)
   end
 
 end
