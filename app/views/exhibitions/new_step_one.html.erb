@@ -1,20 +1,25 @@
 <div class="container padded">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
       <h1>New exhibition</h1>
-      <div id="select-category">
-        <h2>Select your favorites artworks :</h2>
-        <form action="<%= new_step2_exhibitions_path %>">
+      <h2>Select your favorites artworks :</h2>
+      <form action="<%= new_step2_exhibitions_path %>">
+        <div id="select-artwork">
+          <% artworks_list = [] %>
           <% 16.times do %>
             <label>
               <% artwork_selected = @categories.sample.artworks.sample %>
+              <% while artworks_list.include? artwork_selected %>
+                <% artwork_selected = @categories.sample.artworks.sample %>
+              <% end %>
+              <% artworks_list << artwork_selected %>
               <input type="checkbox" name="selected_categories[]" value="<%= artwork_selected.category.id %>">
-                <%= cl_image_tag artwork_picture(artwork_selected), width: 233, height: 150, crop: :fill %>
+                <%= cl_image_tag artwork_picture(artwork_selected), width: 200, height: 200, crop: :fill, class: 'sample-artwork'%>
             </label>
           <% end %>
-          <input type="submit">
-        </form>
-      </div>
+        </div>
+        <input type="submit" class="btn btn-primary pull-right">
+      </form>
     </div>
   </div>
 </div>

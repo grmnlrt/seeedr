@@ -1,0 +1,27 @@
+#select-artwork {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+div#select-artwork label {
+  margin: 0;
+}
+
+#select-artwork input[type="checkbox"] {
+  display: none;
+}
+
+div#select-artwork img {
+  margin: 5px;
+  border: 5px solid transparent;
+  transition: border .5s;
+}
+
+div#select-artwork img:hover {
+  border-color: $brand-color;
+}
+
+#select-artwork input[type="checkbox"]:checked + img {
+  border-color: $yellow;
+}
