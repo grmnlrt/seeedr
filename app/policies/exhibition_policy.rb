@@ -9,7 +9,6 @@ class ExhibitionPolicy < ApplicationPolicy
     true
   end
 
-
   def create?
     user.is_company == true
   end

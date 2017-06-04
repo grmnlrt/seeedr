@@ -13,7 +13,12 @@ Rails.application.routes.draw do
       get 'dashboard/company', to: 'dashboard#dashboard_company'
     end
   end
-  resources :exhibitions
+  resources :exhibitions do
+    collection do
+      get 'new/step1', to: "exhibitions#new_step_one"
+      get 'new/step2', to: "exhibitions#new_step_two"
+    end
+  end
   resources :bids, only: [:show, :new, :create, :edit, :update, :destroy]
 
   mount Attachinary::Engine => "/attachinary"

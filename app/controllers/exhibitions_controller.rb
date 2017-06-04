@@ -20,6 +20,16 @@ class ExhibitionsController < ApplicationController
     @bid = Bid.new
   end
 
+  def new_step_one
+    @categories = Category.all
+    authorize @categories
+  end
+
+  def new_step_two
+    @selected_categories_id = params["selected_categories"].uniq.map(&:to_i)
+    @styles = Style.all
+    authorize @styles
+  end
 
   def new
     @categories = Category.all
@@ -87,6 +97,10 @@ class ExhibitionsController < ApplicationController
 
   def exhibition_params
     params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date, :duration, :categories, :styles, photos: [])
+  end
+
+  def selected_categories_param
+    params.permit(:selected_categories)
   end
 
 end
