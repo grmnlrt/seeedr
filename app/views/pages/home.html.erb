@@ -55,20 +55,99 @@
   <div class="container">
     <div class="row">
       <h2 class="padded-mini" style="font-family: 'Basic', sans-serif;">Last Artworks from our Artist community</h2>
-        <% 12.times do %>
-          <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="card text-center">
-            <p class="speciality">Photographer</p>
-            <hr>
-            <a href="" class="btn btn-primary">View gallerie</a>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="artwork-card">
+            <div class="content">
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496659929/Test-image_lrh2to.jpg", width: 400, height: 300, crop: :fill, class: 'home-artwork'%>
+              <p class="description">Testestestestestest</p>
+            </div>
+            <div class="details">
+              <h2 class="name text-center">TEST NAME</h2>
+            </div>
           </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="artwork-card">
+            <div class="content">
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660714/image-sculpture_zxyxpk.jpg", width: 400, crop: :fill, class: 'home-artwork'%>
+              <p class="description">Testestestestestest</p>
+            </div>
+            <div class="details">
+              <h2 class="name text-center">TEST NAME</h2>
+            </div>
           </div>
-        <%end%>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="artwork-card">
+            <div class="content">
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660149/image-paint2_nuze49.jpg", width: 400, crop: :fill, class: 'home-artwork'%>
+              <p class="description">Testestestestestest</p>
+            </div>
+            <div class="details">
+              <h2 class="name text-center">TEST NAME</h2>
+            </div>
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="artwork-card">
+            <div class="content">
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660157/image-digital_aospdv.jpg", width: 400, crop: :fill, class: 'home-artwork'%>
+              <p class="description">Testestestestestest</p>
+            </div>
+            <div class="details">
+              <h2 class="name text-center">TEST NAME</h2>
+            </div>
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="artwork-card">
+            <div class="content">
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660352/image-photo2_advegl.jpg", width: 400, crop: :fill, class: 'home-artwork'%>
+              <p class="description">Testestestestestest</p>
+            </div>
+            <div class="details">
+              <h2 class="name text-center">TEST NAME</h2>
+            </div>
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="artwork-card">
+            <div class="content">
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660154/image-paint_ggbfdg.jpg", width: 400, crop: :fill, class: 'home-artwork'%>
+              <p class="description">Testestestestestest</p>
+            </div>
+            <div class="details">
+              <h2 class="name text-center">TEST NAME</h2>
+            </div>
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="artwork-card">
+            <div class="content">
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660360/image-photo_i9gypr.jpg", width: 400, crop: :fill, class: 'home-artwork'%>
+              <p class="description">Testestestestestest</p>
+            </div>
+            <div class="details">
+              <h2 class="name text-center">TEST NAME</h2>
+            </div>
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="artwork-card">
+            <div class="content">
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660716/image-sculpture2_udqsvg.jpg", width: 400, crop: :fill, class: 'home-artwork'%>
+              <p class="description">Testestestestestest</p>
+            </div>
+            <div class="details">
+              <h2 class="name text-center">TEST NAME</h2>
+            </div>
+          </div>
       </div>
     </div>
   </div>
-
 </div>
+
+
 
 <!-- testimonial homepage -->
 
