@@ -7,6 +7,12 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
+          <% if current_user.is_company? %>
+            <%= f.input :company_name %>
+          <% else %>
+            <%= f.input :first_name %>
+            <%= f.input :last_name %>
+          <% end %>
           <%= f.input :email, required: true, autofocus: true %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -18,7 +24,7 @@
           <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
           <%= f.input :description, hint: "Describe who you are in a few words" %>
           <%= f.input :address %>
-          <%= f.input :website, hint: "You can shoot your website here, something you are proud of !" %>
+          <%= f.input :website %>
           <%= f.input :photo, as: :attachinary %>
         </div>
 
