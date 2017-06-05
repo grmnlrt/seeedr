@@ -117,7 +117,7 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-// Dashboard cards
+// Dashboard exhibition card
 
 .dashboard-card {
   color: white;
@@ -127,4 +127,17 @@
 
 .dashboard-card:hover {
   filter: none;
+}
+
+// dashboard bid cards
+.card-bid {
+  box-shadow: none;
+}
+
+.card-bid-pics img{
+  margin: 10px;
+}
+
+.bid-details {
+  font-size: 0.8em;
 }
