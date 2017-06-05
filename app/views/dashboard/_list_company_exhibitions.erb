@@ -93,10 +93,8 @@
                       <!-- Artist specialties -->
                       <div class="product-details bid-details">
                         <p><i class="fa fa-tags" aria-hidden="true">
-                          <% bid.user.categories.uniq.each do |category| %>
-                            <%= category.name.capitalize %>
-                            <% if(category != bid.user.categories.last) %>,
-                            <% end %>
+                          <% bid.user.categories.order("name ASC").uniq.each do |category| %>
+                              <%= category.name.capitalize %>
                           <% end %>
                         </i></p>
                         <!-- bid price offer -->
@@ -111,9 +109,16 @@
                     <div class="col-xs-12 col-md-7">
                       <div class="details">
                         <div class="artworks">
-                          <% bid.user.artworks.last(9).each do |artwork| %>
+                          <% bid.user.artworks.last(8).each do |artwork| %>
                             <%= cl_image_tag artwork_picture(artwork), width: 150, height: 150, crop: :fill, class: "dashboard-card" %>
                           <% end %>
+                          <div class="see-gallery pull-right">
+                            <%= link_to artist_users_path(bid.user.id) do %>
+                              <a class="see-gallery">See more</a>
+                            <% end %>
+
+                          </div>
+
                         </div>
                       </div>
                     </div>

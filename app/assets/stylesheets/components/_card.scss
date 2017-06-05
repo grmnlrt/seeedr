@@ -147,6 +147,14 @@ img.dashboard-card {
 
 .card-bid-pics img{
   margin: 10px;
+  position: relative;
+}
+
+.see-gallery {
+  position: absolute;
+  bottom: 25px;
+  right: 47px;
+  color: black;
 }
 
 .bid-details {
