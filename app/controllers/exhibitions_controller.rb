@@ -64,13 +64,9 @@ class ExhibitionsController < ApplicationController
       @exhibition.styles << Style.find(style_id.to_i)
     end
     if @exhibition.save
-      respond_to do |format|
-      format.html {redirect_to exhibition_path(@exhibition)}
-      format.js
+      redirect_to exhibition_path(@exhibition)
     else
-      respond_to do |format|
-        format.html { render new }
-        format.js
+      render :new
     end
   end
 
@@ -91,6 +87,13 @@ class ExhibitionsController < ApplicationController
     redirect_to dashboard_company_users_path, :notice => "Your exhibition has been deleted"
   end
 
+  def estimate_price
+    end_date = params["start_date"] + params["duration"].to_i.months
+    days = business_days_between(start_date, end_date)
+    min_price_calculated = days * 50
+    respond_to exhibition.js
+  end
+
 
   private
 
@@ -105,16 +108,6 @@ class ExhibitionsController < ApplicationController
 
   def exhibition_create_param
     params.permit(:selected_categories, :selected_styles)
-  end
-
-  def business_days_between(date1, date2)
-    business_days = 0
-    date = date2
-    while date > date1
-     business_days = business_days + 1 unless date.saturday? || date.sunday?
-     date = date - 1.day
-    endpp
-    business_days
   end
 
 end
