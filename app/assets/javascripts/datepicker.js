@@ -23,7 +23,7 @@ $(document).ready(function(){
         endDate = new Date(endDate.setYear(endDate.getFullYear() + 1));
       }
       var businessDays = calcBusinessDays(startDate, endDate);
-      var min_price = businessDays * 50;
+      var min_price = businessDays * 20;
       $("#exhibition_min_price").val(min_price)
     }
   })
@@ -45,7 +45,7 @@ $(document).ready(function(){
         endDate = new Date(endDate.setYear(endDate.getFullYear() + 1));
       }
       var businessDays = calcBusinessDays(startDate, endDate);
-      var min_price = businessDays * 50;
+      var min_price = businessDays * 20;
       $("#exhibition_min_price").val(min_price)
     }
   })
