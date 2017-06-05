@@ -60,6 +60,7 @@ class ExhibitionsController < ApplicationController
     @exhibition.description = exhibition_params["description"]
     @exhibition.address = exhibition_params["address"]
     @exhibition.min_price = exhibition_params["min_price"]
+    @exhibition.price = exhibition_params["price"]
     @exhibition.start_date = exhibition_params["start_date"]
     @exhibition.duration = exhibition_params["duration"]
     @exhibition.photos = exhibition_params["photos"]
@@ -98,6 +99,7 @@ class ExhibitionsController < ApplicationController
   end
 
 
+
   private
 
   def find_exhibition
@@ -106,7 +108,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def exhibition_params
-    params.require(:exhibition).permit(:title, :description, :address, :min_price, :user_id, :start_date, :end_date, :duration, :categories, :styles, photos: [])
+    params.require(:exhibition).permit(:title, :description, :address, :min_price, :price, :user_id, :start_date, :end_date, :duration, :categories, :styles, photos: [])
   end
 
   def exhibition_create_param

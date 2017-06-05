@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get 'new/step2', to: "exhibitions#new_step_two"
     end
   end
+  post 'exhibition-price', to: "exhibitions#estimate_price"
   resources :bids, only: [:show, :new, :create, :edit, :update, :destroy]
 
   mount Attachinary::Engine => "/attachinary"
