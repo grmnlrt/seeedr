@@ -133,6 +133,13 @@ img.dashboard-card {
   filter: none;
 }
 
+.dashboard-cta i {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  font-size: 25px;
+}
+
 // dashboard bid cards
 .card-bid {
   box-shadow: none;

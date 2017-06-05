@@ -27,10 +27,11 @@ class BidsController < ApplicationController
 
   def update
     other_bids = @bid.exhibition.bids.where.not(id: @bid.id) #array excluant la bid confirmee par la company
-    @bid.update(bid_params)
-    if @bid.save
-      if params[:bid][:status] == "accepted"
-        other_bids.update_all(status: "rejected")
+    if @bid.update(bid_params)
+      if bid_params[:status] == "accepted"
+        other_bids.update_all(status: "pending")
+        redirect_to dashboard_company_users_path
+      elsif bid_params[:status] == "pending"
         redirect_to dashboard_company_users_path
       else
         redirect_to bid_path(@bid)

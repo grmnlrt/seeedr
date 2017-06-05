@@ -61,7 +61,10 @@
             </div>
           </div>
           <br>
-          <div class="btn-new-small dashboard-cta"> <p>View proposals</p></div>
+          <div class="dashboard-cta">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </div>
+          <%= link_to 'Payment', payment_path(exhibition.id), Class: 'btn-new-small' %>
         </div>
       </div>
       <div class="exhibition-bids">
@@ -118,7 +121,10 @@
                 <!-- CTA : book / payment -->
                 <div class="bid-cta pull-right">
                   <% if bid.status == "accepted" %>
-                    <%= link_to 'Payment', payment_path(exhibition.id), Class: 'btn-new-small' %>
+                    <%= simple_form_for bid do |f| %>
+                      <%= f.input :status, input_html: {value: 'pending'}, as: :hidden %>
+                      <%= f.submit "Unbook !", class: 'btn-new-small' %>
+                    <% end %>
                   <% else %>
                     <%= simple_form_for bid do |f| %>
                       <%= f.input :status, input_html: {value: 'accepted'}, as: :hidden %>
