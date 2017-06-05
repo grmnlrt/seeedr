@@ -50,6 +50,7 @@ class ExhibitionsController < ApplicationController
     @exhibition.description = exhibition_params["description"]
     @exhibition.address = exhibition_params["address"]
     @exhibition.min_price = exhibition_params["min_price"]
+    @exhibition.price = exhibition_params["price"]
     @exhibition.start_date = exhibition_params["start_date"]
     @exhibition.duration = exhibition_params["duration"]
     @exhibition.photos = exhibition_params["photos"]

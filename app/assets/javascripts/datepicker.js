@@ -48,8 +48,6 @@ $(document).ready(function(){
       var min_price = businessDays * 50;
       $("#exhibition_min_price").val(min_price)
     }
-
-
   })
   function calcBusinessDays(startDate, endDate){
     var weeks, dateDiff, adjust = 0
