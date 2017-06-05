@@ -9,7 +9,7 @@ $(document).ready(function(){
 
   $("#datetimepicker1").on('dp.change', function(){
     inputDate = $("#datetimepicker1").val();
-    inputDuration = $("#exhibition_duration").val();
+    inputDuration = $('.duration-selected').find('input').val();
     startDate = new Date(inputDate);
     duration = parseInt(inputDuration);
     if ( ( inputDate != "" ) && ( inputDuration != "") ) {
@@ -29,9 +29,9 @@ $(document).ready(function(){
   })
 
 
-  $("#exhibition_duration").change(function(){
+  $(".exhibition_duration .duration-input label").change(function(){
     inputDate = $("#datetimepicker1").val();
-    inputDuration = $("#exhibition_duration").val();
+    inputDuration = $('.duration-selected').find('input').val();
     startDate = new Date(inputDate);
     duration = parseInt(inputDuration);
     if ( ( inputDate != "" ) && ( inputDuration != "") ) {

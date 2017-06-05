@@ -25,9 +25,9 @@
             </div>
           </div>
         </div>
-
         <div class="product">
-          <%= cl_image_tag exhibition.photos.first.path, width: 200, height: 200, crop: :fill, class: "product-image dashboard-card hidden-xs"%>
+          <% exhibition.photos.first.nil? ? (exhibition_picture = 'https://placehold.it/150x150') : (user_picture = exhibition.photos.first.path) %>
+          <%= cl_image_tag exhibition_picture, width: 200, height: 200, crop: :fill, class: "product-image dashboard-card hidden-xs"%>
           <div class="product-details bolder-hover">
             <div class="row">
               <div class="col-xs-12">
