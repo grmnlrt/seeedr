@@ -1,8 +1,17 @@
+<% content_for :body_id, "form" %>
 <div class="container padded">
   <div class="row">
+    <div class="col-xs-12">
+      <div id="breadcrumb-exhibition">
+        <ul class="list-inline text-center">
+          <li class="validate">Choose Category</li>
+          <li class="active">Choose Style</li>
+          <li>Finalize</li>
+        </ul>
+      </div>
+    </div>
     <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <h1>New exhibition</h1>
-      <h2>Select your favorites artworks :</h2>
+      <h1 class="text-center padded-mini">Select your favorites artworks</h1>
       <form action="<%= new_exhibition_path %>">
         <% @selected_categories_id.each do |category| %>
           <input type="hidden" name="selected_categories[]" value="<%= category %>">
@@ -10,18 +19,24 @@
         <div id="select-artwork">
           <% artworks_list = [] %>
           <% 16.times do %>
-            <label>
+            <% artwork_selected = @categories.sample.artworks.sample %>
+            <% while artworks_list.include? artwork_selected %>
               <% artwork_selected = @categories.sample.artworks.sample %>
-              <% while artworks_list.include? artwork_selected %>
-                <% artwork_selected = @categories.sample.artworks.sample %>
-              <% end %>
-              <% artworks_list << artwork_selected %>
-              <input type="checkbox" name="selected_styles[]" value="<%= artwork_selected.style.id %>">
-                <%= cl_image_tag artwork_picture(artwork_selected), width: 200, height: 200, crop: :fill %>
+            <% end %>
+            <% artworks_list << artwork_selected %>
+            <label>
+              <div class="select-item">
+                <input type="checkbox" name="selected_styles[]" value="<%= artwork_selected.style.id %>">
+                <div class="artwork-sample">
+                  <%= cl_image_tag artwork_picture(artwork_selected), width: 200, height: 200, crop: :fill %>
+                </div>
+              </div>
             </label>
           <% end %>
         </div>
-        <input type="submit" class="btn btn-primary pull-right">
+        <div class="padded">
+          <input type="submit" class="btn btn-primary-bis btn-lg btn-block" value="Next step">
+        </div>
       </form>
     </div>
   </div>

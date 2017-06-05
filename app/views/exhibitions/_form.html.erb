@@ -2,13 +2,38 @@
   <%= f.error_notification %>
   <%= f.input :categories, as: :hidden, :input_html => { :value => @selected_categories_id }  %>
   <%= f.input :styles, as: :hidden, :input_html => { :value => @selected_styles_id }  %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :min_price %>
-  <%= f.input :start_date, :as=> 'string' ,:label => 'Start date', input_html: { id: 'datetimepicker1' } %>
-  <%= f.input :duration, collection: @durations%>
+  <%= f.input :title, placeholder: 'Name of your exhibition', label: false %>
+  <%= f.input :description, placeholder: 'Describe your exhibition', label: false %>
+  <%= f.input :address, placeholder: 'Address of your exhibition', label: false %>
+  <%= f.input :min_price, placeholder: 'Min price', label: false %>
+  <%= f.input :start_date, :as=> 'string', placeholder: 'Starting date of your exhibition', label: false, input_html: { id: 'datetimepicker1' } %>
+  <%#= f.input :duration, collection: @durations, as: :radio_buttons, label: "Exhibition's duration" %>
+  <div class="form-group radio_buttons optional exhibition_duration padded-mini">
+    <label class="control-label radio_buttons optional">Exhibition's duration</label>
+    <input type="hidden" name="exhibition[duration]" value="">
+    <div class="duration-input padded-mini">
+      <span class="radio">
+        <label for="exhibition_duration_3">
+        <input class="radio_buttons optional" type="radio" value="3" name="exhibition[duration]" id="exhibition_duration_3">3 months
+        </label>
+      </span>
+      <span class="radio">
+        <label for="exhibition_duration_6">
+          <input class="radio_buttons optional" type="radio" value="6" name="exhibition[duration]" id="exhibition_duration_6">6 months
+        </label>
+      </span>
+      <span class="radio">
+        <label for="exhibition_duration_9">
+          <input class="radio_buttons optional" type="radio" value="9" name="exhibition[duration]" id="exhibition_duration_9">9 months
+        </label>
+      </span>
+      <span class="radio">
+        <label for="exhibition_duration_12">
+          <input class="radio_buttons optional" type="radio" value="12" name="exhibition[duration]" id="exhibition_duration_12">1 year
+        </label>
+      </span>
+    </div>
+  </div>
   <%= f.input :photos, as: :attachinary %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= f.button :submit, class: "btn btn-primary-bis btn-lg btn-block" %>
 <% end %>
-<%= link_to "Back to my dashboard", dashboard_company_users_path, class: "links_show pull-right" %>

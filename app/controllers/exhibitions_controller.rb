@@ -64,7 +64,7 @@ class ExhibitionsController < ApplicationController
       @exhibition.styles << Style.find(style_id.to_i)
     end
     if @exhibition.save
-      redirect_to exhibition_path(@exhibition)
+      redirect_to dashboard_company_users_path
     else
       render :new
     end

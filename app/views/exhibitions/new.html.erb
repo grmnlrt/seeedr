@@ -1,7 +1,17 @@
+<% content_for :body_id, "form-end" %>
 <div class="container padded">
   <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <h1>New exhibition</h1>
+    <div class="col-xs-12">
+      <div id="breadcrumb-exhibition">
+        <ul class="list-inline text-center">
+          <li class="validate">Choose Category</li>
+          <li class="validate">Choose Style</li>
+          <li class="active">Finalize</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+      <h1 class="text-center padded-mini">Finalize your exhibition</h1>
         <%= render "form" %>
     </div>
   </div>

@@ -61,3 +61,23 @@ span.artist-category {
   font-size: .8em;
 }
 
+// Boostrap button hack
+.btn-primary-bis {
+  background: transparent;
+  border: 3px solid $gray;
+  color: $gray;
+  border-radius: 0;
+  font-weight: 700;
+  transition: border .3s;
+}
+
+.btn-primary-bis:hover {
+  background: transparent;
+  color: $gray;
+  border-color: $brand-color;
+}
+
+.btn-primary-bis:focus, .btn-primary-bis:active {
+  outline: 0!important;
+  box-shadow: none!important;
+}
