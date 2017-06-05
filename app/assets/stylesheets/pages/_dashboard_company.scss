@@ -20,8 +20,6 @@
 #dashboard .exhibition-header {
   background: #ffffff;
   box-shadow: 2px 4px 10px rgb(216, 214, 214);
-  // border: 3px $brand-color solid;
-  padding: 20px;
   font-size: .8em;
 }
 
@@ -53,7 +51,7 @@
 #dashboard .bid .reject {
   position: absolute;
   top: -2px;
-  left: 10px;
+  right: 10px;
   font-size: 1.8em;
 }
 
@@ -68,17 +66,13 @@
 }
 
 #dashboard .exhibition-bids .details {
-  margin: 20px 0 0;
+  margin: 20px 0 0 60px;
 }
 
 #dashboard .exhibition-bids .artworks {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-#dashboard .exhibition-bids .artworks img {
-    border-radius: 10px;
+  justify-content: flex-start;
 }
 
 #dashboard .exhibition-bids .cta {
@@ -87,4 +81,12 @@
 
 #dashboard .exhibition-bids .cta ul {
   margin: 0;
+}
+
+.exhibition-title h3{
+  padding: 10px 20px 0 30px;
+}
+
+.exhibition-title i {
+  right: 5px;
 }

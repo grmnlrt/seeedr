@@ -1,0 +1,75 @@
+.product {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px 20px 30px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+/* Body design */
+.product-details {
+  flex: 0 0 20%;
+}
+.product-details h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.product-details p {
+  font-weight: lighter!important;
+  color: #999999;
+  margin-bottom: 0;
+  line-height: 2.5;
+}
+
+/* Product decsription */
+.product-description {
+  flex: 0 0 20%;
+  margin-right: 20px;
+  min-height: 180px;
+  // max-width: 400px;
+}
+
+.product-description p{
+  font-style: italic;
+  font-style: 17px;
+  font-weight: lighter;
+  color: #999999;
+  line-height: 30px;
+  text-align: justify;
+}
+
+
+/* Product image */
+.product-image {
+  margin-right: 20px;
+}
+
+/* Controls design */
+.product-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0;
+}
+.product-controls a {
+  padding: 0 10px;
+  font-size: 17px;
+  color: #E6E6E6;
+  margin: 0px;
+}
+.product-controls a:hover {
+  color: $brand-color !important
+}
+.product-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+#artist-answers {
+  color: $brand-color;
+}
