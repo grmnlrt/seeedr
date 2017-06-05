@@ -30,7 +30,7 @@ class ArtworksController < ApplicationController
   def update
     @artwork.update(artwork_params)
     if @artwork.save
-      redirect_to artwork_path(@artwork)
+      redirect_to artist_users_path(@artwork.user_id)
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class ArtworksController < ApplicationController
 
   def destroy
     @artwork.destroy
-    redirect_to root_path
+    redirect_to artist_users_path(@artwork.user_id)
   end
 
   private

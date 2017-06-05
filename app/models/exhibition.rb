@@ -19,7 +19,7 @@ class Exhibition < ApplicationRecord
   has_many :styles, through: :exhibition_styles
 
 
-  validates :start_date, :title, :min_price, presence: true
+  validates :start_date, :title, :min_price, :duration, presence: true
   validate :end_date_is_after_start_date
   validates :address, presence: true
   validates :duration, :inclusion => {:in => DURATIONS}
