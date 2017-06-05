@@ -66,13 +66,13 @@
 }
 
 #dashboard .exhibition-bids .details {
-  margin: 20px 0 0;
+  margin: 20px 0 0 60px;
 }
 
 #dashboard .exhibition-bids .artworks {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 #dashboard .exhibition-bids .cta {

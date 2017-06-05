@@ -125,6 +125,10 @@
   transition: .3s all;
 }
 
+img.dashboard-card {
+  border: 4px solid black;
+}
+
 .dashboard-card:hover {
   filter: none;
 }
@@ -140,4 +144,14 @@
 
 .bid-details {
   font-size: 0.8em;
+}
+
+.container-bid {
+  position: relative;
+}
+
+.bid-cta {
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
 }
