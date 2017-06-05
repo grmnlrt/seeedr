@@ -41,15 +41,17 @@
               <% end %>
             <% end %>
             <%= link_to new_artwork_path do %>
-              <div class="artwork-card new-artwork">
-                <div class="content">
-                  <img src="https://placehold.it/200x150" alt="">
-                  <p class="description"><i class="fa fa-plus" aria-hidden="true"></i></p>
+              <% if policy(@user).dashboard_artist? %>
+                <div class="artwork-card new-artwork">
+                  <div class="content">
+                    <img src="https://placehold.it/200x150" alt="">
+                    <p class="description"><i class="fa fa-plus" aria-hidden="true"></i></p>
+                  </div>
+                  <div class="details">
+                    <h2 class="name text-center">Add a new artwork</h2>
+                  </div>
                 </div>
-                <div class="details">
-                  <h2 class="name text-center">Add a new artwork</h2>
-                </div>
-              </div>
+              <% end %>
             <% end %>
           </div>
         </div>
