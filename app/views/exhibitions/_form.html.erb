@@ -5,9 +5,10 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :address %>
-  <%= f.input :min_price %>
   <%= f.input :start_date, :as=> 'string' ,:label => 'Start date', input_html: { id: 'datetimepicker1' } %>
-  <%= f.input :duration, collection: @durations%>
+  <%= f.input :duration, collection: @durations, :as => :radio_buttons %>
+  <%= f.input :min_price, disabled: true, hint: 'You cannot change this field' %>
+  <%= f.input :price, hint: "Must at-least equals minimum price" %>
   <%= f.input :photos, as: :attachinary %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
