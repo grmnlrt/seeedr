@@ -58,7 +58,7 @@
     <% else %>
 
       <!-- Arstist inscription text link -->
-      <%= link_to t(".artist_registration", default: "I'm an Arstist"), "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".artist_registration", default: "I'm an Arstist"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
