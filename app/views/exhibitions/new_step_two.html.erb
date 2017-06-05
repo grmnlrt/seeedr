@@ -17,18 +17,12 @@
           <input type="hidden" name="selected_categories[]" value="<%= category %>">
         <% end %>
         <div id="select-artwork">
-          <% artworks_list = [] %>
-          <% 16.times do %>
-            <% artwork_selected = @categories.sample.artworks.sample %>
-            <% while artworks_list.include? artwork_selected %>
-              <% artwork_selected = @categories.sample.artworks.sample %>
-            <% end %>
-            <% artworks_list << artwork_selected %>
+          <% @artworks.each do |artwork| %>
             <label>
               <div class="select-item">
-                <input type="checkbox" name="selected_styles[]" value="<%= artwork_selected.style.id %>">
+                <input type="checkbox" name="selected_styles[]" value="<%= artwork.style.id %>">
                 <div class="artwork-sample">
-                  <%= cl_image_tag artwork_picture(artwork_selected), width: 200, height: 200, crop: :fill %>
+                  <%= cl_image_tag artwork_picture(artwork), width: 200, height: 200, crop: :fill %>
                 </div>
               </div>
             </label>

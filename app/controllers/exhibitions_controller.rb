@@ -26,9 +26,17 @@ class ExhibitionsController < ApplicationController
   end
 
   def new_step_two
-    @selected_categories_id = params["selected_categories"].uniq.map(&:to_i)
+    @selected_categories_id = params["selected_categories"].map(&:to_i)
     @categories = Category.find(@selected_categories_id)
     @categories.each { |category| authorize category }
+    @artworks = []
+    16.times do
+      artwork_selected = @categories.sample.artworks.sample
+      while @artworks.include? artwork_selected
+        artwork_selected = @categories.sample.artworks.sample
+      end
+      @artworks << artwork_selected
+    end
   end
 
   def new
