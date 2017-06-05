@@ -26,9 +26,19 @@ class ExhibitionsController < ApplicationController
   end
 
   def new_step_two
-    @selected_categories_id = params["selected_categories"].uniq.map(&:to_i)
+    @selected_categories_id = params["selected_categories"].map(&:to_i)
     @categories = Category.find(@selected_categories_id)
     @categories.each { |category| authorize category }
+    @artworks = []
+    16.times do
+      unless Artwork.where("category_id IN (?)", @categories.map(&:id)).length == @artworks.length
+        artwork_selected = @categories.sample.artworks.sample
+        while @artworks.include? artwork_selected
+          artwork_selected = @categories.sample.artworks.sample
+        end
+        @artworks << artwork_selected
+      end
+    end
   end
 
   def new
@@ -64,7 +74,7 @@ class ExhibitionsController < ApplicationController
       @exhibition.styles << Style.find(style_id.to_i)
     end
     if @exhibition.save
-      redirect_to exhibition_path(@exhibition)
+      redirect_to dashboard_company_users_path
     else
       render :new
     end

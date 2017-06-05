@@ -1,27 +1,131 @@
+// title
+body#form h1, body#form-end h1 {
+  font-size: 2em;
+}
+
+// artworks
 #select-artwork {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-div#select-artwork label {
+#select-artwork label {
   margin: 0;
+}
+
+#select-artwork .select-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  transition: all .1s;
+  box-shadow: 0 3px 9px 0 rgba(0,0,0,.1);
+}
+
+#select-artwork .select-item:hover {
+  box-shadow: 0 14px 42px 0 rgba(0,0,0,.2);
 }
 
 #select-artwork input[type="checkbox"] {
   display: none;
 }
 
-div#select-artwork img {
-  margin: 5px;
-  border: 5px solid transparent;
-  transition: border .5s;
+#select-artwork input[type="checkbox"]:checked + .artwork-sample:before {
+  border: 5px solid $green;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
-div#select-artwork img:hover {
+#select-artwork input[type="checkbox"]:checked + .artwork-sample:after {
+  content: '';
+  position: absolute;
+  bottom: 7px;
+  right: 12px;
+  width: 35px;
+  height: 38px;
+  background-image: url(tick.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#select-artwork .select-item p {
+  position: absolute;
+  color: white;
+  text-transform: capitalize;
+  font-size: 1.2em;
+}
+
+// Breadcrumb
+#breadcrumb-exhibition li {
+  opacity: .5;
+  border-bottom: 2px solid #383838;
+  padding: 0 0 10px 0!important;
+  margin: 0 30px;
+}
+
+#breadcrumb-exhibition li.active {
+  opacity: 1;
+  color: $brand-color;
   border-color: $brand-color;
 }
 
-#select-artwork input[type="checkbox"]:checked + img {
-  border-color: $yellow;
+#breadcrumb-exhibition li.validate {
+  opacity: .5;
+  color: $brand-color;
+  border-color: $brand-color;
+}
+
+// Form end
+body#form-end abbr {
+  display: none;
+}
+
+body#form-end input:focus, body#form-end input:active, body#form-end textarea:focus, body#form-end textarea:active {
+  outline: 0!important;
+  border-color: $brand-color;
+  box-shadow: none;
+}
+
+body#form-end input {
+  border-width: 3px;
+  border-radius: 0;
+  padding: 20px;
+  transition: all .3s;
+}
+
+body#form-end textarea {
+  border-width: 3px;
+  border-radius: 0;
+  padding: 10px 20px;
+  height: 120px;
+}
+
+body#form-end .duration-input {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.duration-input input {
+  display: none;
+}
+
+.duration-input label {
+  border: 3px #cccccc solid;
+  text-align: center;
+  width: 120px;
+  padding: 10px;
+  color: #cccccc;
+}
+
+.duration-selected {
+  color: $gray!important;
+  border-color: $brand-color!important;
 }
