@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605142036) do
+ActiveRecord::Schema.define(version: 20170606110106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170605142036) do
 
   create_table "bids", force: :cascade do |t|
     t.string   "status",        default: "pending"
-    t.integer  "price"
+    t.integer  "price_cents"
     t.integer  "user_id"
     t.integer  "exhibition_id"
     t.datetime "created_at",                        null: false
@@ -86,14 +86,23 @@ ActiveRecord::Schema.define(version: 20170605142036) do
     t.integer  "user_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "min_price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "min_price_cents"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "duration"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "price"
+    t.integer  "price_cents"
     t.index ["user_id"], name: "index_exhibitions_on_user_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.string   "bid_price"
+    t.integer  "amount_cents", default: 0, null: false
+    t.json     "payment"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "styles", force: :cascade do |t|
