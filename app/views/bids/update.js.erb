@@ -3,10 +3,4 @@ $('#status-book-<%= @bid.id %>').html("<p><i class='fa fa-thumb-tack' aria-hidde
 $('#button-book-<%= @bid.id %>').html("<%= j render 'bids/button_book', bid: @bid %>");
 $('.bid-cta:not(#button-book-<%= @bid.id %>)');
 
-$('.status-toggle:not(#status-book-<%= @bid.id %>)').html("<p><i class='fa fa-thumb-tack' aria-hidden='true'></i> rejected</p>");
 
-
-// button payment hide or show
-if ($('#status-book-<%= @bid.id %>').text().trim() === 'accepted') {
-  $('#payment_button').toggleClass('hidden');
-};

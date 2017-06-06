@@ -28,10 +28,9 @@ class BidsController < ApplicationController
   def update
     other_bids = @bid.exhibition.bids.where.not(id: @bid.id) #array excluant la bid confirmee par la company
     if @bid.update(bid_params)
-
       if bid_params[:status] == "accepted"
         # action si click button "Book"
-        other_bids.update_all(status: "toto")
+        other_bids.update_all(status: "rejected")
         respond_to do |format|
           format.html {
             redirect_to dashboard_company_users_path
