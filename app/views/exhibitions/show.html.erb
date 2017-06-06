@@ -7,73 +7,78 @@
           <h2><%= @exhibition.user.company_name %></h2>
         </div>
 
-        <div class="col-xs-12 show-all">
-          <div class="text-center">
-            <ul class="list-inline">
-              <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-            </ul>
-            <h2>"<%= @exhibition.title %>"</h2>
-          </div>
-
-
-        <div class="list-exhibition">
-          <p><i class="fa fa-user" aria-hidden="true"></i><%= @exhibition.user.first_name %> <%= @exhibition.user.last_name %></p>
-          <p><i class="fa fa-clock-o" aria-hidden="true"></i>Starting: <%= @exhibition.start_date%>  Ending: <%= @exhibition.end_date%></p>
-          <p><i class="fa fa-map-marker" aria-hidden="true"></i><%= @exhibition.address %> </p>
-          <p><i class="fa fa-money" aria-hidden="true"></i><%= @exhibition.min_price %>$</p>
+      <div class="col-xs-12 show-all">
+        <div class="list-exhibition list-inline text-center">
+          <ul class="list-inline">
+            <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+          </ul>
+          <li><i class="fa fa-clock-o" aria-hidden="true"></i>Starting: <%= @exhibition.start_date%> |  Ending: <%= @exhibition.end_date%></li>
+          <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= @exhibition.address %> </li>
           <br>
+          <br>
+          <p>DO NOT FORGET: price + Style and Category</p>
         </div>
-
-        <div class="description-content text-center">
-          <h3>Description</h3>
-            <p> <%= @exhibition.description %></p>
-        </div>
-
-
-          <%# updload photo  %>
-
-  <!-- <div class="office-photo">
-    <h3>Office's Photos</h3>
-      <div class="container">
-        <div class="row text-center">
-          <% @exhibition.photos.each do |photo| %>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <%= cl_image_tag photo.path, width: 200, height: 200 , crop: :fill %>
-            </div>
-          <% end %>
+        <div class="text-center">
+          <h2>"<%= @exhibition.title %>"</h2>
+          <hr class="separator show-exhibition">
         </div>
       </div>
-  </div>
- -->
 
-
-          <div class="user-paths exhibition-show text-center">
-              <%# if policy(@exhibition).edit? %>
-                <%#= link_to "Update", edit_exhibition_path(@exhibition) %>
-              <%#end %>
-              <%# if policy(@exhibition).destroy? %>
-                <%#= link_to "Delete Mission", exhibition_path(@exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: "links_show" %>
-              <%# end %>
-              <%= link_to "Back to all Exhibitions", exhibitions_path, class: "links_show pull-right" %>
-              <% if policy(@exhibition).create? %>
-                  <%= link_to "Go to my dashboard",  dashboard_company_users_path%>
-                <% else %>
-                  <%= link_to "Go to my dashboard",  dashboard_artist_users_path%>
-              <% end %>
+        <div class="col-xs-12 col-md-6 show-all">
+          <div class="description-content">
+          <h3>About</h3>
+            <p> <%= @exhibition.description %></p>
           </div>
+        </div>
 
-          <% if policy(@exhibition).edit? != true %>
-            <%= simple_form_for(@bid) do |f| %>
-              <%= f.error_notification %>
-              <%= f.input :exhibition_id, as: :hidden, :input_html => { :value => @exhibition.id } %>
-              <%= f.input :price %>
-              <%= f.button :submit, class: "btn btn-primary" %>
+        <div class="col-xs-12 col-md-6 bid pull-right">
+          <div class="user-paths exhibition-show text-center">
+            <div class="card padded-total">
+              <% if policy(@exhibition).edit? != true %>
+              <%= simple_form_for(@bid) do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :exhibition_id, as: :hidden, :input_html => { :value => @exhibition.id } %>
+                <%= f.input :price %>
+                <%= f.button :submit, class: "btn btn-primary" %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <div id="carrousel">
+          <ul>
+            <% @exhibition.photos.each do |photo| %>
+            <li><%= cl_image_tag photo.path, width: 1200, height: 600, crop: :fill %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+   <%# if policy(@exhibition).edit? %>
+                <%#= link_to "Update", edit_exhibition_path(@exhibition) %>
+              <%#end %>
+              <%# if policy(@exhibition).destroy? %>
+                <%#= link_to "Delete Mission", exhibition_path(@exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: "links_show" %>
+              <%# end %>
+
+             <!-- class "user-paths exhibition-show text-center", partie à réactiver pour "retour sur dashboard et "see all missions" </-->
+            <!--   <%= link_to "Back to all Exhibitions", exhibitions_path, class: "links_show pull-right" %>
+              <% if policy(@exhibition).create? %>
+                  <%= link_to "Go to my dashboard",  dashboard_company_users_path%>
+                <% else %>
+                  <%= link_to "Go to my dashboard",  dashboard_artist_users_path%>
+              <% end %>
+          </div> -->
