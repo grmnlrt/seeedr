@@ -7,6 +7,11 @@
           <h2><%= @exhibition.user.company_name %></h2>
         </div>
 
+   <%= link_to "Back to all Exhibitions", exhibitions_path, class: "links_show pull-right exhibitions-link" %>
+        <% if policy(@exhibition).create? %>
+            <%= link_to "Go to my dashboard",  dashboard_company_users_path, class: "links_show exhibitions-link"%>
+        <% end %>
+
       <div class="col-xs-12 show-all">
         <div class="list-exhibition list-inline text-center">
           <ul class="list-inline">
@@ -26,6 +31,7 @@
         </div>
       </div>
 
+
         <div class="col-xs-12 col-md-6 show-all">
           <div class="description-content">
           <h3>About</h3>
@@ -36,6 +42,13 @@
         <div class="col-xs-12 col-md-6 bid pull-right">
           <div class="user-paths exhibition-show text-center">
             <div class="card padded-total">
+              <p class="text-center"><strong>Apply for this Company</strong></p>
+              <br>
+              <p>Starting:   <%= @exhibition.start_date%></p>
+              <p>Ending:   <%= @exhibition.end_date%></p>
+              <hr class="separator">
+              <br>
+              <p class="text-center"><strong>Your bid</strong></p>
               <% if policy(@exhibition).edit? != true %>
               <%= simple_form_for(@bid) do |f| %>
                 <%= f.error_notification %>
@@ -74,11 +87,6 @@
                 <%#= link_to "Delete Mission", exhibition_path(@exhibition), method: :delete, data: {confirm: "Are you sure?"}, class: "links_show" %>
               <%# end %>
 
-             <!-- class "user-paths exhibition-show text-center", partie à réactiver pour "retour sur dashboard et "see all missions" </-->
-            <!--   <%= link_to "Back to all Exhibitions", exhibitions_path, class: "links_show pull-right" %>
-              <% if policy(@exhibition).create? %>
-                  <%= link_to "Go to my dashboard",  dashboard_company_users_path%>
-                <% else %>
-                  <%= link_to "Go to my dashboard",  dashboard_artist_users_path%>
-              <% end %>
-          </div> -->
+
+
+

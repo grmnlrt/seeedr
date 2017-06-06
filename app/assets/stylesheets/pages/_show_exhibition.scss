@@ -5,7 +5,6 @@
 .wrapper.exhibition {
   // margin: -41px;
   background-color: #ffffff;
-  border-top: 2px solid $gray;
 }
 
 .show-all {
@@ -15,14 +14,17 @@
 
 .company-title {
   background-color: white;
-  margin: -86px auto 37px;
+  margin: -5px auto 37px;
   width: 30%;
   min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 2px solid $gray;
-  border-radius: 5px;
+}
+
+.links_show.exhibitions-link {
+  color: $gray;
 }
 
 .description-content h3 {
@@ -32,6 +34,11 @@
 
 .list-exhibition i {
   margin-right: 10px;
+  font-size: 20px;
+}
+
+.list-exhibition.list-inline.text-center {
+    margin-top: 10px;
 }
 
 .user-paths.exhibition-show {
