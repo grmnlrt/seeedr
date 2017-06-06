@@ -1,0 +1,4 @@
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'bid_id', bid.id %>
+  <%= submit_tag 'Payment', class: 'btn-new-small' %>
+<% end %>

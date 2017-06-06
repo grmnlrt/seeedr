@@ -64,13 +64,13 @@
           <div class="dashboard-cta">
             <i class="fa fa-bars" aria-hidden="true"></i>
           </div>
-          <%#= link_to 'Payment', payment_path(exhibition.id), Class: 'btn-new-small' %>
-          <% exhibition.bids.each do |bid| %>
-            <%= form_tag orders_path do %>
-              <%= hidden_field_tag 'bid_id', bid.id %>
-              <%= submit_tag 'Payment', class: 'btn-new-small' %>
+          <div id="payment_button", class= "hidden" >
+            <% exhibition.bids.each do |bid| %>
+              <% if bid.status == "accepted" %>
+                <%= render "bids/payment_button", bid: bid %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
       <div class="exhibition-bids">
@@ -106,7 +106,7 @@
                         <!-- bid price offer -->
                         <p><i class="fa fa-usd" aria-hidden="true"></i> <%= humanized_money_with_symbol(bid.price)%></p>
                         <!-- bid status -->
-                        <div id="status-book-<%= bid.id %>">
+                        <div class="status-toggle" id="status-book-<%= bid.id %>">
                           <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> <%= bid.status %></p>
                         </div>
                       </div>

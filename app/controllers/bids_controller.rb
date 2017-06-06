@@ -30,15 +30,15 @@ class BidsController < ApplicationController
     if @bid.update(bid_params)
 
       if bid_params[:status] == "accepted"
-        # test ajax
-            other_bids.update_all(status: "pending")
+        # action si click button "Book"
+        other_bids.update_all(status: "toto")
         respond_to do |format|
           format.html {
             redirect_to dashboard_company_users_path
           }
           format.js
         end
-        # fin test ajax
+        # action si click button "Unbook"
       elsif bid_params[:status] == "pending"
         respond_to do |format|
           format.html {
