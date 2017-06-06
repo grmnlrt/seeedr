@@ -116,9 +116,7 @@
                             <%= link_to artist_users_path(bid.user.id) do %>
                               <a class="see-gallery">See more</a>
                             <% end %>
-
                           </div>
-
                         </div>
                       </div>
                     </div>
@@ -141,19 +139,18 @@
               </div>
             </div>
             <!-- Trash top right to delete bid card -->
-              <div class="reject">
-                <ul class="list-inline product-controls hidden-sm hidden-xs pull-right">
-                  <li>
-                    <%= link_to bid_path(bid), method: :delete do %>
-                      <i class="fa fa-trash" aria-hidden="true"></i>
-                    <% end %>
-                  </li>
-                </ul>
-              </div>
+            <div class="reject">
+              <ul class="list-inline product-controls hidden-sm hidden-xs pull-right">
+                <li>
+                  <%= link_to bid_path(bid), method: :delete do %>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  <% end %>
+                </li>
+              </ul>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
+<% end %>
 </div>
