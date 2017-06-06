@@ -106,7 +106,9 @@
                         <!-- bid price offer -->
                         <p><i class="fa fa-usd" aria-hidden="true"></i> <%= humanized_money_with_symbol(bid.price)%></p>
                         <!-- bid status -->
-                        <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> <%= bid.status %></p>
+                        <div id="status-book-<%= bid.id %>">
+                          <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> <%= bid.status %></p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -128,18 +130,8 @@
                     </div>
                   </div>
                 <!-- CTA : book / payment -->
-                <div class="bid-cta pull-right">
-                  <% if bid.status == "accepted" %>
-                    <%= simple_form_for bid do |f| %>
-                      <%= f.input :status, input_html: {value: 'pending'}, as: :hidden %>
-                      <%= f.submit "Unbook !", class: 'btn-new-small' %>
-                    <% end %>
-                  <% else %>
-                    <%= simple_form_for bid do |f| %>
-                      <%= f.input :status, input_html: {value: 'accepted'}, as: :hidden %>
-                      <%= f.submit "Book this artist !", class: 'btn-new-small' %>
-                    <% end %>
-                  <% end %>
+                <div class="bid-cta pull-right", id= "button-book-<%= bid.id %>" >
+                  <%= render "bids/button_book", bid: bid %>
                 </div>
                 </div>
               </div>

@@ -28,28 +28,28 @@ class BidsController < ApplicationController
   def update
     other_bids = @bid.exhibition.bids.where.not(id: @bid.id) #array excluant la bid confirmee par la company
     if @bid.update(bid_params)
-      # test ajax
-      respond_to do |format|
-        format.html
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
-      end
-      # fin test ajax
 
       if bid_params[:status] == "accepted"
-        other_bids.update_all(status: "pending")
-        redirect_to dashboard_company_users_path
+        # test ajax
+            other_bids.update_all(status: "pending")
+        respond_to do |format|
+          format.html {
+            redirect_to dashboard_company_users_path
+          }
+          format.js
+        end
+        # fin test ajax
       elsif bid_params[:status] == "pending"
-        redirect_to dashboard_company_users_path
+        respond_to do |format|
+          format.html {
+            redirect_to dashboard_company_users_path
+          }
+          format.js
+        end
       else
         redirect_to bid_path(@bid)
       end
     else
-      # test ajax
-      respond_to do |format|
-        format.html { render 'restaurants/show' }
-        format.js  # <-- idem
-      end
-      # fin test ajax
       render :edit
     end
   end
