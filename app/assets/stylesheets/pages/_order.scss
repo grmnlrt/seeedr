@@ -1,0 +1,85 @@
+body {
+  text-align: center;
+  font-family: "Helvetica Neue", "Helvetica", Arial, Verdana, sans-serif;
+  background: #f2f2f2;
+}
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.cf:after {
+    clear: both;
+}
+/* For IE 6/7 only Include this rule to trigger hasLayout and contain floats. */
+.cf {
+    *zoom: 1;
+}
+
+.crReciept {
+  border: solid 1px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #f2f2f2;
+  margin-bottom: 25px;
+}
+.crReciept h2 {
+  color: $yellow;
+}
+.crReciept h3 span{
+  color: $yellow;
+}
+
+.crTitle {
+  max-width: 400px;
+  margin: 0 auto;
+
+}
+.crTitle img {
+  /* float: left; */
+  width: 150px
+
+}
+.crItem {
+  margin: 0 20px;
+  border-top: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+  display: block;
+  clear: both;
+}
+.crItem p:first-child {
+  float: left;
+  max-width: 70%;
+  text-align: left;
+}
+.crAmount {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 10px;
+  margin: 22px 0;
+}
+.crAmount sup {
+  font-size: 18px;
+}
+
+.paymentInfo {
+  text-align: left;
+  padding-left: 25px;
+  padding-bottom: 10px;
+}
+
+.crReciept a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+.crReciept a:hover {
+  color: #FF0034;
+}
+
+.wrapper.confirmation {
+  // margin: -41px;
+  background-color: #ffffff;
+  border-top: 2px solid $gray;
+}
