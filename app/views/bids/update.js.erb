@@ -1,0 +1,5 @@
+// clik sur "Book"
+// statut de la bid booked passe en "accepted"
+// statut de l'array other_bids passe en accepted
+$('#status-book-<%= @bid.id %>').html("<p><i class='fa fa-thumb-tack' aria-hidden='true'></i> <%= @bid.status %></p>")
+$('#button-book-<%= @bid.id %>').html("<%= j render 'bids/button_book', bid: @bid %>");
