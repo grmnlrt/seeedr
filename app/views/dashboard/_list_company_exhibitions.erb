@@ -66,9 +66,11 @@
           </div>
           <%#= link_to 'Payment', payment_path(exhibition.id), Class: 'btn-new-small' %>
           <% exhibition.bids.each do |bid| %>
-            <%= form_tag orders_path do %>
-              <%= hidden_field_tag 'bid_id', bid.id %>
-              <%= submit_tag 'Payment', class: 'btn-new-small' %>
+            <% if bid.status == "accepted" %>
+                <%= form_tag orders_path do %>
+                  <%= hidden_field_tag 'bid_id', bid.id %>
+                  <%= submit_tag 'Payment', class: 'btn-new-small' %>
+                <% end %>
             <% end %>
           <% end %>
         </div>
