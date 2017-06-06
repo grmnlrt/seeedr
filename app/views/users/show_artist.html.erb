@@ -4,8 +4,12 @@
       <div id="artist-show">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="artist-card text-center">
-            <% artist_picture = @user.facebook_picture_url || 'https://placehold.it/150x150' %>
-            <%= image_tag artist_picture, class: 'avatar-large' %>
+            <%= link_to edit_user_registration_path do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <% end %>
+            <% @user.photo.nil? ? (artist_picture = 'https://placehold.it/150x150') : (artist_picture = @user.photo.path) %>
+            <%# artist_picture = @user.facebook_picture_url || 'https://placehold.it/150x150' %>
+            <%= cl_image_tag artist_picture, width: 150, height: 150, crop: :fill, class: 'avatar-large' %>
             <h1><%= @user.first_name %> <%= @user.last_name %></h1>
             <% unless @user.artworks.empty? %>
               <p class="title"><%= pluralize_without_count( @user.categories.count , 'category').capitalize %></p>

@@ -16,6 +16,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
   background: white;
+  position: relative;
 }
 
 .artist-card img {
@@ -25,4 +26,12 @@
 .artist-card h1 {
   font-size: 1.6em;
   margin: 10px 0;
+}
+
+.fa-pencil-square-o {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #9c9b9b;
+  font-size: 20px;
 }
