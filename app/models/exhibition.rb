@@ -25,6 +25,10 @@ class Exhibition < ApplicationRecord
   validates :address, presence: true
   validates :duration, :inclusion => {:in => DURATIONS}
 
+  #money-rails
+  monetize :price_cents
+  monetize :min_price_cents
+
   def booked?
     self.bids.find_by(status: "accepted") ? true : false
   end

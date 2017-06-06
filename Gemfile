@@ -25,6 +25,10 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'forest_liana'
+gem 'money-rails'
+
+#Stripe
+gem 'stripe'
 
 # geocoding gem
 gem 'geocoder'
