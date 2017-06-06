@@ -1,0 +1,18 @@
+div#carrousel {
+    display: flex;
+    justify-content: center;
+}
+
+div#carrousel li {
+  list-style: none;
+}
+
+div#carrousel ul {
+    padding: 0;
+}
+
+div#carrousel img {
+    max-width: 1180px;
+    width: 100%;
+    height: 100%;
+}
