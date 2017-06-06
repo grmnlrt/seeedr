@@ -1,38 +1,25 @@
-// change status
-// status de la bid => change value
+// Step 1-2-3 : statut et bouton au sein de la bid change
+
+// 1.status de la bid => change value
 $('#status-book-<%= @bid.id %>').html("<p><i class='fa fa-thumb-tack' aria-hidden='true'></i> <%= @bid.status %></p>");
-// bouton de la bid => change en book/unbook
+// 2.bouton de la bid => change en book/unbook
 $('#button-book-<%= @bid.id %>').html("<%= j render 'bids/button_book', bid: @bid %>");
-//
+// 3. ?
 $('.bid-cta:not(#button-book-<%= @bid.id %>)');
 
-// -------------------Step 1 validee : statut et bouton au sein de la bid change ---------
 
 
-// Reste a faire : faire changer statut et bouton des autres bids (qui actuellement ne change pas) =>
-
-// 1. change statut des autres bids en pending !
+// Step 4 & 5 : change statut et bouton des autres bids
+// 4. change statut des autres bids en pending !
 $('.status-toggle:not(#status-book-<%= @bid.id %>)').html("<p><i class='fa fa-thumb-tack' aria-hidden='true'></i> pending</p>");
-// 2. doit hider les boutons books des autres classes
-
-  // si ca passe de unbook a book this artist => cache autres boutons
-  // if ($('.toggle-book').val() === 'Book this artist !') {
-  //   $('.toggle-button:not(#button-book-<%= @bid.id %>)').toggleClass('hidden');
-  // }
-
-if ($('.toggle-book').val() === 'Unbook !') {
+// 5. doit hider les boutons books des autres classes
+if ($('.toggle-book').val() === 'Unbook ?') {
   $('.toggle-button:not(#button-book-<%= @bid.id %>)').addClass('hidden');
+  $('#payment_button').removeClass('hidden');
 }
 else if ($('.toggle-book').val() === 'Book this artist !') {
   $('.toggle-button:not(#button-book-<%= @bid.id %>)').toggleClass('hidden');
-}
-else {
-  $('toggle-book').html('toto');
+  $('#payment_button').toggleClass('hidden');
 };
 
-
-
-// // button payment hide or show
-// if ($('#status-book-<%= @bid.id %>').text().trim() === 'accepted') {
-//   $('#payment_button').toggleClass('hidden');
-// };
+// Step 6 : payment button hide/show

@@ -1,7 +1,7 @@
 <% if bid.status == "accepted" %>
   <%= simple_form_for bid, remote: true do |f| %>
     <%= f.input :status, input_html: {value: 'pending'}, as: :hidden %>
-    <%= f.submit "Unbook !", class: 'btn-new-small toggle-book' %>
+    <%= f.submit "Unbook ?", class: 'btn-new-small toggle-book' %>
   <% end %>
 <% else %>
   <%= simple_form_for bid, remote: true do |f| %>
