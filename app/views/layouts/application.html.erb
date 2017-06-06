@@ -3,27 +3,25 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Seeedr | Exhibit the artists of tomorrow in your office</title>
-    <meta name="description" content="Seeedr.com helps companies to enlight their workplaces. Find out how to exhibit young artists into your office.">
     <%= favicon_link_tag 'favicon.png' %>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
 
-    <!-- opengraph tags -->
-    <meta property="og:title" content="Seeedr | Exhibit the artists of tomorrow in your office" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://www.seeedr.com/" />
-    <meta property="og:image" content="office.jpg" />
-    <meta property="og:description" content="Seeedr.com helps companies to enlight their workplaces. Find out how to exhibit young artists into your office." />
-    <meta property="og:site_name" content="Seeedr.com" />
-    <!-- <meta property="fb:admins" content="" /> -->
-    <!-- <meta property="fb:app_id" content="" /> -->
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
 
-    <!-- twitter tags -->
-    <meta name="twitter:card" content="office.jpg">
-    <!-- <meta name="twitter:site" content=""> -->
-    <meta name="twitter:title" content="Seeedr | Exhibit the artists of tomorrow in your office">
-    <meta name="twitter:description" content="Seeedr.com helps companies to enlight their workplaces. Find out how to exhibit young artists into your office.">
-    <!-- <meta name="twitter:creator" content=""> -->
-    <!-- <meta name="twitter:image:src" content=""> -->
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
 
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
