@@ -30,7 +30,7 @@ class BidsController < ApplicationController
     if @bid.update(bid_params)
       if bid_params[:status] == "accepted"
         # action si click button "Book"
-        other_bids.update_all(status: "rejected")
+        other_bids.update_all(status: "pending")
         respond_to do |format|
           format.html {
             redirect_to dashboard_company_users_path

@@ -133,21 +133,21 @@
                 <div class="bid-cta pull-right", id= "button-book-<%= bid.id %>" >
                   <%= render "bids/button_book", bid: bid %>
                 </div>
-                </div>
               </div>
             </div>
-            <!-- Trash top right to delete bid card -->
-            <div class="reject">
-              <ul class="list-inline product-controls hidden-sm hidden-xs pull-right">
-                <li>
-                  <%= link_to bid_path(bid), method: :delete do %>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  <% end %>
-                </li>
-              </ul>
-            </div>
           </div>
-        <% end %>
+          <!-- Trash top right to delete bid card -->
+          <div class="reject">
+            <ul class="list-inline product-controls hidden-sm hidden-xs pull-right">
+              <li>
+                <%= link_to bid_path(bid), method: :delete do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
   <% end %>
