@@ -24,7 +24,7 @@ if ($('.toggle-book').val() === 'Unbook !') {
   $('.toggle-button:not(#button-book-<%= @bid.id %>)').addClass('hidden');
 }
 else if ($('.toggle-book').val() === 'Book this artist !') {
-  $('.toggle-button:not(#button-book-<%= @bid.id %>)').removeClass('hidden');
+  $('.toggle-button:not(#button-book-<%= @bid.id %>)').toggleClass('hidden');
 }
 else {
   $('toggle-book').html('toto');
