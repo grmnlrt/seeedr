@@ -9,6 +9,7 @@
             <li role="presentation" class="active"><%= link_to "To come (#{current_user.exhibitions.count})", "#" %></li>
             <li role="presentation"><%= link_to "Current", "#" %></li>
             <li role="presentation"><%= link_to "Past", "#" %></li>
+            <li role="presentation" class="pull-right"><%= link_to "Edit company profile", edit_user_registration_path %></li>
             <li role="presentation" class="pull-right"><%= link_to "Add an exhibition", new_exhibition_path %></li>
           </ul>
         </div>
