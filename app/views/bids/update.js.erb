@@ -23,9 +23,13 @@ $('.status-toggle:not(#status-book-<%= @bid.id %>)').html("<p><i class='fa fa-th
 if ($('.toggle-book').val() === 'Unbook !') {
   $('.toggle-button:not(#button-book-<%= @bid.id %>)').addClass('hidden');
 }
-else {
+else if ($('.toggle-book').val() === 'Book this artist !') {
   $('.toggle-button:not(#button-book-<%= @bid.id %>)').removeClass('hidden');
 }
+else {
+  $('toggle-book').html('toto');
+};
+
 
 
 // // button payment hide or show
