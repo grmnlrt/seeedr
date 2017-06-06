@@ -42,7 +42,7 @@
                 <p><i class="fa fa-heartbeat" aria-hidden="true"></i> <%= exhibition.duration %> months</p>
               </div>
               <div class="col-xs-12">
-                <p><i class="fa fa-usd" aria-hidden="true"></i> <%= exhibition.min_price %></p>
+                <p><i class="fa fa-usd" aria-hidden="true"></i> <%= humanized_money_with_symbol(exhibition.price)%></p>
               </div>
               <div class="col-xs-12">
                 <p><i class="fa fa-map-marker" aria-hidden="true"></i>  <%= exhibition.address.capitalize %></p>
@@ -64,7 +64,13 @@
           <div class="dashboard-cta">
             <i class="fa fa-bars" aria-hidden="true"></i>
           </div>
-          <%= link_to 'Payment', payment_path(exhibition.id), Class: 'btn-new-small' %>
+          <%#= link_to 'Payment', payment_path(exhibition.id), Class: 'btn-new-small' %>
+          <% exhibition.bids.each do |bid| %>
+            <%= form_tag orders_path do %>
+              <%= hidden_field_tag 'bid_id', bid.id %>
+              <%= submit_tag 'Payment', class: 'btn-new-small' %>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <div class="exhibition-bids">
@@ -98,7 +104,7 @@
                           <% end %>
                         </i></p>
                         <!-- bid price offer -->
-                        <p><i class="fa fa-usd" aria-hidden="true"></i> <%= bid.price %></p>
+                        <p><i class="fa fa-usd" aria-hidden="true"></i> <%= humanized_money_with_symbol(bid.price)%></p>
                         <!-- bid status -->
                         <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> <%= bid.status %></p>
                       </div>

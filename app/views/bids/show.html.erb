@@ -6,7 +6,7 @@
       <br>
       <p>Bid for the following exhibition : <%= @bid.exhibition.title %></p>
       <p>You are registered under the name : <%= @bid.user.first_name %> <%= @bid.user.last_name %></p>
-      <p>Your price is : <%= @bid.price %></p>
+      <p>Your price is : <%= @bid.price%></p>
       <p>Status: <%= @bid.status %></p>
       <% if policy(@bid).edit? %>
         <%= link_to "Edit", edit_bid_path(params[:id]) %>
@@ -15,6 +15,7 @@
     </div>
   </div>
 </div>
+
 
 
 
