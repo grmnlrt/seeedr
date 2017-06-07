@@ -8,13 +8,13 @@ $('.status-toggle:not(#status-book-<%= @bid.id %>)').html("<p><i class='fa fa-th
 //  --------- ok ------------
 
 // 4. doit hider les boutons books des autres classes
-if ($('.toggle-book').val() === 'Booked') {
+if ($('.toggle-book').val() === 'Unbook') {
   $('.toggle-button:not(#button-book-<%= @bid.id %>)').addClass('hidden');
   // show payment button
   $('#payment_button').removeClass('hidden');
   $('#payment_button').html("<%= j render 'bids/payment_button', bid: @bid %>");
 }
-else if ($('.toggle-book').val() === 'Book this artist ?') {
+else if ($('.toggle-book').val() === 'Book this artist') {
   $('.toggle-button:not(#button-book-<%= @bid.id %>)').toggleClass('hidden');
   // hide payment button
   $('#payment_button').toggleClass('hidden');
