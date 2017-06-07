@@ -3,9 +3,20 @@
   margin: 30px 0px;
 }
 
+// modal-dashboard
+#dashboard .modal-body {
+  font-size: .7em;
+  padding-top: 30px;
+}
+
+#dashboard .modal-dialog {
+  font-family: "Open Sans";
+  margin: 20% auto;
+}
+
 // Dashboard content
 #dashboard .list-exhibitions {
-  margin-bottom: 50px;
+    margin: 60px 0 100px;
 }
 
 #dashboard .list-exhibitions .btn {
@@ -17,10 +28,26 @@
 }
 
 // Dashboard exhibition header
-#dashboard .exhibition-header {
-  background: #ffffff;
-  box-shadow: 2px 4px 10px rgb(216, 214, 214);
-  font-size: .8em;
+#dashboard .exhibition-title h3 {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+#dashboard .exhibition-title .fa {
+  color: $gray;
+}
+
+#dashboard .exhibition-title .fa:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
+#dashboard .exhibition-content {
+    padding: 15px 0;
+}
+
+#dashboard .exhibition-content .col-md-2 .fa {
+    margin-right: 5px;
 }
 
 #dashboard .exhibition-header h2 {
@@ -32,27 +59,29 @@
 }
 
 // Dashboard exhibition bids
-#dashboard .exhibition-bids {
-  padding: 12px 0px 12px 50px;
-}
 
 #dashboard .bid {
   margin-bottom: 18px;
   position: relative;
   padding: 20px;
-  background: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
-  // border: $brand-color solid 0;
-  border-bottom-width: 1px;
-  border-right-width: 1px;
-  border-left-width: 1px;
+  border: $gray solid 3px;
+  overflow: hidden;
 }
 
 #dashboard .bid .reject {
-  position: absolute;
-  top: -2px;
-  right: 10px;
-  font-size: 1.8em;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 1.3em;
+}
+
+#dashboard .bid .reject .fa {
+    color: $gray;
+}
+
+#dashboard .bid .reject .fa:hover {
+    opacity: .6;
+    cursor: pointer;
 }
 
 #dashboard .exhibition-bids .user p {
@@ -65,14 +94,10 @@
   margin: 20px 0;
 }
 
-#dashboard .exhibition-bids .details {
-  margin: 20px 0 0 60px;
-}
-
 #dashboard .exhibition-bids .artworks {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 #dashboard .exhibition-bids .cta {
@@ -89,4 +114,23 @@
 
 .exhibition-title i {
   right: 5px;
+}
+
+p.bid-status {
+    position: absolute;
+    top: -95px;
+    left: -105px;
+    width: 200PX;
+    height: 125px;
+    transform: rotate(-30deg);
+    background: $gray;
+    padding-top: 100px;
+    font-weight: 700;
+    color: $grey;
+}
+
+p.user-desc {
+    margin-top: -70px;
+    font-size: .8em;
+    text-align: justify;
 }

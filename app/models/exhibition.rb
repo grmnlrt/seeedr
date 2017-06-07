@@ -12,10 +12,10 @@ class Exhibition < ApplicationRecord
   belongs_to :user
   has_many :bids, dependent: :destroy
 
-  has_many :exhibition_categories
+  has_many :exhibition_categories, dependent: :destroy
   has_many :categories, through: :exhibition_categories
 
-  has_many :exhibition_styles
+  has_many :exhibition_styles, dependent: :destroy
   has_many :styles, through: :exhibition_styles
 
 
