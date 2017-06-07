@@ -13,13 +13,17 @@ body {
 
 // Paddings
 .padded {
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .padded-mini {
   padding-top: 1em;
   padding-bottom: 1em;
+}
+
+.padded-total {
+  padding: 1em;
 }
 
 // Titles
@@ -52,6 +56,12 @@ body {
 hr.separator {
   border: 1px solid $brand-color;
   width: 70%;
+}
+
+hr.separator.show-exhibition {
+  width: 290px;
+  margin-top: 55px;
+  border: 1px solid $brand-color;
 }
 
 // Artist category display hack

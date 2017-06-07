@@ -1,19 +1,52 @@
-<h1>Purchase of artist <%= @order.bid_price %></h1>
-<%= form_tag order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
+<div class="wrapper">
+  <div class="container padded">
+    <h3>Your Order is almost complete !</h3>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3 payment-new">
+          <div class="card padded-mini">
+            <h2 class="text-center"><strong>Summary</strong></h2>
+              <div class="final-informations">
+                <h3>Exhibition's Informations:</h3>
+                <ul>
+                  <li><h3>Start-Date:</h3></li>
+                  <li><h3>End-date:</h3></li>
+                  <li><h3>Your <i class="fa fa-heart-o" aria-hidden="true"></i> Artist:</h3></li>
+                </ul>
+              </div>
+                <hr>
+              <div class="guarantees text-center">
+                <h3><strong>Our Guarantees</strong></h3>
+                <ul class="list-inline">
+                  <li><i class="fa fa-truck" aria-hidden="true"></i><br>Deliveries Guaranteed</li>
+                  <li><i class="fa fa-lock" aria-hidden="true"></i><br>Secure Payment</li>
+                  <li><i class="fa fa-check" aria-hidden="true"></i><br>Staging by our Team</li>
+                </ul>
+                <br>
+              </div>
+                <div class="text-center"> <%= form_tag order_payments_path(@order) do %>
+                    <article>
+                      <label class="amount">
+                      <span>Total Price: <%= humanized_money_with_symbol(@order.amount) %></span>
+                      </label>
+                    </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Artist"
-    data-email="<%= current_user.email %>"
-    data-description="Artist <%= @order.bid_price %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>"></script>
+                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-name="My Artist"
+                      data-email="<%= current_user.email %>"
+                      data-description="Artist <%= @order.bid_price %>"
+                      data-amount="<%= @order.amount_cents %>"
+                      data-currency="<%= @order.amount.currency %>"></script>
+                </div>
+              </div>
 
-<!-- bid_price a changer en bid_title -->
+    <!-- bid_price a changer en bid_title -->
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% end %>
+
+
+
