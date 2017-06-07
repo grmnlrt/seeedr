@@ -24,3 +24,13 @@
  input.pull-right.btn-new-small {
   color: $brand-color;
  }
+
+.btn-new-black {
+  display: inline-block;
+  border: 2px solid black;
+  font-weight: 600;
+  line-height: 1.8rem;
+  transition: all .2s ease;
+  background-color: transparent;
+  padding: 14px;
+}
