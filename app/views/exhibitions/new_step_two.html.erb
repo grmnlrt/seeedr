@@ -6,13 +6,14 @@
         <ul class="list-inline text-center">
           <li class="validate">Choose Category</li>
           <li class="active">Choose Style</li>
+          <li>Choose Your Pack</li>
           <li>Finalize</li>
         </ul>
       </div>
     </div>
     <div class="col-xs-12 col-md-10 col-md-offset-1">
       <h1 class="text-center padded-mini">Select your favorites artworks</h1>
-      <form action="<%= new_exhibition_path %>">
+      <form action="<%= new_step3_exhibitions_path %>">
         <% @selected_categories_id.each do |category| %>
           <input type="hidden" name="selected_categories[]" value="<%= category %>">
         <% end %>

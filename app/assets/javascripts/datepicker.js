@@ -3,16 +3,19 @@ $(document).ready(function(){
     format: "YYYY/MM/DD"
   })
 
-  var startDate;
-  var duration;
+  // var startDate;
+  // var duration;
+
 
 
   $("#datetimepicker1").on('dp.change', function(){
-    inputDate = $("#datetimepicker1").val();
-    inputDuration = $('.duration-selected').find('input').val();
-    startDate = new Date(inputDate);
-    duration = parseInt(inputDuration);
-    if ( ( inputDate != "" ) && ( inputDuration != "") ) {
+    var inputDate = $("#datetimepicker1").val();
+    var inputDuration = $('.duration-selected').find('input').val();
+    var inputPack = $('.pack-selected').find('input').val();
+    var startDate = new Date(inputDate);
+    var duration = parseInt(inputDuration);
+    var pack = parseInt(inputPack);
+    if ( ( inputDate != "" ) && ( inputDuration != "") && ( inputPack != "") ) {
       var endDate = new Date(inputDate)
       // $.post( "/exhibition-price", { start_date: startDate, duration: duration } );
       if ((startDate.getMonth() + duration) < 12) {
@@ -23,18 +26,20 @@ $(document).ready(function(){
         endDate = new Date(endDate.setYear(endDate.getFullYear() + 1));
       }
       var businessDays = calcBusinessDays(startDate, endDate);
-      var min_price = businessDays * 20;
-      $("#exhibition_min_price").val(min_price)
+      var min_price = businessDays * pack;
+      $("#exhibition_min_price").text(min_price)
     }
-  })
+  });
 
 
   $(".exhibition_duration .duration-input label").change(function(){
-    inputDate = $("#datetimepicker1").val();
-    inputDuration = $('.duration-selected').find('input').val();
-    startDate = new Date(inputDate);
-    duration = parseInt(inputDuration);
-    if ( ( inputDate != "" ) && ( inputDuration != "") ) {
+    var inputDate = $("#datetimepicker1").val();
+    var inputDuration = $('.duration-selected').find('input').val();
+    var inputPack = $('.pack-selected').find('input').val();
+    var startDate = new Date(inputDate);
+    var duration = parseInt(inputDuration);
+    var pack = parseInt(inputPack);
+    if ( ( inputDate != "" ) && ( inputDuration != "") && ( inputPack != "") ) {
       var endDate = new Date(inputDate)
       // $.post( "/exhibition-price", { start_date: startDate, duration: duration } );
       if ((startDate.getMonth() + duration) < 12) {
@@ -45,10 +50,35 @@ $(document).ready(function(){
         endDate = new Date(endDate.setYear(endDate.getFullYear() + 1));
       }
       var businessDays = calcBusinessDays(startDate, endDate);
-      var min_price = businessDays * 20;
-      $("#exhibition_min_price").val(min_price)
+      var min_price = businessDays * pack ;
+      $("#exhibition_min_price").text(min_price)
     }
-  })
+  });
+
+  $(".exhibition_pack .pack-input label").change(function(){
+    var inputDate = $("#datetimepicker1").val();
+    var inputDuration = $('.duration-selected').find('input').val();
+    var inputPack = $('.pack-selected').find('input').val();
+    var startDate = new Date(inputDate);
+    var duration = parseInt(inputDuration);
+    var pack = parseInt(inputPack);
+    if ( ( inputDate != "" ) && ( inputDuration != "") && ( inputPack != "") ) {
+      var endDate = new Date(inputDate)
+      // $.post( "/exhibition-price", { start_date: startDate, duration: duration } );
+      if ((startDate.getMonth() + duration) < 12) {
+        var endDate = new Date(endDate.setMonth(startDate.getMonth() + duration));
+      }
+      else {
+        endDate = new Date(endDate.setMonth(startDate.getMonth() - 12 + duration));
+        endDate = new Date(endDate.setYear(endDate.getFullYear() + 1));
+      }
+      var businessDays = calcBusinessDays(startDate, endDate);
+      var min_price = businessDays * pack ;
+      $("#exhibition_min_price").text(min_price)
+    }
+  });
+
+
   function calcBusinessDays(startDate, endDate){
     var weeks, dateDiff, adjust = 0
     var weekDay1 = startDate.getDay();
