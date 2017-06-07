@@ -1,11 +1,11 @@
 <% if bid.status == "accepted" %>
   <%= simple_form_for bid, remote: true do |f| %>
     <%= f.input :status, input_html: {value: 'pending'}, as: :hidden %>
-    <%= f.submit "Unbook !", class: 'btn-new-small' %>
+    <%= f.submit "Unbook", class: 'btn-new-black toggle-book' %>
   <% end %>
 <% else %>
   <%= simple_form_for bid, remote: true do |f| %>
     <%= f.input :status, input_html: {value: 'accepted'}, as: :hidden %>
-    <%= f.submit "Book this artist !", class: 'btn-new-small' %>
+    <%= f.submit "Book this artist", class: 'btn-new-black toggle-book' %>
   <% end %>
 <% end %>

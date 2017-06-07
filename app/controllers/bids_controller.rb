@@ -29,14 +29,25 @@ class BidsController < ApplicationController
     other_bids = @bid.exhibition.bids.where.not(id: @bid.id) #array excluant la bid confirmee par la company
     if @bid.update(bid_params)
       if bid_params[:status] == "accepted"
+        # action si click button "Book"
         other_bids.update_all(status: "pending")
-        redirect_to dashboard_company_users_path
+        respond_to do |format|
+          format.html {
+            redirect_to dashboard_company_users_path
+          }
+          format.js
+        end
+        # action si click button "Unbook"
       elsif bid_params[:status] == "pending"
-        redirect_to dashboard_company_users_path
+        respond_to do |format|
+          format.html {
+            redirect_to dashboard_company_users_path
+          }
+          format.js
+        end
       else
         redirect_to bid_path(@bid)
       end
-
     else
       render :edit
     end
