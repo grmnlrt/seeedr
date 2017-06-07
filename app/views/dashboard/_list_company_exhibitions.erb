@@ -66,9 +66,7 @@
           </div>
           <div id="payment_button", class= "test" >
             <% exhibition.bids.each do |bid| %>
-              <% if bid.status == "accepted" %>
-                <%= render "bids/payment_button", bid: bid %>
-              <% end %>
+              <%= render "bids/payment_button", bid: bid %>
             <% end %>
           </div>
         </div>
