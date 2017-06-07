@@ -12,6 +12,7 @@ if ($('.toggle-book').val() === 'Booked') {
   $('.toggle-button:not(#button-book-<%= @bid.id %>)').addClass('hidden');
   // show payment button
   $('#payment_button').removeClass('hidden');
+  $('#payment_button').html("<%= j render 'bids/payment_button', bid: @bid %>");
 }
 else if ($('.toggle-book').val() === 'Book this artist ?') {
   $('.toggle-button:not(#button-book-<%= @bid.id %>)').toggleClass('hidden');

@@ -128,7 +128,8 @@
                     </div>
                   </div>
                 <!-- CTA : book / payment -->
-                <div class="bid-cta toggle-button pull-right", id= "button-book-<%= bid.id %>" >
+                <% accepted_bid =  exhibition.bids.where(status: "accepted").first %>
+                <div class="bid-cta toggle-button pull-right <%= 'hidden' if accepted_bid && accepted_bid != bid %>", id= "button-book-<%= bid.id %>" >
                   <%= render "bids/button_book", bid: bid %>
                 </div>
               </div>
