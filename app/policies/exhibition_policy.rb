@@ -21,4 +21,16 @@ class ExhibitionPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def new_step_one?
+    user.is_company == true
+  end
+
+  def new_step_two?
+    user.is_company == true
+  end
+
+  def new_step_three?
+    user.is_company == true
+  end
+
 end

@@ -21,14 +21,14 @@ class ExhibitionsController < ApplicationController
   end
 
   def new_step_one
+    authorize Exhibition.new
     @categories = Category.all
-    authorize @categories
   end
 
   def new_step_two
+    authorize Exhibition.new
     @selected_categories_id = params["selected_categories"].map(&:to_i)
     @categories = Category.find(@selected_categories_id)
-    @categories.each { |category| authorize category }
     @artworks = []
     16.times do
       unless Artwork.where("category_id IN (?)", @categories.map(&:id)).length == @artworks.length
@@ -41,9 +41,23 @@ class ExhibitionsController < ApplicationController
     end
   end
 
-  def new
-    @selected_categories_id = params["selected_categories"].uniq.map(&:to_i)
+  def new_step_three
+    authorize Exhibition.new
+    @selected_categories_id = params["selected_categories"].map(&:to_i)
     @selected_styles_id = params["selected_styles"].uniq.map(&:to_i)
+    @categories = Category.find(@selected_categories_id)
+    @styles = Style.find(@selected_styles_id)
+  end
+
+  def new
+    @selected_categories_id = params["selected_categories"].map(&:to_i)
+    @selected_styles_id = params["selected_styles"].uniq.map(&:to_i)
+    @selected_start_date = params["selected_start_date"]
+    @selected_duration = params["selected_duration"]
+    @selected_pack = params["selected_pack"]
+    @selected_price = params["selected_price"]
+    @categories = Category.find(@selected_categories_id)
+    @styles = Style.find(@selected_styles_id)
     @exhibition = Exhibition.new
     authorize @exhibition
     @durations = Exhibition::DURATIONS #datepicker update
@@ -112,7 +126,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def exhibition_create_param
-    params.permit(:selected_categories, :selected_styles)
+    params.permit(:selected_categories, :selected_styles, :selected_start_date, :selected_duration, :selected_pack, :selected_price)
   end
 
 end

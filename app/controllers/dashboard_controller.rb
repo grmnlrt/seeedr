@@ -8,6 +8,7 @@ class DashboardController < ApplicationController
   def dashboard_company
     #@bids = current_user.bids
     authorize current_user
+    @exhibition = current_user.exhibitions.order('created_at DESC')
   end
 
   def dashboard_payment

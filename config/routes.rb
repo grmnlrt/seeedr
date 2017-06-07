@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     collection do
       get 'new/step1', to: "exhibitions#new_step_one"
       get 'new/step2', to: "exhibitions#new_step_two"
+      get 'new/step3', to: "exhibitions#new_step_three"
     end
   end
   post 'exhibition-price', to: "exhibitions#estimate_price"
