@@ -48,7 +48,7 @@ a.btn.btn-primary.btn-lg.read {
   background: transparent;
   color: $gray;
   border: 3px solid $gray;
-  border-radius: 3px;
+  border-radius: 0!important;
 }
 
 a.btn.btn-primary.btn-lg.artist-banner {
@@ -56,7 +56,7 @@ a.btn.btn-primary.btn-lg.artist-banner {
   background: transparent;
   color: white;
   border: 3px solid white;
-  border-radius: 3px;
+  border-radius: 0!important;
 }
 
 .key-content {
@@ -72,5 +72,6 @@ a.btn.btn-primary.btn-lg.artist-banner {
   color: white;
   border: 3px solid white;
   font-weight: bold;
+  border-radius: 0!important;
 }
 
