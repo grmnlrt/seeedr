@@ -49,7 +49,7 @@ body#form h1, body#form-end h1 {
   right: 12px;
   width: 35px;
   height: 38px;
-  background-image: url(tick.png);
+  background-image: asset-url('tick.png');
   background-repeat: no-repeat;
   background-size: 100%;
 }
