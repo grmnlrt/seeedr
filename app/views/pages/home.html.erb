@@ -18,34 +18,36 @@
 <!-- key step-->
 
 <div class="wrapper padded-mini bg-grey">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <h2 class="padded-mini text-center" style="font-family: 'Basic', sans-serif;">How it's Work ?</h2>
-      <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-        <div class="key-step">
-          <div><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
-          <h3>1-Create your exhibition</h3>
-          <p class="key-content">Start creating your exhibition request by following the matching-driven form. When you are done, submit it: Your exhibition request is online. </p>
+      <div class="smaller-box">
+        <h2 class="padded-mini text-center" style="font-family: 'Basic', sans-serif;">An easy process</h2>
+        <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+          <div class="key-step">
+            <div><%= image_tag "create.png" %></div>
+            <h3>1-Create your exhibition</h3>
+            <p class="key-content">Start creating your exhibition request by following the matching-driven form. When you are done, submit it: Your exhibition request is online. </p>
+          </div>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-        <div class="key-step">
-          <div><i class="fa fa-users" aria-hidden="true"></i></div>
-          <h3>2-Artists apply to your exhibition</h3>
-          <p class="key-content">Our community of hundreds of artists can now see your exhibition request and apply to bring their art in your offices. </p>
+        <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+          <div class="key-step">
+            <div><%= image_tag "artist.png" %></div>
+            <h3>2-Artists apply to your exhibition</h3>
+            <p class="key-content">Our community of hundreds of artists can now see your exhibition request and apply to bring their art in your offices. </p>
+          </div>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-        <div class="key-step">
-          <div><i class="fa fa-heart" aria-hidden="true"></i></div>
-          <h3>3-Select your favorite Artist</h3>
-          <p class="key-content">Teh trickiest part: choose the amazing artist that fit to your expectation and book him! Your work stop here, we take care of the rest.   </p>
+        <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+          <div class="key-step">
+            <div><%= image_tag "heart.png" %></div>
+            <h3>3-Pick your favorite Artist</h3>
+            <p class="key-content">Finalize the process by picking your favorite artist! Your work stop here, Seeedr takes care of the rest.</p>
+          </div>
         </div>
-      </div>
-      <div class="text-center">
-      <%= link_to "read more", new_exhibition_path, class: "btn btn-primary btn-lg read" %>
       </div>
     </div>
+  </div>
+  <div class="text-center">
+    <%= link_to "read more", new_exhibition_path, class: "btn btn-primary btn-lg read" %>
   </div>
 </div>
 
@@ -58,7 +60,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="artwork-card">
             <div class="content  ">
-              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496772320/Daft_ojjnjm.jpg", width: 250, height: 350, crop: :fill, class: 'home-artwork'%>
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496772320/Daft_ojjnjm.jpg", width: 317.48, height: 350, crop: :fill, class: 'home-artwork'%>
               <p class="description">2017 <br> Daft Punk by Riccardo Fano <br> 400mm X 500mm <br> Exclusive edition Giclée Fine Art Print. Printed on 100% cotton, acid-free, heavyweight paper using archival Ultrachrome K3 inks.</p>
             </div>
             <div class="details">
@@ -69,7 +71,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="artwork-card">
             <div class="content">
-              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660714/image-sculpture_zxyxpk.jpg", width: 250, height: 350,  crop: :fill, class: 'home-artwork'%>
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660714/image-sculpture_zxyxpk.jpg", width: 317.48, height: 350,  crop: :fill, class: 'home-artwork'%>
               <p class="description">2017 <br> Dimensions: 50 x 100 x 60 Cm | Inch <br> Editions: Unique artwork <br> Sculpture: steel on steel</p>
             </div>
             <div class="details">
@@ -80,7 +82,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="artwork-card">
             <div class="content">
-              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660149/image-paint2_nuze49.jpg", width: 250, height: 350, crop: :fill, class: 'home-artwork'%>
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660149/image-paint2_nuze49.jpg", width: 317.48, height: 350, crop: :fill, class: 'home-artwork'%>
               <p class="description">2012 <br> Dimensions: 50 x 40 x 1 Cm | Inch <br> Editions: Unique artwork Painting: acrylic on chassis <br> Framing: the artwork is not framed.</p>
             </div>
             <div class="details">
@@ -91,7 +93,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="artwork-card">
             <div class="content">
-              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660157/image-digital_aospdv.jpg", width: 350, height: 350, crop: :fill, class: 'home-artwork'%>
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660157/image-digital_aospdv.jpg", width: 317.48, height: 350, crop: :fill, class: 'home-artwork'%>
               <p class="description">2017 <br> This numbered edition Giclée Fine Art Print by Enkel Dika is Printed on 100% cotton, acid-free, heavyweight paper using archival Ultrachrome K3 inks</p>
             </div>
             <div class="details">
@@ -102,7 +104,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="artwork-card">
             <div class="content">
-              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660352/image-photo2_advegl.jpg", width: 350, height: 350, crop: :fill, class: 'home-artwork'%>
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660352/image-photo2_advegl.jpg", width: 317.48, height: 350, crop: :fill, class: 'home-artwork'%>
               <p class="description">2010 <br> Dimensions: 90 x 90 x 3 Cm | Inch <br> Editions: Edition of 8 <br>Photography : inkjet on fine art paper <br> Framing: frame in wood white</p>
             </div>
             <div class="details">
@@ -113,7 +115,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="artwork-card">
             <div class="content">
-              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660154/image-paint_ggbfdg.jpg", width: 350, height: 350, crop: :fill, class: 'home-artwork'%>
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496660154/image-paint_ggbfdg.jpg", width: 317.48, height: 350, crop: :fill, class: 'home-artwork'%>
               <p class="description">2015 <br> Dimensions: 101 x 76 Cm | Inch <br> Editions: Unique artwork <br> Painting: acrylic on canvas</p>
             </div>
             <div class="details">
@@ -124,7 +126,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="artwork-card">
             <div class="content">
-              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496676584/image-homepage_yprk5w.jpg", width: 350, height: 350, crop: :fill, class: 'home-artwork'%>
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496676584/image-homepage_yprk5w.jpg", width: 317.48, height: 350, crop: :fill, class: 'home-artwork'%>
               <p class="description">2016 <br> Dimensions: 100 x 100 Cm | Inch <br> Editions: Unique artwork <br> Painting : aerosol paint on paper</p>
             </div>
             <div class="details">
@@ -135,7 +137,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="artwork-card">
             <div class="content">
-              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496773891/max_ycewhb.jpg", width: 350, height: 350, crop: :fill, class: 'home-artwork'%>
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496773891/max_ycewhb.jpg", width: 317.48, height: 350, crop: :fill, class: 'home-artwork'%>
               <p class="description">2017 <br> Dimensions: 85 x 77 x 18 Cm | Inch <br> Editions: Unique artwork <br>Sculpture: plastic, iron, Wool on steel </p>
             </div>
             <div class="details">
@@ -146,11 +148,11 @@
        <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="artwork-card">
             <div class="content">
-              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496774582/ike_nimhow.jpg", width: 350, height: 350, crop: :fill, class: 'home-artwork'%>
-              <p class="description">Testestestestestest</p>
+              <%= cl_image_tag "http://res.cloudinary.com/keven/image/upload/v1496774582/ike_nimhow.jpg", width: 317.48, height: 350, crop: :fill, class: 'home-artwork'%>
+              <p class="description">2010 <br> Dimensions: 90 x 90 x 3 Cm | Inch <br> Editions: Edition of 8 <br>Photography : inkjet on fine art paper <br> Framing: frame in wood white</p>
             </div>
             <div class="details">
-              <h2 class="name text-center">TEST NAME</h2>
+              <h2 class="name text-center">Mary & Bob - Why bothering us ?</h2>
             </div>
           </div>
       </div>
@@ -162,7 +164,7 @@
 
 <!-- testimonial homepage -->
 
-<div class="wrapper padded bg-grey">
+<div class="wrapper padded-bottom bg-grey">
   <div class="container">
     <div class="row">
       <h2 class="padded-mini" style="font-family: 'Basic', sans-serif;">Discover how le Wagon improved his workplace with us</h2>
@@ -187,10 +189,10 @@
 
 <!-- reassurance -->
 
-<div class="wrapper padded-mini">
+<div class="wrapper padded-mini margin-bottom">
   <div class="container">
     <div class="row">
-      <h2 class="padded-mini" style="font-family: 'Basic', sans-serif;">Four reasons to work with us</h2>
+      <h2 class="padded-total text-center" style="font-family: 'Basic', sans-serif;">Four reasons to work with us</h2>
       <div class="col-xs-12 col-sm-6 col-md-3 text-center">
         <div class="key-step">
           <i class="fa fa-handshake-o" aria-hidden="true"></i>
@@ -215,10 +217,6 @@
           <p>Unleash creativity of your teams and partners</p>
         </div>
       </div>
-    </div>
-  <div class="row padded-mini">
-      <hr class="separator">
-      <h3 class="text-center padded-mini" style="font-family: 'Basic', sans-serif;">They Work With Us</h3>
     </div>
   </div>
 </div>

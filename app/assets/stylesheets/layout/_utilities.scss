@@ -26,6 +26,14 @@ body {
   padding: 1em;
 }
 
+.padded-bottom {
+  padding-bottom: 30px;
+}
+
+.margin-bottom {
+  margin-bottom: 40px;
+}
+
 // Titles
 .underline {
   display: table;
@@ -92,4 +100,9 @@ span.artist-category {
 .btn-primary-bis:focus, .btn-primary-bis:active {
   outline: 0!important;
   box-shadow: none!important;
+}
+
+//Bootstrap container hack
+.smaller-box {
+  padding: 0 40px;
 }
