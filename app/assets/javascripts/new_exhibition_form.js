@@ -8,4 +8,9 @@ $(document).ready(function(){
     $("#form-end .duration-input label").removeClass("duration-selected");
     $(this).addClass("duration-selected");
   });
+
+  $("#form-end .pack-input label").click(function(){
+    $("#form-end .pack-input label").removeClass("pack-selected");
+    $(this).addClass("pack-selected");
+  });
 });

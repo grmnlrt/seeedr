@@ -53,6 +53,7 @@ class ExhibitionsController < ApplicationController
     @selected_start_date = params["selected_start_date"]
     @selected_duration = params["selected_duration"]
     @selected_pack = params["selected_pack"]
+    @selected_price = params["selected_price"]
     @exhibition = Exhibition.new
     authorize @exhibition
     @durations = Exhibition::DURATIONS #datepicker update
@@ -121,7 +122,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def exhibition_create_param
-    params.permit(:selected_categories, :selected_styles, :selected_start_date, :selected_duration, :selected_pack)
+    params.permit(:selected_categories, :selected_styles, :selected_start_date, :selected_duration, :selected_pack, :selected_price)
   end
 
 end

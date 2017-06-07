@@ -14,8 +14,13 @@
     <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
       <h1 class="text-center padded-mini">Select your pack</h1>
       <form action="<%= new_exhibition_path %>">
-        <input type="hidden" name="selected_categories[]" value="<%= @selected_categories_id %>">
-        <input type="hidden" name="selected_styles[]" value="<%= @selected_styles_id %>">
+        <% @selected_categories_id.each do |category| %>
+          <input type="hidden" name="selected_categories[]" value="<%= category %>">
+        <% end %>
+        <% @selected_styles_id.each do |style| %>
+          <input type="hidden" name="selected_styles[]" value="<%= style %>">
+        <% end %>
+        <input type="hidden" name="selected_price" value>
         <!-- Pack selection -->
         <div class="form-group radio_buttons optional exhibition_pack padded-mini">
             <input type="hidden" name="selected_pack" value="">

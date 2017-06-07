@@ -4,11 +4,10 @@
   <%= f.input :styles, as: :hidden, :input_html => { :value => @selected_styles_id }  %>
   <%= f.input :start_date, as: :hidden, :input_html => { :value => @selected_start_date } %>
   <%= f.input :duration, as: :hidden, :input_html => { :value => @selected_duration } %>
+  <%= f.input :price, as: :hidden, :input_html => { :value => @selected_price } %>
   <%= f.input :title, placeholder: 'Name of your exhibition', label: false %>
   <%= f.input :description, placeholder: 'Describe your exhibition', label: false %>
   <%= f.input :address, placeholder: 'Address of your exhibition', label: false %>
-  <%= f.input :min_price, placeholder: 'Enter start date and duration', label: 'Minimum price', disabled: true, hint: 'This price is automatically calculated' %>
-  <%= f.input :price, placeholder: "Your price", hint: "Must at-least equals minimum price" %>
   <%= f.input :photos, as: :attachinary %>
   <%= f.button :submit, class: "btn btn-primary-bis btn-lg btn-block" %>
 <% end %>

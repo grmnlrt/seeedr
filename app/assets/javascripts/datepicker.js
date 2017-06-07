@@ -27,7 +27,9 @@ $(document).ready(function(){
       }
       var businessDays = calcBusinessDays(startDate, endDate);
       var min_price = businessDays * pack;
-      $("#exhibition_min_price").text(min_price)
+      $("#exhibition_min_price").text(min_price);
+      var price = $("#exhibition_min_price").text();
+      $('input[name="selected_price"]').val(price);
     }
   });
 
@@ -51,7 +53,9 @@ $(document).ready(function(){
       }
       var businessDays = calcBusinessDays(startDate, endDate);
       var min_price = businessDays * pack ;
-      $("#exhibition_min_price").text(min_price)
+      $("#exhibition_min_price").text(min_price);
+      var price = $("#exhibition_min_price").text();
+      $('input[name="selected_price"]').val(price);
     }
   });
 
@@ -74,7 +78,9 @@ $(document).ready(function(){
       }
       var businessDays = calcBusinessDays(startDate, endDate);
       var min_price = businessDays * pack ;
-      $("#exhibition_min_price").text(min_price)
+      $("#exhibition_min_price").text(min_price);
+      var price = $("#exhibition_min_price").text();
+      $('input[name="selected_price"]').val(price);
     }
   });
 
