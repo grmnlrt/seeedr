@@ -10,58 +10,26 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
       <!-- Profile picture and dropdown -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <% if policy(current_user).dashboard_company? %>
+        <%= link_to "Dashboard", dashboard_company_users_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-options-size" %>
+      <% else %>
+        <%= link_to "Dashboard", dashboard_artist_users_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-options-size" %>
+      <% end %>
 
-            <li>
-              <% if policy(current_user).dashboard_company? %>
-                <%= link_to dashboard_company_users_path do %>
-                  <i class="fa fa-user"></i> <%= t(".dashboard", default: "Dashboard") %>
-                <% end %>
-              <% else %>
-                <%= link_to dashboard_artist_users_path do %>
-                  <i class="fa fa-user"></i> <%= t(".dashboard", default: "Dashboard") %>
-                <% end %>
-              <% end %>
-            </li>
+      <% if policy(current_user).dashboard_company? %>
+        <%= link_to "Profile", root_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-options-size" %>
+      <% else %>
+        <%= link_to "Profile", artist_users_path(current_user), class: "navbar-wagon-item navbar-wagon-link navbar-wagon-options-size" %>
+      <% end %>
 
-            <li>
-              <% if policy(current_user).dashboard_company? %>
-                <%= link_to root_path do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
-              <% else %>
-                <%= link_to artist_users_path(current_user) do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
-              <% end %>
-            </li>
-
-            <li>
-              <%= link_to root_path do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-              <% end %>
-            </li>
-
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-options-size" %>
     <% else %>
 
       <!-- Arstist inscription text link -->
-      <%= link_to t(".artist_registration", default: "I'm an Artist"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".artist_registration", default: "I'm an Artist"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-options-size" %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-options-size" %>
 
     <% end %>
   </div>
@@ -100,7 +68,7 @@
               <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
             </li>
             <li>
-              <%= link_to t(".artist_registration", default: "I'm an Arstist"), "#" %>
+              <%= link_to t(".artist_registration", default: "I'm an Artist"), "#" %>
             </li>
           </ul>
         </div>

@@ -30,3 +30,20 @@
 #footer p.copyright {
   font-size: 0.7em;
 }
+
+.footer-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-info-right {
+  flex: 0 0 25%;
+}
+
+.footer-info-left {
+  flex: 0 0 15%;
+}
+
+#footer ul.list-inline {
+  margin-top: 40px;
+}
