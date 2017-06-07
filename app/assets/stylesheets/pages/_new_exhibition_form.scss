@@ -7,7 +7,7 @@ body#form h1, body#form-end h1 {
 #select-artwork {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 #select-artwork label {
@@ -19,7 +19,7 @@ body#form h1, body#form-end h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 15px;
+  margin-bottom: 35px;
   transition: all .1s;
   box-shadow: 0 3px 9px 0 rgba(0,0,0,.1);
 }
@@ -33,7 +33,7 @@ body#form h1, body#form-end h1 {
 }
 
 #select-artwork input[type="checkbox"]:checked + .artwork-sample:before {
-  border: 5px solid $green;
+  border: 5px solid $brand-color;
   content: '';
   position: absolute;
   top: 0;
@@ -61,12 +61,24 @@ body#form h1, body#form-end h1 {
   font-size: 1.2em;
 }
 
+input.btn.btn-primary-bis.btn-lg.btn-block {
+    margin-bottom: 100px;
+}
+
 // Breadcrumb
+div#breadcrumb-exhibition ul {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
 #breadcrumb-exhibition li {
   opacity: .5;
   border-bottom: 2px solid #383838;
   padding: 0 0 10px 0!important;
   margin: 0 30px;
+  width: 150px;
 }
 
 #breadcrumb-exhibition li.active {
@@ -81,6 +93,15 @@ body#form h1, body#form-end h1 {
   border-color: $brand-color;
 }
 
+#breadcrumb-exhibition li.choose {
+  border-bottom-width: 0px!important;
+}
+
+#breadcrumb-exhibition li.choose p {
+  margin: 0;
+  font-size: .8em;
+}
+
 // Form end
 body#form-end abbr {
   display: none;
@@ -92,11 +113,12 @@ body#form-end input:focus, body#form-end input:active, body#form-end textarea:fo
   box-shadow: none;
 }
 
-body#form-end input {
+body#form-end input, body#form input {
   border-width: 3px;
   border-radius: 0;
   padding: 20px;
   transition: all .3s;
+  background: transparent;
 }
 
 body#form-end textarea {
@@ -104,28 +126,58 @@ body#form-end textarea {
   border-radius: 0;
   padding: 10px 20px;
   height: 120px;
+  background: transparent;
 }
 
-body#form-end .duration-input {
+body#form-end .exhibition_start_date {
+    margin-bottom: 60px;
+    margin-top: -20px;
+}
+
+body#form-end .duration-input, body#form-end .pack-input {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: baseline;
 }
 
-.duration-input input {
+body#form-end .duration-input input, body#form-end .pack-input input {
   display: none;
 }
 
-.duration-input label {
+body#form-end .duration-input label, body#form-end .pack-input label {
   border: 3px #cccccc solid;
   text-align: center;
-  width: 120px;
+  width: 140px;
   padding: 10px;
   color: #cccccc;
 }
 
-.duration-selected {
+body#form-end .duration-selected, body#form-end .pack-selected {
   color: $gray!important;
   border-color: $brand-color!important;
+}
+
+body#form-end .pack-input label {
+  width: 200px;
+}
+
+body#form-end .pack-input label span {
+  font-size: .7em;
+}
+
+body#form-end .price-preview {
+    margin-bottom: 60px;
+}
+
+body#form-end .price-preview p {
+  margin: 0;
+}
+
+body#form-end .price-preview .head-price {
+    font-size: 1em;
+}
+
+body#form-end .price-preview #exhibition_min_price {
+    font-size: 2em;
 }

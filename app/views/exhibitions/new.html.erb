@@ -6,13 +6,29 @@
         <ul class="list-inline text-center">
           <li class="validate">Choose Category</li>
           <li class="validate">Choose Style</li>
-          <li class="validate">Choose Your Pack</li>
-          <li class="active">Finalize</li>
+          <li class="active">Pricing</li>
+          <li>Finalize</li>
+        </ul>
+      </div>
+      <div id="breadcrumb-exhibition">
+        <ul class="list-inline text-center">
+          <li class="choose">
+            <% @categories.each do |cat|%>
+              <p><%= cat.name.capitalize %></p>
+            <% end %>
+            </li>
+          <li class="choose">
+            <% @styles.each do |style|%>
+              <p><%= style.name.capitalize %></p>
+            <% end %>
+          </li>
+          <li class="choose"><p><%= @selected_price %>$</p></li>
+          <li class="choose"></li>
         </ul>
       </div>
     </div>
     <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-      <h1 class="text-center padded-mini">Finalize your exhibition</h1>
+      <h1 class="text-center padded-mini" style="padding-top: 0;">Finalize your exhibition</h1>
         <%= render "form" %>
     </div>
   </div>

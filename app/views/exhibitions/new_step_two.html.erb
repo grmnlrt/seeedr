@@ -3,16 +3,28 @@
   <div class="row">
     <div class="col-xs-12">
       <div id="breadcrumb-exhibition">
-        <ul class="list-inline text-center">
-          <li class="validate">Choose Category</li>
-          <li class="active">Choose Style</li>
-          <li>Choose Your Pack</li>
-          <li>Finalize</li>
-        </ul>
-      </div>
+              <ul class="list-inline text-center">
+                <li class="validate">Choose Category</li>
+                <li class="validate">Choose Style</li>
+                <li class="active">Pricing</li>
+                <li>Finalize</li>
+              </ul>
+            </div>
+            <div id="breadcrumb-exhibition">
+              <ul class="list-inline text-center">
+                <li class="choose">
+                  <% @categories.each do |cat|%>
+                    <p><%= cat.name.capitalize %></p>
+                  <% end %>
+                  </li>
+                <li class="choose"></li>
+                <li class="choose"></li>
+                <li class="choose"></li>
+              </ul>
+            </div>
     </div>
     <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <h1 class="text-center padded-mini">Select your favorites artworks</h1>
+      <h1 class="text-center padded-mini" style="padding-top: 0px;">Select your favorites artworks</h1>
       <form action="<%= new_step3_exhibitions_path %>">
         <% @selected_categories_id.each do |category| %>
           <input type="hidden" name="selected_categories[]" value="<%= category %>">
@@ -29,8 +41,12 @@
             </label>
           <% end %>
         </div>
-        <div class="padded">
-          <input type="submit" class="btn btn-primary-bis btn-lg btn-block" value="Next step">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-sm-offset-8">
+            <div class="padded">
+              <input type="submit" class="btn btn-primary-bis btn-lg btn-block" value="Next step">
+            </div>
+          </div>
         </div>
       </form>
     </div>

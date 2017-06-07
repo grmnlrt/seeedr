@@ -9,5 +9,9 @@
   <%= f.input :description, placeholder: 'Describe your exhibition', label: false %>
   <%= f.input :address, placeholder: 'Address of your exhibition', label: false %>
   <%= f.input :photos, as: :attachinary %>
-  <%= f.button :submit, class: "btn btn-primary-bis btn-lg btn-block" %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-8">
+      <%= f.button :submit, class: "btn btn-primary-bis btn-lg btn-block" %>
+    </div>
+  </div>
 <% end %>

@@ -6,13 +6,29 @@
         <ul class="list-inline text-center">
           <li class="validate">Choose Category</li>
           <li class="validate">Choose Style</li>
-          <li class="active">Choose Your Pack</li>
+          <li class="active">Pricing</li>
           <li>Finalize</li>
+        </ul>
+      </div>
+      <div id="breadcrumb-exhibition">
+        <ul class="list-inline text-center">
+          <li class="choose">
+            <% @categories.each do |cat|%>
+              <p><%= cat.name.capitalize %></p>
+            <% end %>
+            </li>
+          <li class="choose">
+            <% @styles.each do |style|%>
+              <p><%= style.name.capitalize %></p>
+            <% end %>
+          </li>
+          <li class="choose"></li>
+          <li class="choose"></li>
         </ul>
       </div>
     </div>
     <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-      <h1 class="text-center padded-mini">Select your pack</h1>
+      <h1 class="text-center">Select your pack</h1>
       <form action="<%= new_exhibition_path %>">
         <% @selected_categories_id.each do |category| %>
           <input type="hidden" name="selected_categories[]" value="<%= category %>">
@@ -27,24 +43,30 @@
             <div class="pack-input padded-mini">
               <span class="radio">
                 <label for="exhibition_pack_20" class="pack-selected">
-                <input class="radio_buttons optional" type="radio" value="20" name="selected_pack" id="exhibition_pack_20" checked="checked">Small office
+                <input class="radio_buttons optional" type="radio" value="20" name="selected_pack" id="exhibition_pack_20" checked="checked">
+                  Small office<br>
+                  <span>5 to 10 artworks</span><br>
+                  <span>20$ per day</span>
                 </label>
               </span>
               <span class="radio">
                 <label for="exhibition_pack_30">
-                  <input class="radio_buttons optional" type="radio" value="30" name="selected_pack" id="exhibition_pack_30">Medium office
+                  <input class="radio_buttons optional" type="radio" value="30" name="selected_pack" id="exhibition_pack_30">
+                    Medium office<br>
+                    <span>10 to 20 artworks</span><br>
+                    <span>30$ per day</span>
                 </label>
               </span>
               <span class="radio">
                 <label for="exhibition_pack_50">
-                  <input class="radio_buttons optional" type="radio" value="50" name="selected_pack" id="exhibition_pack_50">Large office
+                  <input class="radio_buttons optional" type="radio" value="50" name="selected_pack" id="exhibition_pack_50">
+                    Large office<br>
+                    <span>More than 20 artworks</span><br>
+                    <span>50$ per day</span>
                 </label>
               </span>
             </div>
           </div>
-        <!-- select start date -->
-        <div class="form-group string required exhibition_start_date">
-        <input class="form-control string required" id="datetimepicker1" placeholder="Starting date of your exhibition" type="text" name="selected_start_date"></div>
         <!-- select duration -->
         <div class="form-group radio_buttons optional exhibition_duration padded-mini">
             <label class="control-label radio_buttons optional">Exhibition's duration</label>
@@ -72,10 +94,18 @@
               </span>
             </div>
           </div>
-        <div>
-          <p>Price : <span id="exhibition_min_price"></span></p>
-        </div>
-        <input type="submit" class="btn btn-primary-bis btn-lg btn-block">
+          <!-- select start date -->
+            <div class="form-group string required exhibition_start_date">
+            <input class="form-control string required" id="datetimepicker1" placeholder="Starting date of your exhibition" type="text" name="selected_start_date">
+            </div>
+            <div class="price-preview">
+              <p><span class="head-price">Your price:</span><br><span id="exhibition_min_price">0</span>$</p>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-4 col-sm-offset-8">
+                  <input type="submit" class="btn btn-primary-bis btn-lg btn-block" value="Next step">
+              </div>
+            </div>
       </form>
     </div>
   </div>

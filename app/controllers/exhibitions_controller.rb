@@ -45,6 +45,8 @@ class ExhibitionsController < ApplicationController
     authorize Exhibition.new
     @selected_categories_id = params["selected_categories"].map(&:to_i)
     @selected_styles_id = params["selected_styles"].uniq.map(&:to_i)
+    @categories = Category.find(@selected_categories_id)
+    @styles = Style.find(@selected_styles_id)
   end
 
   def new
@@ -54,6 +56,8 @@ class ExhibitionsController < ApplicationController
     @selected_duration = params["selected_duration"]
     @selected_pack = params["selected_pack"]
     @selected_price = params["selected_price"]
+    @categories = Category.find(@selected_categories_id)
+    @styles = Style.find(@selected_styles_id)
     @exhibition = Exhibition.new
     authorize @exhibition
     @durations = Exhibition::DURATIONS #datepicker update
