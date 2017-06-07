@@ -3,45 +3,53 @@
     <row class="row">
       <div id="artist-show">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="artist-card text-center">
+          <div class="artist-card text-center" id="fixed-card">
             <%= link_to edit_user_registration_path do %>
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %>
             <% @user.photo.nil? ? (artist_picture = 'https://placehold.it/150x150') : (artist_picture = @user.photo.path) %>
             <%# artist_picture = @user.facebook_picture_url || 'https://placehold.it/150x150' %>
             <%= cl_image_tag artist_picture, width: 150, height: 150, crop: :fill, class: 'avatar-large' %>
-            <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+            <div class="user-informations">
+              <h1><strong><%=@user.first_name %> <%= @user.last_name %></strong></h1>
+              <p><%= @user.address %></p>
+            </div>
+            <hr class="artist-hr">
             <% unless @user.artworks.empty? %>
-              <p class="title"><%= pluralize_without_count( @user.categories.count , 'category').capitalize %></p>
+              <!-- <p class="title"><%= pluralize_without_count( @user.categories.count , 'test').capitalize %></p> -->
               <p class="categories">
                 <% @user.categories.uniq.each do |category| %>
-                  <%= category.name.capitalize %>
+                  <span class="testy"><%= category.name.capitalize %></span>
                 <% end %>
               </p>
-              <p class="title"><%= pluralize_without_count( @user.categories.count , 'style').capitalize %></p>
               <p class="styles">
                 <% @user.styles.uniq.each do |style| %>
-                  <%= style.name.capitalize %>
+                  <span class="testio"><%= style.name.capitalize %></span>
                 <% end %>
               </p>
             <% end %>
+            <hr class="artist-hr">
+            <div class="artist-description">
+              <p class="text-center"><strong>About</strong></p>
+              <%= @user.description%>
+            </div>
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
           <div class="artist-artwork">
             <% unless @user.artworks.empty? %>
               <% @user.artworks.each do |artwork| %>
-                <%= link_to artwork_path(artwork) do %>
-                  <div class="artwork-card">
-                    <div class="content">
-                      <%= cl_image_tag artwork_picture(artwork), width: 233, height: 150, crop: :fill %>
-                      <p class="description"><%= truncate( artwork.description, 300) %></p>
-                    </div>
-                    <div class="details">
-                      <h2 class="name text-center"><%= truncate(artwork.title, 25) %></h2>
-                    </div>
+                <div class="artwork-card">
+                  <div class="content">
+                  <%= link_to cl_image_path(artwork_picture(artwork)), class: "swipebox", title: artwork.description do %>
+                    <%= cl_image_tag artwork_picture(artwork), width: 233, height: 250, crop: :fill %>
+                    <% end %>
+<!--                     <p class="description"><%= artwork.date %><br><%= truncate( artwork.description, 300) %></p>
+ -->                  </div>
+                  <div class="details">
+                    <h2 class="name text-center"><%= truncate(artwork.title, 25) %></h2>
                   </div>
-                <% end %>
+                </div>
               <% end %>
             <% end %>
             <%= link_to new_artwork_path do %>
@@ -65,3 +73,12 @@
 </div>
 
 <%= link_to "Browse exhibitions", exhibitions_path %>
+
+
+<% content_for(:after_js) do %>
+<script>
+$(document).ready(function(){
+    $( '.swipebox' ).swipebox();
+})
+</script>
+<% end %>

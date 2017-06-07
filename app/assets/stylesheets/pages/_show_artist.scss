@@ -5,7 +5,7 @@
 }
 
 .artist-artwork a {
-  color: inherit!important;
+  color: inFrit!important;
   text-decoration: none!important;
 }
 
@@ -28,10 +28,77 @@
   margin: 10px 0;
 }
 
+#fixed-card {
+  // position: fixed;
+}
+
 .fa-pencil-square-o {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 4px;
+  top: 4px;
   color: #9c9b9b;
   font-size: 20px;
 }
+
+// Artists information
+
+.user-informations {
+  font-size: 10px;
+}
+
+// hr artist card
+
+hr.artist-hr {
+  margin: 0.5em;
+}
+
+// artists categories
+.testy {
+  border: 5px solid $gray;
+  background-color: $gray;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+}
+
+//artists style
+
+.testio {
+  border: 5px solid $gray;
+  background-color: $gray;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+}
+
+// artists description
+
+.artist-description {
+  font-size: 13px;
+  text-align:justify;
+  padding: 21px;
+  margin-top: -20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
