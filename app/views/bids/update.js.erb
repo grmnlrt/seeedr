@@ -1,5 +1,10 @@
 // 1.status de la bid change au click
 $('#status-book-<%= @bid.id %>').html("<p class='bid-status'><%= @bid.status.capitalize %></p>");
+if ($('#status-book-<%= @bid.id %>').text() === 'Pending') {
+  $('#status-book-<%= @bid.id %> .bid-status').removeClass('bid-selected')
+} else {
+  $('#status-book-<%= @bid.id %> .bid-status').addClass('bid-selected')
+}
 // 2.bouton de la bid change au click
 $('#button-book-<%= @bid.id %>').html("<%= j render 'bids/button_book', bid: @bid %>");
 // 3. change statut de tous les autres bids en pending au click

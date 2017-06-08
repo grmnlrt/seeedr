@@ -129,6 +129,10 @@ p.bid-status {
     color: $grey;
 }
 
+.bid-selected {
+    background: $brand-color !important;
+}
+
 p.user-desc {
     margin-top: -70px;
     font-size: .8em;
