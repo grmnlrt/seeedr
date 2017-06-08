@@ -119,8 +119,10 @@
                           <% end %>
                         </p>
                         <!-- bid status -->
+
                         <div class="status-toggle" id="status-book-<%= bid.id %>">
-                          <p class="bid-status"><%= bid.status.capitalize %></p>
+                        <% accepted_bid =  exhibition.bids.where(status: "accepted").first %>
+                          <p class="bid-status <%= 'bid-selected' if accepted_bid && accepted_bid == bid %>"><%= bid.status.capitalize %></p>
                         </div>
                       </div>
                     </div>
