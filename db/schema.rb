@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606110106) do
+ActiveRecord::Schema.define(version: 20170608094229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,11 +98,13 @@ ActiveRecord::Schema.define(version: 20170606110106) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "state"
-    t.string   "bid_price"
-    t.integer  "amount_cents", default: 0, null: false
+    t.string   "artist_name"
+    t.integer  "amount_cents",  default: 0, null: false
     t.json     "payment"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "exhibition_id"
+    t.index ["exhibition_id"], name: "index_orders_on_exhibition_id", using: :btree
   end
 
   create_table "styles", force: :cascade do |t|
@@ -152,4 +154,5 @@ ActiveRecord::Schema.define(version: 20170606110106) do
   add_foreign_key "exhibition_styles", "exhibitions"
   add_foreign_key "exhibition_styles", "styles"
   add_foreign_key "exhibitions", "users"
+  add_foreign_key "orders", "exhibitions"
 end

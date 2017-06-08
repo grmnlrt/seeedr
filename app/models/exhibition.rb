@@ -10,6 +10,7 @@ class Exhibition < ApplicationRecord
   has_attachments :photos, maximum: 3
 
   belongs_to :user
+  has_one :order
   has_many :bids, dependent: :destroy
 
   has_many :exhibition_categories, dependent: :destroy
