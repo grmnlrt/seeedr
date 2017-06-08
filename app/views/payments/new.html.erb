@@ -8,9 +8,9 @@
               <div class="final-informations">
                 <h3>Exhibition's Informations:</h3>
                 <ul>
-                  <li><h3>Start-Date: <%= @order %></h3></li>
-                  <li><h3>End-date: </h3></li>
-                  <li><h3>Your <i class="fa fa-heart-o" aria-hidden="true"></i> Artist:</h3></li>
+                  <li><h3>Start-Date: <%= @order.exhibition.start_date %></h3></li>
+                  <li><h3>End-date: <%= @order.exhibition.end_date %></h3></li>
+                  <li><h3>Your <i class="fa fa-heart-o" aria-hidden="true"></i> Artist: <%= @order.exhibition.bids.where(status:'accepted')[0].user.first_name %> <%= @order.exhibition.bids.where(status:'accepted')[0].user.last_name %></h3></li>
                 </ul>
               </div>
                 <hr>
@@ -34,13 +34,11 @@
                       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                       data-name="My Artist"
                       data-email="<%= current_user.email %>"
-                      data-description="Artist <%= @order.bid_price %>"
+                      data-description="Artist <%= @order.artist_name %>"
                       data-amount="<%= @order.amount_cents %>"
                       data-currency="<%= @order.amount.currency %>"></script>
                 </div>
               </div>
-
-    <!-- bid_price a changer en bid_title -->
           <% end %>
       </div>
     </div>
