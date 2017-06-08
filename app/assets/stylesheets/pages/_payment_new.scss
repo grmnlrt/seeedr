@@ -11,6 +11,10 @@
     margin: auto;
 }
 
+.final-informations p {
+    margin: 10px 0;
+}
+
 .guarantees li {
   margin: 0 20px;
 }
@@ -33,4 +37,13 @@ div#fake-stripe-button {
 div#fake-stripe-button:hover {
   border-color: $brand-color;
   cursor: pointer;
+}
+
+.payment-details h3 {
+  color: $brand-color;
+}
+
+.payment-box {
+    max-width: 460px;
+    margin: auto;
 }
