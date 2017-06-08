@@ -16,11 +16,14 @@
   max-width: 400px;
   margin: 0 auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background: #f2f2f2;
+  background: white;
   margin-bottom: 25px;
 }
 .crReciept h2 {
   color: $yellow;
+}
+.crReciept h3 {
+    font-size: 1em;
 }
 .crReciept h3 span{
   color: $yellow;
@@ -37,7 +40,7 @@
 
 }
 .crItem {
-  margin: 0 20px;
+  margin: 20px;
   border-top: solid 1px #ccc;
   border-bottom: solid 1px #ccc;
   display: block;
@@ -75,6 +78,5 @@
 
 .wrapper.confirmation {
   // margin: -41px;
-  background-color: #ffffff;
   border-top: 2px solid $gray;
 }
