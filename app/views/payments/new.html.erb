@@ -1,15 +1,15 @@
-<div class="wrapper">
-  <div class="container padded">
-    <h3>Your Order is almost complete !</h3>
+<div class="wrapper bg-grey">
+  <div class="container padded-mini">
+    <h3 class="text-center padded-mini">Your Order is almost complete !</h3>
       <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 payment-new">
-          <div class="card padded-mini">
+          <div class="card padded-mini" style="background: #fff;">
             <h2 class="text-center"><strong>Summary</strong></h2>
               <div class="final-informations">
                 <h3>Exhibition's Informations:</h3>
                 <ul>
-                  <li><h3>Start-Date:</h3></li>
-                  <li><h3>End-date:</h3></li>
+                  <li><h3>Start-Date: <%= @order %></h3></li>
+                  <li><h3>End-date: </h3></li>
                   <li><h3>Your <i class="fa fa-heart-o" aria-hidden="true"></i> Artist:</h3></li>
                 </ul>
               </div>
@@ -17,9 +17,9 @@
               <div class="guarantees text-center">
                 <h3><strong>Our Guarantees</strong></h3>
                 <ul class="list-inline">
-                  <li><i class="fa fa-truck" aria-hidden="true"></i><br>Deliveries Guaranteed</li>
-                  <li><i class="fa fa-lock" aria-hidden="true"></i><br>Secure Payment</li>
-                  <li><i class="fa fa-check" aria-hidden="true"></i><br>Staging by our Team</li>
+                  <li><i class="fa fa-truck" aria-hidden="true"></i><br>Deliveries<br>Guaranteed</li>
+                  <li><i class="fa fa-lock" aria-hidden="true"></i><br>Secure<br>Payment</li>
+                  <li><i class="fa fa-check" aria-hidden="true"></i><br>Staging by<br>our Team</li>
                 </ul>
                 <br>
               </div>
