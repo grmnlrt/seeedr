@@ -4,9 +4,9 @@
       <div id="artist-show">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="artist-card text-center" id="fixed-card">
-            <%= link_to edit_user_registration_path do %>
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            <% end %>
+            <%#= link_to edit_user_registration_path do %>
+              <!-- <i class="fa fa-pencil-square-o" aria-hidden="true"></i> -->
+            <%# end %>
             <% @user.photo.nil? ? (artist_picture = 'https://placehold.it/150x150') : (artist_picture = @user.photo.path) %>
             <%# artist_picture = @user.facebook_picture_url || 'https://placehold.it/150x150' %>
             <%= cl_image_tag artist_picture, width: 150, height: 150, crop: :fill, class: 'avatar-large' %>
@@ -18,12 +18,12 @@
             <% unless @user.artworks.empty? %>
               <!-- <p class="title"><%= pluralize_without_count( @user.categories.count , 'test').capitalize %></p> -->
               <p class="categories">
-                <% @user.categories.uniq.each do |category| %>
+                <% @user.categories.uniq.first(3).each do |category| %>
                   <span class="testy"><%= category.name.capitalize %></span>
                 <% end %>
               </p>
               <p class="styles">
-                <% @user.styles.uniq.each do |style| %>
+                <% @user.styles.uniq.first(3).each do |style| %>
                   <span class="testio"><%= style.name.capitalize %></span>
                 <% end %>
               </p>
@@ -71,8 +71,6 @@
     </row>
   </div>
 </div>
-
-<%= link_to "Browse exhibitions", exhibitions_path %>
 
 
 <% content_for(:after_js) do %>
