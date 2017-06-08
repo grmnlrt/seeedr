@@ -2,36 +2,44 @@
 <div class="wrapper confirmation text-center bg-grey padded-mini">
   <div class="crTitle padded-top">
     <h1 style="font-size: 2em;">Payment Confirmation</h1>
-    <p><%= current_user.company_name %>, your payment to Seedr has been received!<br><br>
+    <p><%= current_user.company_name %>, your payment to Seeedr has been received!<br><br>
   </div>
-  <div class="crReciept">
-    <h2>Payment Successful</h2>
-    <h3>Order Number: <span><%= 1_000_000 + Random.rand(10_000_000 - 1_000_000) %></span></h3>
-    <h3>Method: <span>Credit Card</span></h3>
-    <div class="crItem cf">
-      <br>
-      <p>Amount paid for your exhibition</p>
-      <p class="crAmount text-center"><%= humanized_money_with_symbol(@order.amount) %><sup>00</sup></p>
+  <div class="container">
+    <div class="crReciept">
+      <h2>Payment Successful</h2>
+      <h3>Order Number: <span><%= 1_000_000 + Random.rand(10_000_000 - 1_000_000) %></span></h3>
+      <h3>Method: <span>Credit Card</span></h3>
+      <div class="crItem cf">
+        <br>
+        <p>Amount paid for your exhibition</p>
+        <p class="crAmount text-center"><%= humanized_money_with_symbol(@order.amount) %><sup>00</sup></p>
+      </div>
+          <div class="row paymentconf">
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+              <div class="paymentInfo">
+                <strong>Date: </strong><br><%= Date.today %>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+              <div class="paymentInfo">
+                <strong>From:</strong><br><%= current_user.company_name %>
+                <% if current_user.address? %>
+                  <%= current_user.address %>
+                <% else %> <%= "" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+              <div class="paymentInfo">
+                <strong>To:</strong><br>
+                SEEEDR
+              </div>
+            </div>
+          </div>
+        <div class= "order-question">Questions about your order?<br>Contact us at: contact@seeedr.com</div>
+      </div>
+      <div style="padding-bottom: 20px;">
+      <%= link_to "Go back to home page", root_path, class: 'btn btn-new-black' %>
     </div>
-    <p class="paymentInfo">
-      <strong>Payment Date: </strong> <%= Date.today.strftime("%B-%d-%Y") %>
-    </p>
-    <p class="paymentInfo">
-      <strong>Payment Made By:</strong><br><%= current_user.company_name %><br>
-      <% if current_user.address? %>
-      <br><%= current_user.address %>
-      <% else %> <%= "" %>
-      <% end %>
-    </p>
-    <p class="paymentInfo">
-      <strong>Payment Made To:</strong><br>
-      SEEEDR<br>
-      16 Villa Gaudelet<br>
-      75011, Paris<br>
-    </p>
-    <p>Questions about your order?<br>Contact us at: contact@seedr.com</p>
-  </div>
-  <div style="padding-bottom: 20px;" >
-    <%= link_to "Go back to home page", root_path, class: 'btn btn-new-black' %>
   </div>
 </div>
