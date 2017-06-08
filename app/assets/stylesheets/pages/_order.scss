@@ -61,10 +61,13 @@
   font-size: 18px;
 }
 
-.paymentInfo {
-  text-align: left;
-  padding-left: 25px;
+.paymentconf {
+  margin : 20px;
   padding-bottom: 10px;
+}
+
+.paymentInfo {
+  text-align: center;
 }
 
 .crReciept a {
@@ -74,6 +77,10 @@
 }
 .crReciept a:hover {
   color: #FF0034;
+}
+
+.order-question {
+  padding-bottom: 30px;
 }
 
 .wrapper.confirmation {
