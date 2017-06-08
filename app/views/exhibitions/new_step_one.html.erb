@@ -15,18 +15,45 @@
       <h1 class="text-center padded-mini">Select your favorites categories</h1>
       <form action="<%= new_step2_exhibitions_path %>">
         <div id="select-artwork">
-          <% @categories.each do |category| %>
-            <% artwork_selected = category.artworks.sample %>
-            <label>
-              <div class="select-item">
-                <input type="checkbox" name="selected_categories[]" value="<%= artwork_selected.category.id %>">
-                <div class="artwork-sample">
-                  <%= cl_image_tag artwork_picture(artwork_selected), width: 200, height: 200, crop: :fill %>
-                </div>
-                <p><%= category.name %></p>
+          <label>
+            <div class="select-item">
+              <input type="checkbox" name="selected_categories[]" value="4">
+              <div class="artwork-sample">
+                <%= image_tag "photography1.png", width: 200, height: 200, crop: :fill %>
               </div>
-            </label>
-          <% end %>
+              <p>Photography</p>
+            </div>
+          </label>
+
+          <label>
+            <div class="select-item">
+              <input type="checkbox" name="selected_categories[]" value="3">
+              <div class="artwork-sample">
+                <%= image_tag "sculpting3.png", width: 200, height: 200, crop: :fill %>
+              </div>
+              <p>Sculpting</p>
+            </div>
+          </label>
+
+          <label>
+            <div class="select-item painting-fixed">
+              <input type="checkbox" name="selected_categories[]" value="2">
+              <div class="artwork-sample">
+                <%= image_tag "painting.png", width: 200, height: 200, crop: :fill %>
+              </div>
+              <p>Painting</p>
+            </div>
+          </label>
+
+          <label>
+            <div class="select-item">
+              <input type="checkbox" name="selected_categories[]" value="1">
+              <div class="artwork-sample">
+                <%= image_tag "digital2.jpg", width: 200, height: 200, crop: :fill %>
+              </div>
+              <p>Digital Art</p>
+            </div>
+          </label>
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-4 col-sm-offset-8">
