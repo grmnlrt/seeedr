@@ -23,8 +23,15 @@
   margin-bottom: 0;
 }
 
+.iframe-container {
+
+}
+
 .testimonial-content iframe {
   margin: 30px 0;
+  width: 100%;
+  max-width: 520px;
+  height: 300px;
 }
 
 .key-step i.fa {
@@ -49,6 +56,12 @@ a.btn.btn-primary.btn-lg.read {
   color: $gray;
   border: 3px solid $gray;
   border-radius: 0!important;
+  transition: all .3s;
+}
+
+a.btn.btn-primary.btn-lg.read:hover {
+  border-color: $brand-color;
+  cursor: pointer!important;
 }
 
 a.btn.btn-primary.btn-lg.artist-banner {
@@ -75,3 +88,13 @@ a.btn.btn-primary.btn-lg.artist-banner {
   border-radius: 0!important;
 }
 
+////
+#home .artwork-card {
+    max-width: 256px;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+#home .reinsurance-icon img {
+  width: 80px;
+}
