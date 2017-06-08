@@ -49,7 +49,7 @@
               <div class="row">
                 <div class="col-xs-12">
                   <p>
-                    <i class="fa fa-heart" aria-hidden="true" id="artist-answers"></i> <%= exhibition.bids.count %> <%= pluralize_without_count(exhibition.bids.count, 'artist') %> applied
+                    <i class="fa fa-heart" aria-hidden="true" id="artist-answers" style="color: #f7c843;"></i> <%= exhibition.bids.count %> <%= pluralize_without_count(exhibition.bids.count, 'artist') %> applied
                   </p>
                 </div>
                 <div class="col-xs-12">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-xs-12">
                   <p>
-                    <i class="fa fa-heartbeat" aria-hidden="true"></i> <%= exhibition.duration %> months
+                    <i class="fa fa-hourglass-half" aria-hidden="true"></i> <%= exhibition.duration %> months
                   </p>
                 </div>
                 <div class="col-xs-12">
@@ -70,6 +70,13 @@
                   <p>
                     <i class="fa fa-map-marker" aria-hidden="true" style="margin-left: 4px; margin-right: 8px;"></i> <%= exhibition.address.capitalize %>
                   </p>
+                </div>
+                <div class="col-xs-12">
+                  <% exhibition.categories.first(2).each do |category| %>
+                    <p>
+                      <i class="fa fa-bookmark-o" aria-hidden="true" style="margin-left: 3px; margin-right: 7px;"></i> <%= category.name.capitalize %>
+                    </p>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -160,6 +167,7 @@
       <% end %>
     </div>
     </div>
+    <hr style="border-color: #f7c843;">
   <% end %>
 </div>
 
