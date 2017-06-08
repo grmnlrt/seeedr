@@ -14,3 +14,23 @@
 .guarantees li {
   margin: 0 20px;
 }
+
+button.stripe-button-el {
+    position: absolute;
+    top: -450px;
+}
+
+div#fake-stripe-button {
+    width: 200px;
+    margin: auto;
+    border: 3px solid $gray;
+    padding: 12px;
+    margin-bottom: 20px;
+    margin-top: 14px;
+    transition: all .3s;
+}
+
+div#fake-stripe-button:hover {
+  border-color: $brand-color;
+  cursor: pointer;
+}

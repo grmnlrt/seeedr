@@ -28,6 +28,7 @@
                       <label class="amount">
                       <span>Total Price: <%= humanized_money_with_symbol(@order.amount) %></span>
                       </label>
+                      <div id="fake-stripe-button">Pay with card</div>
                     </article>
 
                     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
