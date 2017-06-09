@@ -228,16 +228,16 @@
 <div class="banner banner-small" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "banner-artist.jpg" %>');">
   <!-- condition pour afficher "join our community" que si artiste ou si logged out -->
   <div class="banner-content">
-    <h1>Are you an Artist? Start exposing now!</h1>
+    <h1>Start exposing now!</h1>
     <p> Join our community and get selected to exhibit your creations in the best offices</p>
     <% if user_signed_in? %>
       <% if current_user.is_company %>
-        <%= link_to "start experience", root_path, class: "btn btn-primary btn-lg artist-banner" %>
+        <%= link_to "Start experience", root_path, class: "btn btn-primary btn-lg artist-banner" %>
       <% else %>
-        <%= link_to "start experience", exhibitions_path, class: "btn btn-primary btn-lg artist-banner" %>
+        <%= link_to "Start experience", exhibitions_path, class: "btn btn-primary btn-lg artist-banner" %>
       <% end %>
     <% else %>
-      <%= link_to "start experience", new_user_session_path, class: "btn btn-primary btn-lg artist-banner" %>
+      <%= link_to "Start experience", new_user_session_path, class: "btn btn-primary btn-lg artist-banner" %>
     <% end %>
   </div>
 </div>

@@ -50,6 +50,11 @@
   text-align: justify-all;
 }
 
+.key-step p.key-content {
+  max-width: 300px;
+  margin: 0 auto 30px;
+}
+
 a.btn.btn-primary.btn-lg.read {
   margin: 20px;
   background: transparent;
@@ -98,3 +103,4 @@ a.btn.btn-primary.btn-lg.artist-banner {
 #home .reinsurance-icon img {
   width: 80px;
 }
+
