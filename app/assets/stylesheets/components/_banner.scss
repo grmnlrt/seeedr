@@ -48,7 +48,7 @@
   &, .slide {
     position: absolute;
     left: 0;
-    width: 100%;
+    // width: 100%;
   }
 
   .slide {
@@ -71,7 +71,7 @@
 
   .slideshow-content {
     z-index: 4;
-    position: absolute;
+    // position: absolute;
     color: white;
 
     & h1 {
